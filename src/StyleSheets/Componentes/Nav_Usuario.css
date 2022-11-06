@@ -1,0 +1,33 @@
+.NavUsuario{
+
+    display: grid;
+    
+    grid-template-columns: auto auto auto auto auto auto auto auto; 
+
+    background-color: rgb(129, 122, 114);
+    
+    text-align: center;
+    font-size: 22px;
+
+    margin: 0px auto 2px auto;
+    width: 100%;
+    line-height: 65px;
+    
+    
+    justify-content: center;
+     
+}
+
+nav a{
+    color: white;
+    text-decoration: none; 
+    font-family: roboto;
+    font-weight: bold;
+}
+
+nav div:hover{
+    background-color: rgb(243, 112, 33);
+}
+
+
+

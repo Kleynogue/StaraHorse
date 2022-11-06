@@ -1,0 +1,41 @@
+@font-face {
+    font-family: orator;
+    src: local(orator), url(../../TiposLetra/Orator-Std-Medium.ttf) format('truetype');
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.bodyUsuario{
+    margin: 0;
+    position: relative;
+    padding-bottom: 6em;
+    min-height: 100vh;
+    background-color: #F6F1EB;
+}
+
+.subtitulo{
+    margin-top: 30px;
+    font-size: 40px;
+    text-align: center;
+    font-family: orator;
+    grid-column: 1/3;
+    color: rgb(255, 136, 0);
+}
+
+.DLista{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    justify-content: center;
+}
+
+.DivBotonApuesta{
+    justify-self: start;
+    padding-left: 40px;
+    grid-column: 2/3;
+}
+

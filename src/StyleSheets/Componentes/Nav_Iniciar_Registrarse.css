@@ -1,0 +1,36 @@
+nav{
+
+    display: grid;
+    grid-template-columns: 200px 200px;
+
+    background-color: rgb(129, 122, 114);
+    
+    text-align: center;
+    font-size: 19px;
+
+    margin: 50px auto 2px auto;
+    width: 400px;
+    line-height: 40px;
+    
+    justify-content: center;
+     
+}
+
+
+nav a{
+    color: white;
+    padding: 15px 20px;
+    text-decoration: none; 
+    font-family: roboto;
+    font-weight: bold;
+}
+
+
+.BotonIzq{
+    border-right: 1px solid #F6F1EB;
+}
+
+
+.BotonDer{
+    border-left: 2px solid #F6F1EB;
+}

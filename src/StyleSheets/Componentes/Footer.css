@@ -1,0 +1,12 @@
+footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(243, 112, 33);
+    color: #F6F1EB;
+    text-align: center;
+    font-family: roboto;
+    position: absolute;
+    padding: 1em 0;
+}
+

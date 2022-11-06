@@ -1,0 +1,38 @@
+.textField{
+    height: 32px;
+    width: 200px;
+    border: 1px solid #e5e5e5;
+    font-family: roboto;
+    font-size:15px;
+}
+
+.textField:hover {
+    cursor: pointer;
+}
+    
+.btnBuscar{
+    height: 32px;
+    width: 32px;
+    background-image:url("../../Imagenes/search_icon.png");
+    border: 0;
+    
+}
+.btnBuscar:hover{
+    cursor: pointer;
+}
+    
+.BarraBusqueda{
+    display:flex;
+    justify-self: center;
+    grid-column: 1/4;
+    margin-bottom: 15px;
+}
+.a{
+  
+    background-color: blueviolet;
+}
+
+.b{
+ 
+    background-color: aquamarine;
+}

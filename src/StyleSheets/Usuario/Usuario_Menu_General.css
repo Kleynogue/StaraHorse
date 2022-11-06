@@ -1,0 +1,67 @@
+@font-face {
+    font-family: orator;
+    src: local(orator), url(../../TiposLetra/Orator-Std-Medium.ttf) format('truetype');
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.bodyUsuario{
+    margin: 0;
+    position: relative;
+    padding-bottom: 12em;
+    min-height: 100vh;
+    background-color: #F6F1EB;
+}
+
+.subtitulo{
+    font-size: 40px;
+    text-align: center;
+    font-family: orator;
+    grid-column: 1/4;
+    color: rgb(255, 136, 0);
+}
+
+.MenuInfo{
+    display: grid;
+    justify-content: center;
+    margin: 0 auto;
+    width: 1000px;
+    row-gap: 60px;
+    column-gap: 150px;
+}
+
+.AtributoPropietarios{
+    font-size: 25px;
+    color: rgb(73, 69, 65);
+    font-family: roboto;
+    font-weight: bold;
+}
+
+.AtributoPropietarios.Studs{
+
+    grid-column: 1/2;
+}
+
+.TablaMenor{
+    width: 50%;
+    margin-left: 25%;
+    padding-top: 75px;
+}
+
+.BotonJineteEstadisticas{
+
+    justify-self: center;
+    text-align: center;
+    padding-top: 52px;
+}
+
+.BotonJineteInfoGeneral{
+    justify-self: end;
+    
+    padding-top: 52px;
+    grid-column: 2/4;
+}
