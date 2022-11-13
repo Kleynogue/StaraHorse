@@ -333,13 +333,314 @@ CREATE TABLE APUESTA(
     CONSTRAINT abarca FOREIGN KEY(Apue_FK_Tipo_Apuesta) REFERENCES TIPO_APUESTA(Tip_Apu_ID)
 );
 
-/*CREATE TABLE DISTANCIA_PARCIAL(
+CREATE TABLE PREMIO(
+    Prem_ID serial,
+    Prem_Tipo VARCHAR not null,
+    Prem_Posicion integer not null,
+    CONSTRAINT pk_premio PRIMARY KEY(Prem_ID),
+    CONSTRAINT tipo_premio CHECK(Prem_Tipo like 'Normal' or Prem_Tipo like 'Especial')
+);
+
+CREATE TABLE ENTRADA_ACCESO(
+    Ent_Acc_ID serial,
+    Ent_Acc_Nombre VARCHAR not null,
+    Ent_Acc_Descripcion VARCHAR not null,
+    Ent_Acc_Puestos_Estac integer,
+    Ent_Acc_FK_Area integer not null,
+    CONSTRAINT pk_entrada_acceso PRIMARY KEY(Ent_Acc_ID),
+    CONSTRAINT dispone FOREIGN KEY(Ent_Acc_FK_Area) REFERENCES AREA(Area_ID)
+);
+
+CREATE TABLE CUERPO_DIFERENCIA(
+    Cue_Dif_ID serial,
+    Cue_Dif_Tipo VARCHAR not null,
+    Cue_Dif_Cantidad numeric,
+    CONSTRAINT pk_cuerpo_diferencia PRIMARY KEY(Cue_Dif_ID)
+);
+
+CREATE TABLE MATERIAL(
+    Mate_ID serial,
+    Mate_Nombre VARCHAR not null,
+    Mate_Descripcion VARCHAR not null,
+    CONSTRAINT pk_material PRIMARY KEY(Mate_ID)
+);
+
+CREATE TABLE BOX(
+    Box_ID serial,
+    Box_Numero integer not null,
+    Box_Descripcion VARCHAR not null,
+    Box_FK_Caballeriza integer not null,
+    CONSTRAINT pk_box PRIMARY KEY(Box_ID),
+    CONSTRAINT compuesta FOREIGN KEY(Box_FK_Caballeriza) REFERENCES CABALLERIZA(Caba_ID)
+);
+
+CREATE TABLE BOLETO(
+    Bole_Fecha date not null,
+    Bole_Valor numeric not null,
+    Bole_ID serial,
+    Bole_FK_Visitante integer not null,
+    Bole_FK_Entrada integer not null,
+    Bole_FK_Taquilla integer not null,
+    CONSTRAINT pk_boleto PRIMARY KEY(Bole_ID),
+    CONSTRAINT compra FOREIGN KEY(Bole_FK_Visitante) REFERENCES VISITANTE(Visi_Pers_ID),
+    CONSTRAINT requiere FOREIGN KEY(Bole_FK_Entrada) REFERENCES ENTRADA_ACCESO(Ent_Acc_ID),
+    CONSTRAINT consigue FOREIGN KEY(Bole_FK_Taquilla) REFERENCES Taquilla(Taqu_ID)
+);
+
+CREATE TABLE USU_ROL(
+    Usu_Rol_Fecha_Ini date not null,
+    Usu_Rol_Fecha_Fin date,
+    Usu_Rol_FK_Rol integer not null,
+    Usu_Rol_FK_Usuario integer not null,
+    Usu_Rol_FK_Permiso integer not null,
+    Usu_Rol_ID serial,
+    CONSTRAINT pk_usuario_rol PRIMARY KEY(Usu_Rol_ID),
+    CONSTRAINT aplica FOREIGN KEY(Usu_Rol_FK_Rol) REFERENCES ROL(Rol_ID),
+    CONSTRAINT cumplen FOREIGN KEY(Usu_Rol_FK_Usuario) REFERENCES USUARIO(Usua_ID),
+    CONSTRAINT adquiere FOREIGN KEY(Usu_Rol_FK_Permiso) REFERENCES PERMISO(Perm_ID)
+);
+
+CREATE TABLE EJE_PRO(
+    Eje_Pro_Porcentaje integer not null,
+    Eje_Pro_Fecha_Compra date not null,
+    Eje_Pro_Fecha_Venta date,
+    Eje_Pro_FK_Ejemplar integer not null,
+    Eje_Pro_FK_Propietario integer not null,
+    Eje_Pro_ID serial,
+    CONSTRAINT pk_Eje_Pro PRIMARY KEY(Eje_Pro_ID),
+    CONSTRAINT poseido FOREIGN KEY(Eje_Pro_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID),
+    CONSTRAINT posee FOREIGN KEY(Eje_Pro_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID),
+    CONSTRAINT rango_porcentaje CHECK(Eje_Pro_Porcentaje between 0 and 100)
+);
+
+CREATE TABLE EJE_ENT(
+    Eje_Ent_Fecha_Ini date not null,
+    Eje_Ent_Fecha_Fin date,
+    Eje_Ent_FK_Ejemplar integer not null,
+    Eje_Ent_FK_Entrenador integer not null,
+    Eje_Ent_FK_Box integer not null,
+    Eje_Ent_ID serial,
+    CONSTRAINT pk_eje_ent PRIMARY KEY(Eje_Ent_ID),
+    CONSTRAINT entrenado FOREIGN KEY(Eje_Ent_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID),
+    CONSTRAINT entrena FOREIGN KEY(Eje_Ent_FK_Entrenador) REFERENCES ENTRENADOR(Entr_Pers_ID),
+    CONSTRAINT ubica FOREIGN KEY(Eje_Ent_FK_Box) REFERENCES BOX(Box_ID)
+);
+
+CREATE TABLE CAB_ENT(
+    Cab_Ent_Fecha_Ini date not null,
+    Cab_Ent_Fecha_Fin date,
+    Cab_Ent_FK_Entrenador integer not null,
+    Cab_Ent_Fk_Caballeriza integer not null,
+    Cab_Ent_ID serial,
+    CONSTRAINT pk_cab_ent PRIMARY KEY(Cab_Ent_ID),
+    CONSTRAINT cargo FOREIGN KEY(Cab_Ent_Fk_Caballeriza) REFERENCES CABALLERIZA(Caba_ID),
+    CONSTRAINT encargado FOREIGN KEY(Cab_Ent_FK_Entrenador) REFERENCES ENTRENADOR(Entr_Pers_ID)
+);
+
+CREATE TABLE CAB_VET(
+    Cab_Vet_Fecha_Ini date not null,
+    Cab_Vet_Fecha_Fin date,
+    Cab_Vet_FK_Veterinario integer not null,
+    Cab_Vet_FK_Caballeriza integer not null,
+    Cab_Vet_ID serial,
+    CONSTRAINT pk_cab_vet PRIMARY KEY(Cab_Vet_ID),
+    CONSTRAINT atendida FOREIGN KEY(Cab_Vet_FK_Caballeriza) REFERENCES CABALLERIZA(Caba_ID),
+    CONSTRAINT atiende FOREIGN KEY(Cab_Vet_FK_Veterinario) REFERENCES VETERINARIO(Vete_Pers_ID)
+);
+
+CREATE TABLE ENF_EJE(
+    Enf_Eje_Fecha_Ini date not null,
+    Enf_Eje_Fecha_Fin date,
+    Enf_Eje_FK_Ejemplar integer not null,
+    Enf_Eje_FK_Enfermedad integer not null,
+    Enf_Eje_FK_Medicamento integer not null,
+    Enf_Eje_ID serial,
+    CONSTRAINT pk_enf_eje PRIMARY KEY(Enf_Eje_ID),
+    CONSTRAINT padece FOREIGN KEY(Enf_Eje_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID),
+    CONSTRAINT atenta FOREIGN KEY(Enf_Eje_FK_Enfermedad) REFERENCES ENFERMEDAD(Enfe_ID),
+    CONSTRAINT alivia FOREIGN KEY(Enf_Eje_FK_Medicamento) REFERENCES MEDICAMENTO(Medi_ID)
+);
+
+CREATE TABLE UNI_COL(
+    Uni_Col_FK_Uniforme integer not null,
+    Uni_Col_FK_Color integer not null,
+    CONSTRAINT pk_uni_col PRIMARY KEY(Uni_Col_FK_Color, Uni_Col_FK_Uniforme),
+    CONSTRAINT contiene FOREIGN KEY(Uni_Col_FK_Uniforme) REFERENCES UNIFORME(Unif_ID),
+    CONSTRAINT encuentra FOREIGN KEY(Uni_Col_FK_Color) REFERENCES COLOR(Colo_ID)
+);
+
+CREATE TABLE EJE_STU(
+    Eje_Stu_Fecha_Ini date not null,
+    Eje_Stu_Fecha_fin date,
+    Eje_Stu_FK_Stud integer not null,
+    Eje_Stu_FK_Ejemplar integer not null,
+    Eje_Stu_ID serial,
+    CONSTRAINT pk_eje_stu PRIMARY KEY(Eje_Stu_ID),
+    CONSTRAINT conserva FOREIGN KEY(Eje_Stu_FK_Stud) REFERENCES STUD(Stud_ID),
+    CONSTRAINT conservado FOREIGN KEY(Eje_Stu_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID)
+);
+
+CREATE TABLE Car_Pre(
+    Car_Pre_Monto numeric not null,
+    Car_Pre_Entregado boolean not null,
+    Car_Pre_FK_Carrera integer not null,
+    Car_Pre_FK_Premio integer not null,
+    CONSTRAINT pk_car_pre PRIMARY KEY(Car_Pre_FK_Carrera, Car_Pre_FK_Premio),
+    CONSTRAINT otorga FOREIGN KEY(Car_Pre_FK_Carrera) REFERENCES CARRERA(Carr_ID),
+    CONSTRAINT otorgado FOREIGN KEY(Car_Pre_FK_Premio) REFERENCES PREMIO(Prem_ID)
+);
+
+CREATE TABLE STU_PRO(
+    Stu_Pro_Fecha_Union date not null,
+    Stu_Pro_Fecha_Salida date,
+    Stu_Pro_Porcentaje integer not null,
+    Stu_Pro_FK_Propietario integer not null,
+    Stu_Pro_FK_Stud integer not null,
+    Stu_Pro_ID serial,
+    CONSTRAINT pk_stu_pro PRIMARY KEY(Stu_Pro_ID),
+    CONSTRAINT tiene FOREIGN KEY(Stu_Pro_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID),
+    CONSTRAINT propiedad FOREIGN KEY(Stu_Pro_FK_Stud) REFERENCES STUD(Stud_ID),
+    CONSTRAINT porcentaje_stud CHECK(Stu_Pro_Porcentaje between 0 and 100)
+);
+
+CREATE TABLE MAT_PIS(
+    Mat_Pis_FK_Pista integer not null,
+    Mat_Pis_FK_Material integer not null,
+    CONSTRAINT pk_mat_pis PRIMARY KEY(Mat_Pis_FK_Material, Mat_Pis_FK_Pista),
+    CONSTRAINT constituye FOREIGN KEY(Mat_Pis_FK_Material) REFERENCES MATERIAL(Mate_ID),
+    CONSTRAINT fabricada FOREIGN KEY(Mat_Pis_FK_Pista) REFERENCES PISTA(Pist_ID)
+);
+
+CREATE TABLE ACCION(
+    Acci_ID serial,
+    Acci_Fecha date not null,
+    Acci_Descripcion VARCHAR not null,
+    Acci_FK_Usu_Rol integer not null,
+    CONSTRAINT pk_accion PRIMARY KEY(Acci_ID),
+    CONSTRAINT realizada FOREIGN KEY(Acci_FK_Usu_Rol) REFERENCES USU_ROL(Usu_Rol_ID)
+);
+
+CREATE TABLE INSCRIPCION(
+    Insc_Precio numeric,
+    Insc_Puesto_Partida integer not null,
+    Insc_Favorito boolean not null,
+    Insc_Num_Favorito integer,
+    Insc_Premio_Jinete numeric,
+    Insc_Premio_Entrenador numeric,
+    Insc_Premio_Propietario numeric,
+    Insc_Premio_Stud numeric,
+    Insc_FK_Carrera integer not null,
+    Insc_FK_Ejemplar integer not null,
+    Insc_Num_Gualdrapa integer not null,
+    CONSTRAINT pk_inscripcion PRIMARY KEY(Insc_FK_Carrera, Insc_FK_Ejemplar),
+    CONSTRAINT posibilita FOREIGN KEY(Insc_FK_Carrera) REFERENCES CARRERA(Carr_ID),
+    CONSTRAINT participan FOREIGN KEY(Insc_FK_Ejemplar) REFERENCES EJE_ENT(Eje_Ent_ID),
+    CONSTRAINT numero_favorito CHECK(Insc_Num_Favorito between 1 and 3)
+);
+
+
+
+CREATE TABLE PAGO(
+    Pago_ID serial,
+    Pago_Monto numeric not null,
+    Pago_Descripcion VARCHAR not null,
+    Pago_Fecha date not null,
+    Pago_Nro_Factura integer not null,
+    Pago_FK_Apuesta integer,
+    Pago_FK_Tarjeta integer,
+    Pago_FK_Efectivo integer,
+    Pago_FK_Boleto integer,
+    CONSTRAINT pk_pago PRIMARY KEY(Pago_ID),
+    CONSTRAINT tarjeta_ofrece FOREIGN KEY(Pago_FK_Tarjeta) REFERENCES TARJETA(Tarj_Met_Pag_ID),
+    CONSTRAINT efectivo_ofrece FOREIGN KEY(Pago_FK_Efectivo) REFERENCES EFECTIVO(Efec_Met_Pag_ID),
+    CONSTRAINT implica FOREIGN KEY(Pago_FK_Apuesta) REFERENCES APUESTA(Apue_ID),
+    CONSTRAINT paga FOREIGN KEY(Pago_FK_Boleto) REFERENCES BOLETO(Bole_ID)
+);
+
+CREATE TABLE DISTANCIA_PARCIAL(
     Dis_Par_ID serial,
     Dis_Par_Distancia_Recorrida integer not null,
     Dis_Par_Tiempo time not null,
     Dis_Par_Posicion integer not null,
     Dis_Par_FK_Ins_1 integer not null,
     Dis_Par_FK_Ins_2 integer not null,
-    Dis_Par_FK_Ins_3 integer not null,
-    CONSTRAINT pk_distancia_par PRIMARY KEY(Dis_Par_ID)
-);*/
+    CONSTRAINT pk_distancia_par PRIMARY KEY(Dis_Par_ID),
+    CONSTRAINT goza FOREIGN KEY(Dis_Par_FK_Ins_1, Dis_Par_FK_Ins_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+);
+
+CREATE TABLE RETIRO(
+    Reti_Fecha date not null,
+    Reti_FK_Motivo_Retiro integer not null,
+    Reti_FK_Inscripcion_1 integer not null,
+    Reti_FK_Inscripcion_2 integer not null,
+    CONSTRAINT pk_retiro PRIMARY KEY(Reti_FK_Motivo_Retiro, Reti_FK_Inscripcion_1, Reti_FK_Inscripcion_2),
+    CONSTRAINT identifica FOREIGN KEY(Reti_FK_Motivo_Retiro) REFERENCES MOTIVO_RETIRO(Mot_Ret_ID),
+    CONSTRAINT permite FOREIGN KEY(Reti_FK_Inscripcion_1, Reti_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+);
+
+CREATE TABLE COMENTARIO(
+    Come_ID serial,
+    Come_Descripcion VARCHAR not null,
+    Come_FK_Inscripcion_1 integer not null,
+    Come_FK_Inscripcion_2 integer not null,
+    CONSTRAINT pk_comentario PRIMARY KEY(Come_ID),
+    CONSTRAINT cuenta FOREIGN KEY(Come_FK_Inscripcion_1, Come_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+);
+
+CREATE TABLE RESULTADO(
+    Resu_ID serial,
+    Resu_Hora_Partida time not null,
+    Resu_Tiempo_Carrera time not null,
+    Resu_Posicion_Ejemplar integer not null,
+    Resu_FK_Cuerpos integer not null,
+    Resu_FK_Inscripcion_1 integer not null,
+    Resu_FK_Inscripcion_2 integer not null,
+    CONSTRAINT pk_resultado PRIMARY KEY(Resu_ID),
+    CONSTRAINT especifica FOREIGN KEY(Resu_FK_Cuerpos) REFERENCES CUERPO_DIFERENCIA(Cue_Dif_ID),
+    CONSTRAINT produce FOREIGN KEY(Resu_FK_Inscripcion_1, Resu_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+);
+
+CREATE TABLE IMP_INS(
+    Imp_Ins_Aprobacion VARCHAR not null,
+    Imp_Ins_FK_Implemento integer not null,
+    Imp_Ins_FK_Inscripcion_1 integer not null,
+    Imp_Ins_FK_Inscripcion_2 integer not null,
+    CONSTRAINT pk_imp_ins PRIMARY KEY(Imp_Ins_FK_Implemento, Imp_Ins_FK_Inscripcion_1, Imp_Ins_FK_Inscripcion_2),
+    CONSTRAINT implementan FOREIGN KEY(Imp_Ins_FK_Implemento) REFERENCES IMPLEMENTO(Impl_ID),
+    CONSTRAINT emplea FOREIGN KEY(Imp_Ins_FK_Inscripcion_1, Imp_Ins_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar),
+    CONSTRAINT aprobacion_implemento CHECK(Imp_Ins_Aprobacion like 'Aprobado' or Imp_Ins_Aprobacion like 'Rechazado' or Imp_Ins_Aprobacion like 'En espera')
+);
+
+CREATE TABLE MED_INS(
+    Med_Ins_Aprobacion VARCHAR not null,
+    Med_Ins_FK_Medicamento integer not null,
+    Med_Ins_FK_Inscripcion_1 integer not null,
+    Med_Ins_FK_Inscripcion_2 integer not null,
+    CONSTRAINT pk_med_ins PRIMARY KEY(Med_Ins_FK_Medicamento, Med_Ins_FK_Inscripcion_1, Med_Ins_FK_Inscripcion_2),
+    CONSTRAINT usado FOREIGN KEY(Med_Ins_FK_Medicamento) REFERENCES MEDICAMENTO(Medi_ID),
+    CONSTRAINT usa FOREIGN KEY(Med_Ins_FK_Inscripcion_1, Med_Ins_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar),
+    CONSTRAINT aprobacion_medicamento CHECK(Med_Ins_Aprobacion like 'Aprobado' or Med_Ins_Aprobacion like 'Rechazo' or Med_Ins_Aprobacion like 'En espera')
+);
+
+CREATE TABLE DETALLE_APUESTA(
+    Det_Apu_Posicion integer not null,
+    Det_Apu_Dividendo numeric,
+    Det_Apu_FK_Apuesta integer not null,
+    Det_Apu_FK_Inscripcion_1 integer not null,
+    Det_Apu_FK_Inscripcion_2 integer not null,
+    CONSTRAINT pk_detalle_apuesta PRIMARY KEY(Det_Apu_FK_Apuesta, Det_Apu_FK_Inscripcion_1, Det_Apu_FK_Inscripcion_2),
+    CONSTRAINT requieren FOREIGN KEY(Det_Apu_FK_Apuesta) REFERENCES APUESTA(Apue_ID),
+    CONSTRAINT requisito FOREIGN KEY(Det_Apu_FK_Inscripcion_1, Det_Apu_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+);
+
+CREATE TABLE SOLICITUD_JINETE(
+    Sol_Jin_Aprobacion VARCHAR not null,
+    Sol_Jin_Peso numeric not null,
+    Sol_Jin_Fecha date not null,
+    Sol_Jin_FK_Jinete integer not null,
+    Sol_Jin_FK_Inscripcion_1 integer not null,
+    Sol_Jin_FK_Inscripcion_2 integer not null,
+    CONSTRAINT pk_solicitud_jinete PRIMARY KEY(Sol_Jin_FK_Jinete, Sol_Jin_FK_Inscripcion_1, Sol_Jin_FK_Inscripcion_2),
+    CONSTRAINT solicita FOREIGN KEY(Sol_Jin_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),
+    CONSTRAINT solicitado FOREIGN KEY(Sol_Jin_FK_Inscripcion_1, Sol_Jin_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+);
