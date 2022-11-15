@@ -9,15 +9,14 @@ import Campo_Menu from '../../Componentes/Campo_Menu';
 
 import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 import Lista_Elementos_Reducida from '../../Componentes/Lista_Elementos_Reducida';
+import Campo_Menu_Ampliado from '../../Componentes/Campo_Menu_Ampliado';
 
 
-class Usuario_Studs_Info extends React.Component{
+class Usuario_Propietarios_Info extends React.Component{
 
     render() {
 
-        const elementos = ["Propietario_1", "Propietario_2", "Propietario_3", "Propietario_4"
-                     ,"Propietario_5", "Propietario_6", "Propietario_7", "Propietario_8"
-                     ,"Propietario_9", "Propietario_10", "Propietario_11" , "Propietario_12"];
+        const elementos = ["Telefono_1", "Telefono_2", "Telefono_3", "Telefono_4"];
 
 
 
@@ -31,14 +30,17 @@ class Usuario_Studs_Info extends React.Component{
                 </div>
 
                 <div className='MenuInfo'>
-                    <h2 className='subtitulo'>STUDS</h2>
+                    <h2 className='subtitulo'>PROPIETARIOS</h2>
                     <Campo_Menu titulo="Nombre"/>
-                    <Campo_Menu titulo="Fecha de Creacion"/>
-                    <Campo_Menu titulo="Descripcion chaqueta"/>
-                    <Campo_Menu titulo="Descripcion gorra"/>  
+                    <Campo_Menu titulo="Cedula"/>
+                    <Campo_Menu titulo="Fecha de Nacimiento"/>
+                    <Campo_Menu titulo="Correo"/> 
                     <div></div>
                     <div></div>
-                    <div className='AtributoPropietarios'>Propietarios</div>
+                    <Campo_Menu_Ampliado titulo="Direccion"/> 
+                    <div></div>
+                    <div></div>
+                    <div className='AtributoPropietarios'>Telefonos de Contacto</div>
                     <Lista_Elementos_Reducida elementos={elementos} dir="/usuario_propietarios_info"/> 
                 </div>
 
@@ -53,4 +55,4 @@ class Usuario_Studs_Info extends React.Component{
 }            
 
 
-export default Usuario_Studs_Info;
+export default Usuario_Propietarios_Info;

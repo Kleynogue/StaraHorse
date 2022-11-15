@@ -41,10 +41,7 @@ html, body {
     font-weight: bold;
 }
 
-.AtributoPropietarios.Studs{
 
-    grid-column: 1/2;
-}
 
 .TablaMenor{
     width: 50%;
@@ -52,16 +49,13 @@ html, body {
     padding-top: 75px;
 }
 
-.BotonJineteEstadisticas{
+.BotonJinete{
 
     justify-self: center;
     text-align: center;
     padding-top: 52px;
 }
 
-.BotonJineteInfoGeneral{
-    justify-self: end;
-    
-    padding-top: 52px;
-    grid-column: 2/4;
+.BotonMenuCuenta{
+    grid-column: 1/4;
 }

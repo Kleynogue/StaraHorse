@@ -30,7 +30,7 @@ class Usuario_Jinetes_Info extends React.Component{
                     <Campo_Menu titulo="Fecha de Nacimiento"/>
                     <Campo_Menu titulo="Peso Promedio"/>
                     <Campo_Menu titulo="Altura"/>  
-                    <div className='BotonJineteEstadisticas' ><Boton_Aceptar dir={'/usuario_jinetes_estadisticas'} nombre="Estadisticas"  /></div>      
+                    <div className='BotonJinete' ><Boton_Aceptar dir={'/usuario_jinetes_estadisticas'} nombre="Estadisticas"  /></div>      
                 </div>
 
                 <div>

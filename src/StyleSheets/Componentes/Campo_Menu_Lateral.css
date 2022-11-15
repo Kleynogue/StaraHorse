@@ -1,0 +1,27 @@
+.Contenedor_L{
+    font-size: 25px;
+    display: flex;
+    font-family: roboto;
+    text-align: center;
+    width: 900px;
+}
+
+.Contenedor_L.grid{
+    grid-column: 1/4;
+}
+
+.NombreAtributo_L{
+    
+    padding-right: 50px;
+    width: 400px;
+    color: rgb(73, 69, 65);
+    font-weight: bold;
+}
+
+.ValorAtributo_L{
+    width: 500px;
+    border: 2px solid rgb(243, 112, 33);
+    line-height: 35px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(129, 122, 114);  
+}
