@@ -7,7 +7,7 @@ import Nav_Usuario from '../../Componentes/Nav_Usuario';
 
 
 import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
-import Boton_Ampliado from '../../Componentes/Boton_Ampliado';
+import Boton_Direccion_Ampliado from '../../Componentes/Boton_Direccion_Ampliado';
 
 
 class Usuario_Cuenta extends React.Component{
@@ -25,9 +25,9 @@ class Usuario_Cuenta extends React.Component{
 
                 <div className='MenuInfo'>
                     <h2 className='subtitulo'>CONFIGURACION DE CUENTA</h2>
-                    <div className='BotonMenuCuenta' ><Boton_Ampliado dir={'/usuario_cuenta_datos'} nombre="Datos Personales"  /></div>      
-                    <div className='BotonMenuCuenta' ><Boton_Ampliado dir={'/usuario_cuenta_solicitud'} nombre="Solicitar Privilegios"  /></div>      
-                    <div className='BotonMenuCuenta' ><Boton_Ampliado dir={'/iniciar_sesion'} nombre="Cerrar Sesion"  /></div>      
+                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado dir={'/usuario_cuenta_datos'} nombre="Datos Personales"  /></div>      
+                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado dir={'/usuario_cuenta_solicitud'} nombre="Solicitar Privilegios"  /></div>      
+                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado dir={'/iniciar_sesion'} nombre="Cerrar Sesion"  /></div>      
 
                 </div>
 

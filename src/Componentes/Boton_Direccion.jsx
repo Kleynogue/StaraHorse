@@ -1,8 +1,8 @@
-import '../StyleSheets/Componentes/Boton_Aceptar.css';
+import '../StyleSheets/Componentes/Boton_Direccion.css';
 import { useNavigate } from 'react-router-dom';
 
 
-function Boton_Aceptar(props){
+function Boton_Direccion(props){
 
     const navigate = useNavigate();
     
@@ -12,7 +12,7 @@ function Boton_Aceptar(props){
     return(
         <div className='boton'>
 
-            <button
+            <button type="submit"
             onClick={()=>{
                 navigate(props.dir);
             }}
@@ -23,4 +23,4 @@ function Boton_Aceptar(props){
     
 }
 
-export default Boton_Aceptar;
+export default Boton_Direccion;

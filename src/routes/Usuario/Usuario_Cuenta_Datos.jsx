@@ -10,13 +10,23 @@ import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 import Campo_Menu_Lateral from '../../Componentes/Campo_Menu_Lateral';
 import Campo_Menu_Ampliado from '../../Componentes/Campo_Menu_Ampliado';
 import Combobox_Roles from '../../Componentes/Combobox_Roles';
+import Boton_Direccion from '../../Componentes/Boton_Direccion';
 
 
 class Usuario_Cuenta_Datos extends React.Component{
 
+
+
+    
     render() {
 
-        
+        const options = [
+            { value: 'Estandar', label: 'Estandar' },
+            { value: 'Jinete', label: 'Jinete' },
+            { value: 'Entrenador', label: 'Entrenador' },
+            { value: 'Propietario', label: 'Propietario' },
+            { value: 'Admin', label: 'Admin' },
+        ]
 
         return (
 
@@ -40,9 +50,12 @@ class Usuario_Cuenta_Datos extends React.Component{
                     
                     <div></div>
                     <div></div>
+
+                    <div className='flex'>
+                        <div className='ComboboxPrivilegios'><Combobox_Roles opciones={options}/></div>
+                        <Boton_Direccion dir={'/usuario_cuenta_datos'} nombre="Cambiar"  />    
+                    </div>
                     
-            
-                    <Combobox_Roles/>
                 </div>
 
                 <div>

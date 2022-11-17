@@ -27,7 +27,9 @@ root.render(
   <BrowserRouter>
                     
     <Routes>  
-      
+    
+      <Route path='/' element={<Navigate to='/iniciar_sesion'/>} />
+
       <Route path='/iniciar_sesion' element={<Iniciar_Sesion/>}/>
       <Route path='/registrarse' element={<Registrarse/>}/>
 

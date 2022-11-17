@@ -3,7 +3,7 @@ import React from 'react';
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
 import  Nav_Iniciar_Registrarse  from '../../Componentes/Nav_Iniciar_Registrarse';
-import Boton_Aceptar from '../../Componentes/Boton_Aceptar';
+import Boton_Direccion from '../../Componentes/Boton_Direccion';
 
 import '../../StyleSheets/Usuario/Iniciar_Sesion.css';
 
@@ -31,7 +31,7 @@ class Iniciar_Sesion extends React.Component{
                         <div className='Password'>Contraseña</div>
                         <div className='Password'><input  type="password" required=""></input></div>
                             
-                        <div className='BotonIniciar'><Boton_Aceptar dir={'/usuario_carreras'} nombre="Iniciar Sesion" /></div>
+                        <div className='BotonIniciar'><Boton_Direccion dir={'/usuario_carreras'} nombre="Iniciar Sesion" /></div>
                     </form>
                 </div>
 

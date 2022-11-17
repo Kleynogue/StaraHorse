@@ -27,6 +27,9 @@ nav a{
 
 nav div:hover{
     background-color: rgb(243, 112, 33);
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 

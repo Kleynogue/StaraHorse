@@ -5,7 +5,7 @@ import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
 import Nav_Usuario from '../../Componentes/Nav_Usuario';
 import Campo_Menu from '../../Componentes/Campo_Menu';
-import Boton_Aceptar from '../../Componentes/Boton_Aceptar';
+
 
 import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 

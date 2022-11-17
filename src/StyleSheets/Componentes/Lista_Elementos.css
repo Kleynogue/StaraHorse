@@ -24,6 +24,15 @@
     font-weight: bold;
 }
 
+li:hover{
+    background-color: rgb(243, 112, 33);
+    color:white;
+
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
 li::marker{
     color: rgb(255, 136, 0);
 }

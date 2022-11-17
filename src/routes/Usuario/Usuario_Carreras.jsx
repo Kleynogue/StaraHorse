@@ -2,7 +2,7 @@ import React from 'react';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
-import Boton_Aceptar from '../../Componentes/Boton_Aceptar';
+import Boton_Direccion from '../../Componentes/Boton_Direccion';
 import Lista_Elementos from '../../Componentes/Lista_Elementos';
 import Nav_Usuario from '../../Componentes/Nav_Usuario';
 
@@ -33,8 +33,8 @@ class Usuario_Carreras extends React.Component{
                 <div className='DLista'>
                     <h2 className='subtitulo'>CARRERAS DEL DÍA</h2>
                     <Lista_Elementos elementos={elementos} dir="/usuario_carreras_info" />
-                    <div className='DivBotonApuesta'><Boton_Aceptar dir={'/usuario_carreras'} nombre="Apuestas" /></div>
-                    <div><Boton_Aceptar dir={'/usuario_carreras'} nombre="Historial" /></div>
+                    <div className='DivBotonApuesta'><Boton_Direccion dir={'/usuario_carreras'} nombre="Apuestas" /></div>
+                    <div><Boton_Direccion dir={'/usuario_carreras'} nombre="Historial" /></div>
                 </div>
 
                 <div>

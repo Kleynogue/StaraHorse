@@ -1,8 +1,8 @@
-import '../StyleSheets/Componentes/Boton_Ampliado.css';
+import '../StyleSheets/Componentes/Boton_Direccion_Ampliado.css';
 import { useNavigate } from 'react-router-dom';
 
 
-function Boton_Ampliado(props){
+function Boton_Direccion_Ampliado(props){
 
     const navigate = useNavigate();
     
@@ -23,4 +23,4 @@ function Boton_Ampliado(props){
     
 }
 
-export default Boton_Ampliado;
+export default Boton_Direccion_Ampliado;

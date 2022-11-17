@@ -59,3 +59,92 @@ html, body {
 .BotonMenuCuenta{
     grid-column: 1/4;
 }
+
+.flex{
+    grid-column: 1/4;
+    display: flex;
+    margin-bottom: 50px;
+    justify-self: center;
+}
+.ComboboxPrivilegios{
+
+    margin-right: 50px;
+}
+
+
+
+
+/*RadioButton de privileegios*/
+.FormRadio{
+    grid-column: 1/4;
+    justify-self: center;
+}
+
+.DivRadio{
+    justify-self: center;
+}
+    
+
+.FormRadio input[type="radio"]{
+    display: none;  
+}
+
+.FormRadio .LabelRadio{
+    font-family: roboto;
+    color:white;
+    cursor: pointer;
+    background-color: rgb(243, 112, 33);
+    padding: 20px 10px 20px 50px;
+    display: inline-block;
+    position: relative;
+    width: 110px;
+    margin-top: 25px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+
+.FormRadio .LabelRadio:hover{
+    background-color: white;
+    color: rgb(243, 112, 33);
+}
+
+.FormRadio .LabelRadio:before{
+    content:"";
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    background-color: none;
+    border: 3px solid white;
+    border-radius: 50%;
+    position: absolute;
+    left: 17px;
+    top:17px;
+}
+
+.FormRadio .LabelRadio:hover:before{
+    border: 3px solid rgb(243, 112, 33);
+    background-color: rgb(243, 112, 33);
+}
+
+
+
+.FormRadio input[type="radio"]:checked + .LabelRadio {
+    background-color: white !important;
+    color: rgb(243, 112, 33) !important;
+    
+}
+
+.FormRadio input[type="radio"]:checked + .LabelRadio:before {
+    border: 3px solid rgb(243, 112, 33); 
+    background-color: rgb(243, 112, 33); 
+}
+
+/*RadioButton de privileegios*/ 
+
+
+.BotonSolicitar{
+    margin-top: 60px;
+    text-align: center;
+}

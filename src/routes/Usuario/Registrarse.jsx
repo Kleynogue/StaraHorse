@@ -3,7 +3,7 @@ import React from 'react';
 import Nav_Iniciar_Registrarse from '../../Componentes/Nav_Iniciar_Registrarse';
 import Cabecera from '../../Componentes/Cabecera';
 import Footer from '../../Componentes/Footer';
-import Boton_Aceptar from '../../Componentes/Boton_Aceptar';
+import Boton_Direccion from '../../Componentes/Boton_Direccion';
 
 import '../../StyleSheets/Usuario/Registrarse.css';
 
@@ -46,7 +46,7 @@ class Registrarse extends React.Component{
                         <div className='Password'>Repetir Contraseña</div>
                         <div className='Password'><input  type="password" required=""></input></div>
 
-                        <div className='BotonRegistrar' ><Boton_Aceptar dir={'/usuario_carreras'} nombre="Registrarse"  /></div>
+                        <div className='BotonRegistrar' ><Boton_Direccion dir={'/usuario_carreras'} nombre="Registrarse"  /></div>
                     </form>
                 </div>
 
