@@ -6,10 +6,11 @@ function Boton_Direccion(props){
 
     const navigate = useNavigate();
     
-
+    
     
 
     return(
+        
         <div className='boton'>
 
             <button type="submit"

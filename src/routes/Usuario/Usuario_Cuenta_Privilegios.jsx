@@ -15,7 +15,7 @@ class Usuario_Cuenta_Privilegios extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-          selectedOption: "Propietario",
+          
         };
     }
 

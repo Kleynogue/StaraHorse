@@ -19,6 +19,8 @@ import Usuario_Propietarios from './routes/Usuario/Usuario_Propietarios';
 import Usuario_Propietarios_Info from './routes/Usuario/Usuario_Propietarios_info';
 import Usuario_Studs from './routes/Usuario/Usuario_Studs';
 import Usuario_Studs_Info from './routes/Usuario/Usuario_Studs_Info';
+import Usuario_Establecimiento from './routes/Usuario/Usuario_Establecimiento';
+import Usuario_Confirmar_Compra from './routes/Usuario/Usuario_Confirmar_Compra';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -46,6 +48,9 @@ root.render(
 
       <Route path='/usuario_studs' element={<Usuario_Studs/>}/>
         <Route path='/usuario_studs_info' element={<Usuario_Studs_Info/>}/>
+
+      <Route path='/usuario_establecimiento' element={<Usuario_Establecimiento/>}/>
+        <Route path='/usuario_confirmar' element={<Usuario_Confirmar_Compra/>}/>
 
       <Route path='/usuario_propietarios' element={<Usuario_Propietarios/>}/>
         <Route path='/usuario_propietarios_info' element={<Usuario_Propietarios_Info/>}/>

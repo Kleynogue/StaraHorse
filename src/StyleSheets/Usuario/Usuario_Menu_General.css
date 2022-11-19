@@ -141,10 +141,68 @@ html, body {
     background-color: rgb(243, 112, 33); 
 }
 
-/*RadioButton de privileegios*/ 
-
 
 .BotonSolicitar{
     margin-top: 60px;
     text-align: center;
 }
+/*RadioButton de privileegios*/ 
+
+
+
+
+.InfoRestaurante{
+    grid-column: 1/2;
+    grid-row: 2/6;
+    justify-self: center;
+    width: 500px;
+    font-family: roboto;
+    margin-left: 50px;
+}
+
+.H3Rest{
+    text-align: center;
+    font-size: 30px;
+    color: rgb(73, 69, 65);
+    font-weight: bold;
+}
+
+.PRest{
+    padding: 25px;
+    border: 2px solid rgb(243, 112, 33);
+    line-height: 35px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(129, 122, 114);
+    font-size: 25px;
+	
+	height: 600px;
+	overflow: auto;
+}
+
+.ContenedorEstablecimiento{
+    display: grid;
+}
+
+.DEntrada{
+    grid-column: 2/4;
+    justify-self: start;
+    margin-top: 100px;
+    margin-left: 75px;
+}
+
+.BotonCompra{
+    grid-column: 1/4;
+    justify-self: center;
+    margin-top: 50px;
+}
+
+
+
+.DResumen{
+
+    grid-column: 1/4;
+    justify-self: center;
+    margin-top: 40px;
+}
+
+

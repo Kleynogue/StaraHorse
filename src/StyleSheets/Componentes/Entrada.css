@@ -1,0 +1,96 @@
+@font-face {
+    font-family: orator;
+    src: local(orator), url(../../TiposLetra/Orator-Std-Medium.ttf) format('truetype');
+}
+
+.ContenedorEntrada{
+    width: 700px;
+    display: flex;
+  
+}
+
+.PrecioEntrada{
+   
+    color: rgb(73, 69, 65);
+    font-weight: bold;
+    font-family: roboto;
+    font-size: 20px;
+    text-align:center
+}
+
+.Mas{
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+    margin-top: 40px;
+    border: 3px solid rgb(255, 136, 0);
+    border-radius: 50%;
+    
+}
+.Mas #largo{
+    position: absolute;
+    width: 15px;
+    height: 5px;
+    background-color: rgb(129, 122, 114);
+    margin: 15px 10px;
+}
+
+.Mas #ancho{
+    position: absolute;
+    width: 5px;
+    height: 15px;
+    background-color: rgb(129, 122, 114);
+    margin: 10px 15px;
+}
+
+.Numero_Entrada{
+    width: 75px;
+    height: 75px;
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+    border: 3px solid rgb(255, 136, 0);
+}
+
+.Numero_Entrada div{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    color: rgb(129, 122, 114);
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 6.5px;
+    text-align: center;
+    font-size: 45px;
+    font-family: orator;
+}
+
+.Menos{
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background-color: rgb(255, 255, 255);
+    margin: 15px;
+    margin-top: 40px;
+    border: 3px solid rgb(255, 136, 0);
+    border-radius: 50%;
+    
+    color: rgb(112, 83, 99);
+    
+}
+.Menos div{
+
+    width: 15px;
+    height: 5px;
+    background-color: rgb(129, 122, 114);
+    margin: 15px 10px;
+}
+
+.Descripcion{
+    font-family: roboto;
+    font-size: 25px;
+    margin-top: 45px;
+    font-weight: bold;
+    color: rgb(73, 69, 65);
+}
