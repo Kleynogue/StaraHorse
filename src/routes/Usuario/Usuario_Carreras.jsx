@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate,useLocation } from 'react-router';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
@@ -9,17 +10,22 @@ import Nav_Usuario from '../../Componentes/Nav_Usuario';
 import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 
-class Usuario_Carreras extends React.Component{
+function Usuario_Carreras(){
 
-    
-
-
-    render() {
 
         const elementos = ["Carrera_Numero_1", "Carrera_Numero_2", "Carrera_Numero_3", "Carrera_Numero_4"
         ,"Carrera_Numero_5", "Carrera_Numero_6", "Carrera_Numero_7", "Carrera_Numero_8"
         ,"Carrera_Numero_9", "Carrera_Numero_10", "Carrera_Numero_11" , "Carrera_Numero_12"];
 
+        //Inicio Direcciones
+        const navigate = useNavigate();
+        const toUsuarioApuestas=(direccion)=>{
+            navigate(direccion,{
+                state:{
+                //Variables
+                }});
+        }
+        //Fin Direcciones
 
         return (
 
@@ -33,8 +39,8 @@ class Usuario_Carreras extends React.Component{
                 <div className='DLista'>
                     <h2 className='subtitulo'>CARRERAS DEL DÍA</h2>
                     <Lista_Elementos elementos={elementos} dir="/usuario_carreras_info" />
-                    <div className='DivBotonApuesta'><Boton_Direccion dir={'/usuario_carreras'} nombre="Apuestas" /></div>
-                    <div><Boton_Direccion dir={'/usuario_carreras'} nombre="Historial" /></div>
+                    <div className='DivBotonApuesta'><Boton_Direccion fun={()=>toUsuarioApuestas('/usuario_apuestas')} nombre="Apuestas" /></div>
+                    <div><Boton_Direccion fun={()=>toUsuarioApuestas('/usuario_apuestas_historial')} nombre="Historial" /></div>
                 </div>
 
                 <div>
@@ -44,7 +50,7 @@ class Usuario_Carreras extends React.Component{
             </div>
 
         );
-    }  
+      
 }            
 
 

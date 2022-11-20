@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 import Nav_Iniciar_Registrarse from '../../Componentes/Nav_Iniciar_Registrarse';
 import Cabecera from '../../Componentes/Cabecera';
@@ -7,12 +9,16 @@ import Boton_Direccion from '../../Componentes/Boton_Direccion';
 
 import '../../StyleSheets/Usuario/Registrarse.css';
 
-class Registrarse extends React.Component{
+function Registrarse(props){
 
-    
+        const navigate = useNavigate();
+        const toUsuarioCarreras=()=>{
+            navigate('/usuario_carreras',{
+                state:{
+                //Variables
+                }});
+        }
 
-
-    render() {
         return (
 
             <div className='bodyRegistrarse'>
@@ -46,7 +52,7 @@ class Registrarse extends React.Component{
                         <div className='Password'>Repetir Contraseña</div>
                         <div className='Password'><input  type="password" required=""></input></div>
 
-                        <div className='BotonRegistrar' ><Boton_Direccion dir={'/usuario_carreras'} nombre="Registrarse"  /></div>
+                        <div className='BotonRegistrar' ><Boton_Direccion fun={toUsuarioCarreras} nombre="Registrarse"  /></div>
                     </form>
                 </div>
 
@@ -56,7 +62,7 @@ class Registrarse extends React.Component{
 
             </div>
         );
-    }  
+      
 }            
 
 

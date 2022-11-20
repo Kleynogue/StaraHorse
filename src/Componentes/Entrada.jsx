@@ -4,7 +4,7 @@ import '../StyleSheets/Componentes/Entrada.css';
 
 function Entrada(props){
 
-    const [counter, setCounter] = useState(0);
+    
 
     
 
@@ -21,7 +21,7 @@ function Entrada(props){
                     <div></div>
                 </div>
 
-                <div className='Numero_Entrada'><div> {props.sum}</div></div>
+                <div className='Numero_Entrada'><div> {props.numero}</div></div>
 
                 <div className='Mas' onClick={props.sumar}>
                     <div id='ancho'></div>

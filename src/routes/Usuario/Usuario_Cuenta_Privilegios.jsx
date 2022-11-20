@@ -8,34 +8,19 @@ import Boton_Direccion from '../../Componentes/Boton_Direccion';
 
 
 import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
+import { useState } from 'react';
 
 
-class Usuario_Cuenta_Privilegios extends React.Component{
-
-    constructor(props) {
-        super(props);
-        this.state = {
-          
-        };
-    }
-
-    handleOptionChange = changeEvent => {
-        
-        this.setState({  
-            selectedOption: changeEvent.target.value,
-        });
-  
-    };
-
-    handleFormSubmit = formSubmitEvent => {
-        formSubmitEvent.preventDefault();
-        console.log("You have submitted:", this.state.selectedOption);
-    };
-
-
+function Usuario_Cuenta_Privilegios(){
 
     
-    render() {
+    const [estado, setEstado] = useState()
+    
+    const handleSubmit= (e) => {
+        e.preventDefault();
+        console.log("You have submitted:"+estado);
+    }
+
 
         return (
 
@@ -49,18 +34,18 @@ class Usuario_Cuenta_Privilegios extends React.Component{
                 <div className='MenuInfo'>
                     <h2 className='subtitulo'>PRIVILEGIOS</h2>
                            
-                    <form onSubmit={this.handleFormSubmit} className="FormRadio">
+                    <form onSubmit={e => {handleSubmit(e)}} className="FormRadio">
                         <div className="DivRadio">
                             
                             <input
                                 id="i1"
                                 type="radio"
                                 name="privilegios"
-                                value="Propietario"
-                                checked={this.state.selectedOption === "Propietario"}
-                                onChange={this.handleOptionChange}/>
+                                value={"propietario"}
+                                checked={estado=="propietario"}
+                                onChange={e => setEstado(e.target.value)}/>
                             
-                            <label for="i1" className="LabelRadio" >Propietario</label>
+                            <label onClick={() => {setEstado("propietario");}} htmlFor="i1"  className="LabelRadio" >Propietario</label>
                             
                         </div>
                         <div className="DivRadio" >
@@ -69,11 +54,11 @@ class Usuario_Cuenta_Privilegios extends React.Component{
                                 id="i2"
                                 type="radio"
                                 name="privilegios"
-                                value="Entrenador"
-                                checked={this.state.selectedOption === "Entrenador"}
-                                onChange={this.handleOptionChange}/>
+                                value={"entrenador"}
+                                checked={estado=="entrenador" }
+                                onChange={e => setEstado(e.target.value)}/>
 
-                            <label for="i2" className="LabelRadio" >Entrenador</label>
+                            <label onClick={() => {setEstado("entrenador");}} htmlFor="i2" className="LabelRadio" >Entrenador</label>
 
                         </div>
                         <div className="DivRadio"  >
@@ -82,11 +67,11 @@ class Usuario_Cuenta_Privilegios extends React.Component{
                                 id="i3"
                                 type="radio"
                                 name="privilegios"
-                                value="Jinete"
-                                checked={this.state.selectedOption === "Jinete"}
-                                onChange={this.handleOptionChange}/>
+                                value={"jinete"}
+                                checked={estado=="jinete" }
+                                onChange={e => setEstado(e.target.value)}/>
 
-                            <label for="i3" className="LabelRadio" >Jinete</label>
+                            <label onClick={() => {setEstado("jinete");}} htmlFor="i3" className="LabelRadio" >Jinete</label>
 
                         </div>
                         
@@ -95,12 +80,6 @@ class Usuario_Cuenta_Privilegios extends React.Component{
 
                     </form>         
                                 
-                        
-                        
-                    
-
-
-
                 </div>
 
                 <div>
@@ -110,7 +89,7 @@ class Usuario_Cuenta_Privilegios extends React.Component{
             </div>
 
         );
-    }  
+     
 }            
 
 

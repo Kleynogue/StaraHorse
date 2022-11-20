@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate,useLocation } from 'react-router';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
@@ -9,12 +10,7 @@ import Barra_Busqueda from '../../Componentes/Barra_Busqueda';
 import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 
-class Usuario_Entrenadores extends React.Component{
-
-    
-
-
-    render() {
+function Usuario_Entrenadores(){
 
         const elementos = ["Entrenador_1", "Entrenador_2", "Entrenador_3", "Entrenador_4"
                      ,"Entrenador_5", "Entrenador_6", "Entrenador_7", "Entrenador_8"
@@ -40,7 +36,7 @@ class Usuario_Entrenadores extends React.Component{
 
             </div>
         );
-    }  
+      
 }
 
 export default Usuario_Entrenadores;

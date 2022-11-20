@@ -1,10 +1,8 @@
 .Contenedor{
     font-size: 25px;
-    
     padding: 20px;
     width: 200px;
     font-family: roboto;
-
 }
 
 .NombreAtributo{
@@ -20,5 +18,4 @@
     line-height: 35px;
     background-color: rgb(255, 255, 255);
     color: rgb(129, 122, 114);
-    
 }

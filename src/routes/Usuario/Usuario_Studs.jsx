@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate,useLocation } from 'react-router';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
@@ -9,12 +10,9 @@ import Barra_Busqueda from '../../Componentes/Barra_Busqueda';
 import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 
-class Usuario_Studs extends React.Component{
+function Usuario_Studs(){
 
     
-
-
-    render() {
 
         const elementos = ["Stud_1", "Stud_2", "Stud_3", "Stud_4"
                      ,"Stud_5", "Stud_6", "Stud_7", "Stud_8"
@@ -40,7 +38,7 @@ class Usuario_Studs extends React.Component{
 
             </div>
         );
-    }  
+      
 }
 
 export default Usuario_Studs;

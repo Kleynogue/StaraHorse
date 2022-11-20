@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useNavigate,useLocation } from 'react-router';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
@@ -12,13 +12,12 @@ import Lista_Elementos_Reducida from '../../Componentes/Lista_Elementos_Reducida
 import Campo_Menu_Ampliado from '../../Componentes/Campo_Menu_Ampliado';
 
 
-class Usuario_Propietarios_Info extends React.Component{
+function Usuario_Propietarios_Info(){
 
-    render() {
+        const location = useLocation();
+        console.log("El nombre del propietario es: "+location.state.Elemento);
 
         const elementos = ["Telefono_1", "Telefono_2", "Telefono_3", "Telefono_4"];
-
-
 
         return (
 
@@ -51,7 +50,7 @@ class Usuario_Propietarios_Info extends React.Component{
             </div>
 
         );
-    }  
+      
 }            
 
 
