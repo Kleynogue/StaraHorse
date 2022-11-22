@@ -18,10 +18,10 @@ html, body {
 }
 
 .subtitulo{
+    grid-column: 1/4;
     font-size: 40px;
     text-align: center;
     font-family: orator;
-    grid-column: 1/4;
     color: rgb(255, 136, 0);
 }
 
@@ -60,15 +60,10 @@ html, body {
     grid-column: 1/4;
 }
 
-.flex{
-    grid-column: 1/4;
-    display: flex;
-    margin-bottom: 50px;
-    justify-self: center;
-}
-.ComboboxPrivilegios{
 
-    margin-right: 50px;
+.ComboboxPrivilegios{
+    grid-column: 1/4;  
+    justify-self: center;
 }
 
 

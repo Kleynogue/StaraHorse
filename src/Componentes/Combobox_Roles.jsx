@@ -1,11 +1,27 @@
-import '../StyleSheets/Componentes/Combobox_Roles.css';
 import Select from 'react-select'
+import { useState } from 'react';
+import { useNavigate,useLocation } from 'react-router';
+
+import Boton_Direccion from './Boton_Direccion';
+
+import '../StyleSheets/Componentes/Combobox_Roles.css';
 
 
 
 function Combobox_Roles(props){
 
-    
+    const [selectedOption, setSelectedOption] = useState(null);    
+
+    //Inicio Direcciones
+    const navigate = useNavigate();
+    const toA=(direccion)=>{
+
+        navigate("/"+direccion+"_carreras",{
+            state:{
+            //Variables
+            }});
+    }
+    //Fin Direcciones
 
     const customerStyles = { 
         control: (styles, {isFocused}) => ({ 
@@ -30,9 +46,10 @@ function Combobox_Roles(props){
 
     return(
 
-        <div className='Select'>
-            <Select styles={customerStyles} options={props.opciones} />
-        </div>
+        <form id='FormRol' >
+            <div id='SelectRol'><Select styles={customerStyles} options={props.opciones} defaultValue={selectedOption}  onChange={setSelectedOption} /></div>
+            <div id='BotonRol'><Boton_Direccion fun={()=>toA(selectedOption.value)} nombre="Cambiar"  /></div>    
+        </form>
     );
     
 }

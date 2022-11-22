@@ -17,22 +17,12 @@ function Usuario_Cuenta_Datos(){
 
 
         const options = [
-            { value: 'Estandar', label: 'Estandar' },
-            { value: 'Jinete', label: 'Jinete' },
-            { value: 'Entrenador', label: 'Entrenador' },
-            { value: 'Propietario', label: 'Propietario' },
-            { value: 'Admin', label: 'Admin' },
+            { value: 'usuario', label: 'Estandar' },
+            { value: 'jinete', label: 'Jinete' },
+            { value: 'entrenador', label: 'Entrenador' },
+            { value: 'propietario', label: 'Propietario' },
+            { value: 'admin', label: 'Admin' },
         ]
-
-        //Inicio Direcciones
-        const navigate = useNavigate();
-        const toNOWHERE=(direccion)=>{
-            navigate(direccion,{
-                state:{
-                //Variables
-                }});
-        }
-        //Fin Direcciones
 
         return (
 
@@ -51,16 +41,14 @@ function Usuario_Cuenta_Datos(){
                     <Campo_Menu_Lateral titulo="Apellido"/>
                     <Campo_Menu_Lateral titulo="Fecha de Nacimiento"/>
                     <Campo_Menu_Lateral titulo="Cedula"/>
-                    
+
                     <Campo_Menu_Ampliado titulo="Direccion"/> 
                     
                     <div></div>
                     <div></div>
 
-                    <div className='flex'>
-                        <div className='ComboboxPrivilegios'><Combobox_Roles opciones={options}/></div>
-                        <Boton_Direccion fun={()=>toNOWHERE()} nombre="Cambiar"  />    
-                    </div>
+                        <div className='ComboboxPrivilegios'><Combobox_Roles opciones={options} /></div>
+                        
                     
                 </div>
 

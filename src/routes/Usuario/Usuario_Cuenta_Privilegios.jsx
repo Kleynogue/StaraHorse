@@ -13,13 +13,39 @@ import { useState } from 'react';
 
 function Usuario_Cuenta_Privilegios(){
 
-    
-    const [estado, setEstado] = useState()
-    
-    const handleSubmit= (e) => {
-        e.preventDefault();
-        console.log("You have submitted:"+estado);
-    }
+        const [peso, setPeso] = useState(0);
+        const [altura, setAltura] = useState(0);
+        
+        const [estado, setEstado] = useState()
+        const [hidden, setHidden] = useState(true);
+
+        
+        const handleSubmit= (e) => {
+            e.preventDefault();
+            console.log("You have submitted:"+estado);
+            if(estado!="jinete"){
+                /*De ser necesario aqui se pueden hacer comprobaciones respecto a la solicitud de entrenador y propietario */
+                alert('Privilegio '+estado+' solicitado con exito');
+            }
+            else{
+                /*De ser necesario aqui se pueden hacer comprobaciones respecto al peso y altura del jinete */
+                alert('Privilegio '+estado+' solicitado con exito Peso: '+peso+' Altura: '+altura);
+            }   
+        }
+
+
+        const jinete= () => {
+            setEstado("jinete");
+            if(hidden){
+                setHidden(s => !s);
+            }   
+        }
+        const otro= (est) => {
+            setEstado(est);
+            if(!hidden){
+                setHidden(s => !s);
+            }   
+        }
 
 
         return (
@@ -45,7 +71,7 @@ function Usuario_Cuenta_Privilegios(){
                                 checked={estado=="propietario"}
                                 onChange={e => setEstado(e.target.value)}/>
                             
-                            <label onClick={() => {setEstado("propietario");}} htmlFor="i1"  className="LabelRadio" >Propietario</label>
+                            <label onClick={()=>otro("propietario")} htmlFor="i1"  className="LabelRadio" >Propietario</label>
                             
                         </div>
                         <div className="DivRadio" >
@@ -58,7 +84,7 @@ function Usuario_Cuenta_Privilegios(){
                                 checked={estado=="entrenador" }
                                 onChange={e => setEstado(e.target.value)}/>
 
-                            <label onClick={() => {setEstado("entrenador");}} htmlFor="i2" className="LabelRadio" >Entrenador</label>
+                            <label onClick={()=>otro("entrenador")} htmlFor="i2" className="LabelRadio" >Entrenador</label>
 
                         </div>
                         <div className="DivRadio"  >
@@ -71,10 +97,16 @@ function Usuario_Cuenta_Privilegios(){
                                 checked={estado=="jinete" }
                                 onChange={e => setEstado(e.target.value)}/>
 
-                            <label onClick={() => {setEstado("jinete");}} htmlFor="i3" className="LabelRadio" >Jinete</label>
+                            <label onClick={jinete} htmlFor="i3" className="LabelRadio" >Jinete</label>
 
                         </div>
                         
+                        {!hidden ? 
+                            <form id='FormJinete' >
+                                <div id='PesoInput'><input type="number" required="" placeholder='Peso' onChange={e => setPeso(e.target.value)}></input></div>
+                                <div id='AlturaInput'><input type="number" required="" placeholder='Altura' onChange={e => setAltura(e.target.value)}></input></div>
+                            </form>  
+                        : null}
                         
                         <div className='BotonSolicitar'><Boton_Direccion nombre="Solicitar" /></div>
 

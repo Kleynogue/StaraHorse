@@ -23,6 +23,8 @@ import Usuario_Establecimiento from './routes/Usuario/Usuario_Establecimiento';
 import Usuario_Confirmar_Compra from './routes/Usuario/Usuario_Confirmar_Compra';
 import Usuario_Carreras_Informacion from './routes/Usuario/Usuario_Carreras_Informacion';
 import Usuario_Pago from './routes/Usuario/Usuario_Pago';
+import Jinete_Carreras from './routes/Jinete/Jinete_Carreras';
+import Jinete_Perfil from './routes/Jinete/Jinete_Perfil';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -65,6 +67,11 @@ root.render(
         <Route path='/usuario_cuenta_solicitud' element={<Usuario_Cuenta_Privilegios/>}/>
     
     
+      <Route path='/jinete_carreras' element={<Jinete_Carreras/>}/>
+      <Route path='/jinete_perfil' element={<Jinete_Perfil/>}/>
+
+
+
     </Routes> 
   </BrowserRouter>
   
