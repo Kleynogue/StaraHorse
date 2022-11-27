@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate,useLocation } from 'react-router';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
@@ -9,12 +10,7 @@ import Barra_Busqueda from '../../Componentes/Barra_Busqueda';
 import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 
-class Usuario_Jinetes extends React.Component{
-
-    
-
-
-    render() {
+function Usuario_Jinetes(){
 
         const elementos = ["Jinete_1", "Jinete_2", "Jinete_3", "Jinete_4"
                      ,"Jinete_5", "Jinete_6", "Jinete_7", "Jinete_8"
@@ -41,7 +37,7 @@ class Usuario_Jinetes extends React.Component{
 
             </div>
         );
-    }  
+      
 }       
 
 export default Usuario_Jinetes;

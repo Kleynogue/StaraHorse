@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useNavigate,useLocation } from 'react-router';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
@@ -11,9 +11,10 @@ import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 import Lista_Elementos_Reducida from '../../Componentes/Lista_Elementos_Reducida';
 
 
-class Usuario_Studs_Info extends React.Component{
+function Usuario_Studs_Info(){
 
-    render() {
+        const location = useLocation();
+        console.log("El nombre del stud es: "+location.state.Elemento);
 
         const elementos = ["Propietario_1", "Propietario_2", "Propietario_3", "Propietario_4"
                      ,"Propietario_5", "Propietario_6", "Propietario_7", "Propietario_8"
@@ -49,7 +50,7 @@ class Usuario_Studs_Info extends React.Component{
             </div>
 
         );
-    }  
+      
 }            
 
 

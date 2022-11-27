@@ -1,4 +1,6 @@
-import React from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
@@ -8,12 +10,18 @@ import Boton_Direccion from '../../Componentes/Boton_Direccion';
 import '../../StyleSheets/Usuario/Iniciar_Sesion.css';
 
 
-class Iniciar_Sesion extends React.Component{
+function Iniciar_Sesion(){
+
+      
+    const navigate = useNavigate();
+    const toUsuarioCarreras=()=>{
+        navigate('/usuario_carreras',{
+            state:{
+            //Variables
+            }});
+    }
 
     
-
-
-    render() {
         return (
 
             <div className='bodyIniciar'>
@@ -31,7 +39,7 @@ class Iniciar_Sesion extends React.Component{
                         <div className='Password'>Contraseña</div>
                         <div className='Password'><input  type="password" required=""></input></div>
                             
-                        <div className='BotonIniciar'><Boton_Direccion dir={'/usuario_carreras'} nombre="Iniciar Sesion" /></div>
+                        <div className='BotonIniciar'><Boton_Direccion fun={toUsuarioCarreras} nombre="Iniciar Sesion" /></div>
                     </form>
                 </div>
 
@@ -42,7 +50,7 @@ class Iniciar_Sesion extends React.Component{
             </div>
 
         );
-    }
+    
 
 }
 

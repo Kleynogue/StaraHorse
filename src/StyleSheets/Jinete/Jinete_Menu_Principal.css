@@ -1,0 +1,94 @@
+@font-face {
+    font-family: orator;
+    src: local(orator), url(../../TiposLetra/Orator-Std-Medium.ttf) format('truetype');
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.bodyUsuario{
+    margin: 0;
+    position: relative;
+    padding-bottom: 12em;
+    min-height: 100vh;
+    background-color: #F6F1EB;
+}
+
+.MenuInfo{
+    display: grid;
+    justify-content: center;
+    margin: 0 auto;
+    width: 1000px;
+    row-gap: 60px;
+    column-gap: 150px;
+}
+.subtitulo{
+    grid-column: 1/4;
+    font-size: 40px;
+    text-align: center;
+    font-family: orator;
+    color: rgb(255, 136, 0);
+}
+
+#CarreraFecha{
+    grid-column: 1/4;
+    color: rgb(73, 69, 65);
+    font-weight: bold;
+    font-family: roboto;
+    font-size: 22px;
+    text-align:center;
+    
+}
+
+#CarreraLista{
+    grid-column: 1/4;
+}
+
+
+
+
+#FormFecha{
+    display: flex;
+    justify-self: center;
+    margin: 25px 0px;
+}
+#FechaInput{
+    margin-left: 40px;
+    
+}
+input[type="date"]{
+    appearance: none;
+    color: rgb(129, 122, 114);
+    font-family: roboto;
+    font-size: 17px;
+    font-weight: bold;
+    border: 2px solid rgb(243, 112, 33);
+    background:white;
+    padding: 4px;
+    display: inline-block;
+    visibility: visible;
+    width: 130px;
+}
+#FechaBoton{
+    margin-left: 50px;
+}
+
+
+#FormJinete {
+    margin-top: 25px;
+    text-align: center;
+}
+
+#FormJinete input{
+    text-align: center;
+    font-family: roboto;
+    font-size: 25px;
+    color: rgb(129, 122, 114);
+    border: 2px solid rgb(243, 112, 33);
+    line-height: 5px;
+    width: 100px;
+    margin-top: 15px;
+}

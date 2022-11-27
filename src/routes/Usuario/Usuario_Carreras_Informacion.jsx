@@ -3,20 +3,18 @@ import { useNavigate,useLocation } from 'react-router';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
-import Lista_Elementos from '../../Componentes/Lista_Elementos';
 import Nav_Usuario from '../../Componentes/Nav_Usuario';
-import Barra_Busqueda from '../../Componentes/Barra_Busqueda';
 
 import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 
-function Usuario_Ejemplares(){
+function Usuario_Carreras_Informacion(){
 
-        const elementos = ["Ejemplar_1", "Ejemplar_2", "Ejemplar_3", "Ejemplar_4"
-                     ,"Ejemplar_5", "Ejemplar_6", "Ejemplar_7", "Ejemplar_8"
-                     ,"Ejemplar_9", "Ejemplar_10", "Ejemplar_11" , "Ejemplar_12"];
+    const location = useLocation();
+    console.log("El nombre de la carrera es: "+location.state.Elemento);
 
         return (
+
             <div className='bodyUsuario'>
 
                 <div>
@@ -25,9 +23,7 @@ function Usuario_Ejemplares(){
                 </div>
 
                 <div className='DLista'>
-                    <h2 className='subtitulo'>EJEMPLARES</h2>
-                    <Barra_Busqueda/>
-                    <Lista_Elementos elementos={elementos} dir="/usuario_ejemplares_info"/>
+                    <h2 className='subtitulo'>INFORMACION DE CARRERA</h2>
                 </div>
 
                 <div>
@@ -35,8 +31,10 @@ function Usuario_Ejemplares(){
                 </div>
 
             </div>
+
         );
       
-}
+}            
 
-export default Usuario_Ejemplares;
+
+export default Usuario_Carreras_Informacion;

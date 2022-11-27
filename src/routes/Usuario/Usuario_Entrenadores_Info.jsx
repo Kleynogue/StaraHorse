@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate,useLocation } from 'react-router';
 
  
 import Footer from '../../Componentes/Footer';
@@ -10,9 +11,10 @@ import Campo_Menu from '../../Componentes/Campo_Menu';
 import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 
 
-class Usuario_Entrenadores_Info extends React.Component{
+function Usuario_Entrenadores_Info(){
 
-    render() {
+        const location = useLocation();
+        console.log("El nombre del entrenador es: "+location.state.Elemento);
 
         return (
 
@@ -39,7 +41,7 @@ class Usuario_Entrenadores_Info extends React.Component{
             </div>
 
         );
-    }  
+    
 }            
 
 

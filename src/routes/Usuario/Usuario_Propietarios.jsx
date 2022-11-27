@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate,useLocation } from 'react-router';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
@@ -9,12 +10,9 @@ import Barra_Busqueda from '../../Componentes/Barra_Busqueda';
 import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 
-class Usuario_Propietarios extends React.Component{
+function Usuario_Propietarios(){
 
     
-
-
-    render() {
 
         const elementos = ["Propietario_1", "Propietario_2", "Propietario_3", "Propietario_4"
                      ,"Propietario_5", "Propietario_6", "Propietario_7", "Propietario_8"
@@ -40,7 +38,7 @@ class Usuario_Propietarios extends React.Component{
 
             </div>
         );
-    }  
+     
 }
 
 export default Usuario_Propietarios;

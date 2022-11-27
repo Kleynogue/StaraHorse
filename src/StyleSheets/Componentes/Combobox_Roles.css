@@ -1,12 +1,18 @@
 
 
-.Select{ 
+#FormRol{ 
     
-    
+    display: flex;
     text-align: center;
     box-shadow: none;
     font-family: roboto;
-    width: 300px;
-    
-    
+    width: 500px;
+    margin-left: 90px;
+    margin-bottom: 100px;
+}
+
+#SelectRol {
+
+    background-color: aqua;
+    width: 500px;
 }

@@ -7,62 +7,49 @@ import Boton_Direccion from '../../Componentes/Boton_Direccion';
 import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 import Entrada from '../../Componentes/Entrada';
 
-import { BrowserRouter, Route, Routes, Navigate  } from 'react-router-dom';
-import Usuario_Confirmar_Compra from './Usuario_Confirmar_Compra';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-class Usuario_Establecimiento extends React.Component{
+const useCounter = () => {
+    const [counter, setCounter] = useState(0);
 
-    state = {
-        counter: 0,
-        counter2: 0,
-        counter3: 0,
-    };
-    
-    suma = (count) => {
-        if(this.state.counter<100){
-            
-            if(count==1){
-                this.setState(prevState => ({counter: prevState.counter + 1}));
-            }
-            else if(count==2){
-                this.setState(prevState => ({counter2: prevState.counter2 + 1}));
-            }
-            else{
-                this.setState(prevState => ({counter3: prevState.counter3 + 1}));
-            }
-            
+    const suma = () => {
+        if(counter<99){
+            return setCounter(counter+1) 
         }
-        
-        console.log("You have submitted:"+count);
-      };
+    }
 
-    resta = (count) => {
-        
-            if(count==1 && this.state.counter>0){
-                this.setState(prevState => ({counter: prevState.counter - 1}));
-            }
-            else if(count==2 && this.state.counter2>0){
-                this.setState(prevState => ({counter2: prevState.counter2 - 1}));
-            }
-            else if(this.state.counter3>0){
-                this.setState(prevState => ({counter3: prevState.counter3 - 1}));
-            }
-        
-        
-        console.log("You have submitted:"+this.state.counter);
-    };
+    const resta = () => {
+        if(counter>0){
+            return setCounter(counter-1) 
+        }   
+    }
 
-    
- 
-
-    
-    render() {
-        
-        
+    return {
+        counter,
+        suma,
+        resta
+    }
+}
 
 
-        
+function Usuario_Establecimiento(){
+
+        const counter1 = useCounter();
+        const counter2 = useCounter();
+        const counter3 = useCounter();
+
+        //Inicio Direcciones
+        const navigate = useNavigate();
+        const toUsuarioConfirmarCompra=(direccion)=>{
+            navigate(direccion,{
+                state:{
+                    counter1: counter1.counter,
+                    counter2: counter2.counter,
+                    counter3: counter3.counter
+                }});
+        }
+        //Fin Direcciones
 
 
         return (
@@ -91,11 +78,11 @@ class Usuario_Establecimiento extends React.Component{
                         </p>
                     </div>
 
-                    <div className='DEntrada'><Entrada sum={this.state.counter} sumar={(evt) => this.suma(1)} restar={(evt) => this.resta(1)} descripcion={"Grada Central, Butacas, Playa y Pasillos"} precio={"80 Bs."}/></div>
-                    <div className='DEntrada'><Entrada sum={this.state.counter2}  sumar={(evt) => this.suma(2)} restar={(evt) => this.resta(2)} descripcion={"Zona de Mezzanina"} precio={"200 Bs."}/></div>
-                    <div className='DEntrada'><Entrada sum={this.state.counter3} sumar={(evt) => this.suma(3)} restar={(evt) => this.resta(3)} descripcion={"VIP"} precio={"1500 Bs."}/></div>
+                    <div className='DEntrada'><Entrada numero={counter1.counter} sumar={counter1.suma} restar={counter1.resta} descripcion={"Grada Central, Butacas, Playa y Pasillos"} precio={"80 Bs."}/></div>
+                    <div className='DEntrada'><Entrada numero={counter2.counter}  sumar={counter2.suma} restar={counter2.resta} descripcion={"Zona de Mezzanina"} precio={"200 Bs."}/></div>
+                    <div className='DEntrada'><Entrada numero={counter3.counter} sumar={counter3.suma} restar={counter3.resta} descripcion={"VIP"} precio={"1500 Bs."}/></div>
 
-                    <div className='BotonCompra'><Boton_Direccion dir={'/usuario_confirmar'} nombre="Proceder" s={this.state}/></div>
+                    <div className='BotonCompra'><Boton_Direccion fun={()=>toUsuarioConfirmarCompra('/usuario_confirmar')} nombre="Proceder" /></div>
 
                 </div>
 
@@ -103,14 +90,9 @@ class Usuario_Establecimiento extends React.Component{
                     <Footer/>
                 </div>
 
-
-
-                
-
-
             </div>
         );
-    }  
+      
     
 }
 

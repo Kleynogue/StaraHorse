@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useNavigate,useLocation } from 'react-router';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
@@ -10,9 +10,18 @@ import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 import Boton_Direccion_Ampliado from '../../Componentes/Boton_Direccion_Ampliado';
 
 
-class Usuario_Cuenta extends React.Component{
+function Usuario_Cuenta(){
 
-    render() {
+        //Inicio Direcciones
+        const navigate = useNavigate();
+        const toUsuarioCuenta=(direccion)=>{
+            navigate(direccion,{
+                state:{
+                //Variables
+                }});
+        }
+        //Fin Direcciones
+
 
         return (
 
@@ -25,9 +34,9 @@ class Usuario_Cuenta extends React.Component{
 
                 <div className='MenuInfo'>
                     <h2 className='subtitulo'>CONFIGURACION DE CUENTA</h2>
-                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado dir={'/usuario_cuenta_datos'} nombre="Datos Personales"  /></div>      
-                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado dir={'/usuario_cuenta_solicitud'} nombre="Solicitar Privilegios"  /></div>      
-                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado dir={'/iniciar_sesion'} nombre="Cerrar Sesion"  /></div>      
+                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado fun={()=>toUsuarioCuenta('/usuario_cuenta_datos')} nombre="Datos Personales"  /></div>      
+                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado fun={()=>toUsuarioCuenta('/usuario_cuenta_solicitud')} nombre="Solicitar Privilegios"  /></div>      
+                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado fun={()=>toUsuarioCuenta('/iniciar_sesion')} nombre="Cerrar Sesion"  /></div>      
 
                 </div>
 
@@ -38,7 +47,7 @@ class Usuario_Cuenta extends React.Component{
             </div>
 
         );
-    }  
+      
 }            
 
 
