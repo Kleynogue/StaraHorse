@@ -4,10 +4,10 @@ CREATE TABLE LUGAR(
     Luga_ID serial,
     Luga_Tipo VARCHAR not null,
     Luga_Nombre VARCHAR not null,
-    FK_Lugar integer,
+    Luga_FK_Lugar integer,
     CONSTRAINT pk_lugar PRIMARY KEY(Luga_ID),
-    CONSTRAINT divide FOREIGN KEY(FK_Lugar) REFERENCES LUGAR(Luga_ID),
-    CONSTRAINT tipo_lugar CHECK(Luga_Tipo like 'Municipio' or Luga_Tipo like 'Parroquia' or Luga_Tipo like 'Estado')
+    CONSTRAINT divide FOREIGN KEY(Luga_FK_Lugar) REFERENCES LUGAR(Luga_ID),
+    CONSTRAINT tipo_lugar CHECK(Luga_Tipo IN ('Pais', 'Estado', 'Municipio', 'Parroquia'))
 );
 
 CREATE TABLE JINETE(
