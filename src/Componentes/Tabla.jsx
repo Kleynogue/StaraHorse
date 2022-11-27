@@ -73,8 +73,7 @@ function Tabla(props){
    }
 
  const renderTableHeader=()=> {
-    let header = ["Lugar de llegada", "Distancia", "Jinete", "Fecha","Peso del ejemplar","Tiempo"];
-    return header.map((key, index) => {
+    return props.columnas.map((key, index) => {
        return <th key={index}>{key.toUpperCase()}</th>
     })
  }

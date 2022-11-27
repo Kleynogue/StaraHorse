@@ -16,6 +16,7 @@ function Usuario_Ejemplares_Info(props){
         const location = useLocation();
         console.log("El nombre del ejemplar es: "+location.state.Elemento);
 
+        let header = ["Lugar de llegada", "Distancia", "Jinete", "Fecha","Peso del ejemplar","Tiempo"];
         let record = [
             {Col1: "1", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"},
             {Col1: "2", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"},
@@ -58,7 +59,7 @@ function Usuario_Ejemplares_Info(props){
                 </div>
                     
                 <div className='TablaMenor'>
-                        <Tabla datos={record} col={6}/>
+                        <Tabla datos={record} columnas={header} col={6}/>
                     </div>
 
                 <div>
