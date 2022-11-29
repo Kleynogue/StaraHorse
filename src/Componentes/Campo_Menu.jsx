@@ -7,7 +7,7 @@ function Campo_Menu(props){
         <div className="Contenedor">
 
             <div className="NombreAtributo">{props.titulo}</div>
-            <div className="ValorAtributo">Pepe</div>
+            <div className="ValorAtributo">{props.valor}</div>
 
         </div>
 

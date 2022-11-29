@@ -13,23 +13,39 @@ import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 function Usuario_Propietarios(){
 
-        let prop = [
-            {key: "1", Col2: "Propietario_1"},
-            {key: "2", Col2: "Propietario_2"},
-            {key: "3", Col2: "Propietario_3"},
-            {key: "4", Col2: "Propietario_4"},
-            {key: "5", Col2: "Propietario_5"},
-            {key: "6", Col2: "Propietario_6"},
-            {key: "7", Col2: "Propietario_7"},
-            {key: "8", Col2: "Propietario_8"},
-            {key: "9", Col2: "Propietario_9"},
-            {key: "10", Col2: "Propietario_10"},
-            {key: "11", Col2: "Propietario_11"},
-            {key: "12", Col2: "Propietario_12"}
-        ]
 
-        const [propietarios, setPropietarios] = useState(prop);
+        //Estados de los propietarios
+        const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
+        const [propietarios, setPropietarios] = useState();
         
+
+        //Se establecen los valores de los estados 
+        const EstablecerPropietarios = () => {
+            if(cargado=="false"){
+                
+                let prop = [
+                    {key: "1", Col2: "Propietario_1"},
+                    {key: "2", Col2: "Propietario_2"},
+                    {key: "3", Col2: "Propietario_3"},
+                    {key: "4", Col2: "Propietario_4"},
+                    {key: "5", Col2: "Propietario_5"},
+                    {key: "6", Col2: "Propietario_6"},
+                    {key: "7", Col2: "Propietario_7"},
+                    {key: "8", Col2: "Propietario_8"},
+                    {key: "9", Col2: "Propietario_9"},
+                    {key: "10", Col2: "Propietario_10"},
+                    {key: "11", Col2: "Propietario_11"},
+                    {key: "12", Col2: "Propietario_12"}
+                ]
+                setPropietarios(prop);
+
+                setCargado("true");
+            }
+            
+        }
+        EstablecerPropietarios();
+
+        //Se actualizan los resultados al hacer una busqueda
         const actualizarPropietarios = (e,busqueda) => {
             e.preventDefault();
             console.log("Busqueda: "+busqueda);

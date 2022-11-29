@@ -14,25 +14,6 @@ import { render } from '@testing-library/react';
 
 function Usuario_Carreras(){
 
-        const [fechacarrera, setFechacarrera] = useState();
-        
-
-        let carr = [
-            {key: "1", Col2: "Carrera_Numero_1"},
-            {key: "2", Col2: "Carrera_Numero_2"},
-            {key: "3", Col2: "Carrera_Numero_3"},
-            {key: "4", Col2: "Carrera_Numero_4"},
-            {key: "5", Col2: "Carrera_Numero_5"},
-            {key: "6", Col2: "Carrera_Numero_6"},
-            {key: "7", Col2: "Carrera_Numero_7"},
-            {key: "8", Col2: "Carrera_Numero_8"},
-            {key: "9", Col2: "Carrera_Numero_9"},
-            {key: "10", Col2: "Carrera_Numero_10"},
-            {key: "11", Col2: "Carrera_Numero_11"},
-            {key: "12", Col2: "Carrera_Numero_12"}
-        ]
-
-        const [carreras, setCarreras] = useState(carr);
         
         //Inicio Direcciones
         const navigate = useNavigate();
@@ -44,7 +25,39 @@ function Usuario_Carreras(){
         }
         //Fin Direcciones
 
-        //Una vez presionado el boton del form
+        //Estados de las carreras
+        const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
+        const [carreras, setCarreras] = useState();
+        const [fechacarrera, setFechacarrera] = useState();
+
+        //Se establecen los valores de los estados 
+        const EstablecerCarreras = () => {
+            if(cargado=="false"){
+                
+                let carr = [
+                    {key: "1", Col2: "Carrera_Numero_1"},
+                    {key: "2", Col2: "Carrera_Numero_2"},
+                    {key: "3", Col2: "Carrera_Numero_3"},
+                    {key: "4", Col2: "Carrera_Numero_4"},
+                    {key: "5", Col2: "Carrera_Numero_5"},
+                    {key: "6", Col2: "Carrera_Numero_6"},
+                    {key: "7", Col2: "Carrera_Numero_7"},
+                    {key: "8", Col2: "Carrera_Numero_8"},
+                    {key: "9", Col2: "Carrera_Numero_9"},
+                    {key: "10", Col2: "Carrera_Numero_10"},
+                    {key: "11", Col2: "Carrera_Numero_11"},
+                    {key: "12", Col2: "Carrera_Numero_12"}
+                ]
+                setCarreras(carr);
+
+                setCargado("true");
+            }
+            
+        }
+        EstablecerCarreras();
+        
+
+        //Se actualizan los resultados al hacer una busqueda
         const cargarCarreras= (e) => {
             e.preventDefault();
             console.log("Se solicitan las carreras de la fecha: "+fechacarrera);
@@ -71,8 +84,6 @@ function Usuario_Carreras(){
         }
 
 
-        
-
         return (
 
             <div className='bodyUsuario'>
@@ -86,7 +97,7 @@ function Usuario_Carreras(){
                     <h2 className='subtitulo'>CARRERAS DEL DÍA</h2>
 
                     <form id='FormFecha' onSubmit={e => {cargarCarreras(e)}}>
-                        <div id='FechaInput'><input type="date" required placeholder='Card Number' onChange={e => setFechacarrera(e.target.value)}></input></div>
+                        <div id='FechaInput'><input type="date" required onChange={e => setFechacarrera(e.target.value)}></input></div>
                         <div id='FechaBoton'><Boton_Direccion  nombre={"Seleccionar"} /></div>
                     </form> 
                     

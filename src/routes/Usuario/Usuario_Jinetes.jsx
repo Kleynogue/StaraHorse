@@ -13,23 +13,39 @@ import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 function Usuario_Jinetes(){
 
-        let jine = [
-            {key: "1", Col2: "Jinete_1"},
-            {key: "2", Col2: "Jinete_2"},
-            {key: "3", Col2: "Jinete_3"},
-            {key: "4", Col2: "Jinete_4"},
-            {key: "5", Col2: "Jinete_5"},
-            {key: "6", Col2: "Jinete_6"},
-            {key: "7", Col2: "Jinete_7"},
-            {key: "8", Col2: "Jinete_8"},
-            {key: "9", Col2: "Jinete_9"},
-            {key: "10", Col2: "Jinete_10"},
-            {key: "11", Col2: "Jinete_11"},
-            {key: "12", Col2: "Jinete_12"}
-        ]
+        
+        //Estados de los jinetes
+        const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
+        const [jinetes, setJinetes] = useState();
 
-        const [jinetes, setJinetes] = useState(jine);
+        //Se establecen los valores de los estados 
+        const EstablecerJinetes = () => {
+            if(cargado=="false"){
+                
+                let jine = [
+                    {key: "1", Col2: "Jinete_1"},
+                    {key: "2", Col2: "Jinete_2"},
+                    {key: "3", Col2: "Jinete_3"},
+                    {key: "4", Col2: "Jinete_4"},
+                    {key: "5", Col2: "Jinete_5"},
+                    {key: "6", Col2: "Jinete_6"},
+                    {key: "7", Col2: "Jinete_7"},
+                    {key: "8", Col2: "Jinete_8"},
+                    {key: "9", Col2: "Jinete_9"},
+                    {key: "10", Col2: "Jinete_10"},
+                    {key: "11", Col2: "Jinete_11"},
+                    {key: "12", Col2: "Jinete_12"}
+                ]
+                setJinetes(jine);
 
+                setCargado("true");
+            }
+            
+        }
+        EstablecerJinetes();
+
+
+        //Se actualizan los resultados al hacer una busqueda
         const actualizarJinetes = (e,busqueda) => {
             e.preventDefault();
             console.log("Busqueda: "+busqueda);

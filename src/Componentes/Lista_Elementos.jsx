@@ -11,7 +11,7 @@ function Lista_Elementos(props) {
                 nombre,
                 clave
         }});
-        console.log("El elemento se llama: "+nombre);
+        console.log("- El elemento se llama: "+nombre+" de clave "+clave);
     }
 
   
@@ -24,7 +24,7 @@ function Lista_Elementos(props) {
                     <li key={key} onClick={()=>toA(Col2,key)}>{Col2}</li>           
                  )   
         })
-     }
+    }
     
     
     return (

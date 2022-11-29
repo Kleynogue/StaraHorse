@@ -7,7 +7,7 @@ function Campo_Menu_Lateral(props){
         <div className="Contenedor_L grid">
 
             <div className="NombreAtributo_L">{props.titulo}</div>
-            <div className="ValorAtributo_L">Pepe</div>
+            <div className="ValorAtributo_L">{props.valor}</div>
 
         </div>
 

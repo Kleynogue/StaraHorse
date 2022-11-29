@@ -13,24 +13,37 @@ import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 function Usuario_Entrenadores(){
 
+        //Estados de los entrenadores
+        const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
+        const [entrenadores, setEntrenadores] = useState();
 
-        let entr = [
-            {key: "1", Col2: "Entrenador_1"},
-            {key: "2", Col2: "Entrenador_2"},
-            {key: "3", Col2: "Entrenador_3"},
-            {key: "4", Col2: "Entrenador_4"},
-            {key: "5", Col2: "Entrenador_5"},
-            {key: "6", Col2: "Entrenador_6"},
-            {key: "7", Col2: "Entrenador_7"},
-            {key: "8", Col2: "Entrenador_8"},
-            {key: "9", Col2: "Entrenador_9"},
-            {key: "10", Col2: "Entrenador_10"},
-            {key: "11", Col2: "Entrenador_11"},
-            {key: "12", Col2: "Entrenador_12"}
-        ]
+        //Se establecen los valores de los estados 
+        const EstablecerEntrenadores = () => {
+            if(cargado=="false"){
+                
+                let entr = [
+                    {key: "1", Col2: "Entrenador_1"},
+                    {key: "2", Col2: "Entrenador_2"},
+                    {key: "3", Col2: "Entrenador_3"},
+                    {key: "4", Col2: "Entrenador_4"},
+                    {key: "5", Col2: "Entrenador_5"},
+                    {key: "6", Col2: "Entrenador_6"},
+                    {key: "7", Col2: "Entrenador_7"},
+                    {key: "8", Col2: "Entrenador_8"},
+                    {key: "9", Col2: "Entrenador_9"},
+                    {key: "10", Col2: "Entrenador_10"},
+                    {key: "11", Col2: "Entrenador_11"},
+                    {key: "12", Col2: "Entrenador_12"}
+                ]
+                setEntrenadores(entr);
 
-        const [entrenadores, setEntrenadores] = useState(entr);
+                setCargado("true");
+            }
+            
+        }
+        EstablecerEntrenadores();
 
+        //Se actualizan los resultados al hacer una busqueda
         const actualizarEntrenadores = (e,busqueda) => {
             e.preventDefault();
             console.log("Busqueda: "+busqueda);
@@ -57,6 +70,7 @@ function Usuario_Entrenadores(){
                 alert('No se encontraron resultados'); 
             }
         }
+
 
         return (
             <div className='bodyUsuario'>

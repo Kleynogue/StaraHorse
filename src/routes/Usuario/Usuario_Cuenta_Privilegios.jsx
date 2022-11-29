@@ -33,13 +33,14 @@ function Usuario_Cuenta_Privilegios(){
             }   
         }
 
-
+        //Se muestran las opciones extra para los jinetes
         const jinete= () => {
             setEstado("jinete");
             if(hidden){
                 setHidden(s => !s);
             }   
         }
+        //Se ocultan las opciones extra para los jinetes
         const otro= (est) => {
             setEstado(est);
             if(!hidden){

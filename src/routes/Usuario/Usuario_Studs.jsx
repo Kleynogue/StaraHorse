@@ -13,23 +13,39 @@ import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 function Usuario_Studs(){
 
-        let stu = [
-            {key: "1", Col2: "Stud_1"},
-            {key: "2", Col2: "Stud_2"},
-            {key: "3", Col2: "Stud_3"},
-            {key: "4", Col2: "Stud_4"},
-            {key: "5", Col2: "Stud_5"},
-            {key: "6", Col2: "Stud_6"},
-            {key: "7", Col2: "Stud_7"},
-            {key: "8", Col2: "Stud_8"},
-            {key: "9", Col2: "Stud_9"},
-            {key: "10", Col2: "Stud_10"},
-            {key: "11", Col2: "Stud_11"},
-            {key: "12", Col2: "Stud_12"}
-        ]
 
-        const [studs, setStuds] = useState(stu);
+        //Estados de los studs
+        const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
+        const [studs, setStuds] = useState();
         
+        //Se establecen los valores de los estados 
+        const EstablecerStuds = () => {
+            if(cargado=="false"){
+                
+                let stu = [
+                    {key: "1", Col2: "Stud_1"},
+                    {key: "2", Col2: "Stud_2"},
+                    {key: "3", Col2: "Stud_3"},
+                    {key: "4", Col2: "Stud_4"},
+                    {key: "5", Col2: "Stud_5"},
+                    {key: "6", Col2: "Stud_6"},
+                    {key: "7", Col2: "Stud_7"},
+                    {key: "8", Col2: "Stud_8"},
+                    {key: "9", Col2: "Stud_9"},
+                    {key: "10", Col2: "Stud_10"},
+                    {key: "11", Col2: "Stud_11"},
+                    {key: "12", Col2: "Stud_12"}
+                ]
+                setStuds(stu);
+
+                setCargado("true");
+            }
+            
+        }
+        EstablecerStuds();
+
+
+        //Se actualizan los resultados al hacer una busqueda
         const actualizarStuds = (e,busqueda) => {
             e.preventDefault();
             console.log("Busqueda: "+busqueda);
@@ -57,7 +73,6 @@ function Usuario_Studs(){
             }
         }
 
-        
 
         return (
             <div className='bodyUsuario'>

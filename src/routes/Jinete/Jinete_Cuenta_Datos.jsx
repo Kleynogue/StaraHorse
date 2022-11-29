@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
-import Nav_Usuario from '../../Componentes/Nav_Usuario';
+import Nav_Jinete from '../../Componentes/Nav_Jinete';
 import Campo_Menu_Lateral from '../../Componentes/Campo_Menu_Lateral';
 import Campo_Menu_Ampliado from '../../Componentes/Campo_Menu_Ampliado';
 import Combobox_Roles from '../../Componentes/Combobox_Roles';
@@ -14,7 +14,7 @@ import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 
 
 
-function Usuario_Cuenta_Datos(){
+function Jinete_Cuenta_Datos(){
 
 
         
@@ -60,7 +60,7 @@ function Usuario_Cuenta_Datos(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Usuario />
+                    <Nav_Jinete />
                 </div>
 
                 <div className='MenuInfo'>
@@ -93,4 +93,4 @@ function Usuario_Cuenta_Datos(){
 }            
 
 
-export default Usuario_Cuenta_Datos;
+export default Jinete_Cuenta_Datos;

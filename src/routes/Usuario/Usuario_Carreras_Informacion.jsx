@@ -11,7 +11,7 @@ import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 function Usuario_Carreras_Informacion(){
 
     const location = useLocation();
-    console.log("El nombre de la carrera es: "+location.state.Elemento);
+    console.log("El nombre de la carrera es: "+location.state.nombre+" de clave "+location.state.clave);
 
         return (
 
