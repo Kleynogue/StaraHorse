@@ -8,10 +8,12 @@ function Tabla(props){
    const renderTableData=()=> {
       
       return props.datos.map((Elementos) => {
-   
+         
+
          switch (props.col) {
             case 2:{
                const { Col1, Col2} = Elementos 
+               
                return (
                   <tr key={Col1}>
                      <td>{Col1}</td>

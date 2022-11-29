@@ -21,14 +21,16 @@ function Usuario_Ejemplares_Info(props){
             {Col1: "1", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"},
             {Col1: "2", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"},
             {Col1: "3", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"},
-            {Col1: "3", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"}
+            {Col1: "4", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"}
         ]
         
         const elementos = ["Propietario_1", "Propietario_2", "Propietario_3", "Propietario_4"
                      ,"Propietario_5", "Propietario_6", "Propietario_7", "Propietario_8"
                      ,"Propietario_9", "Propietario_10", "Propietario_11" , "Propietario_12"];
 
+
         
+
         return (
 
             <div className='bodyUsuario'>
@@ -60,7 +62,7 @@ function Usuario_Ejemplares_Info(props){
                     
                 <div className='TablaMenor'>
                         <Tabla datos={record} columnas={header} col={6}/>
-                    </div>
+                </div>
 
                 <div>
                     <Footer/>

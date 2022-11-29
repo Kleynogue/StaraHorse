@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate,useLocation } from 'react-router';
+import { useState } from 'react';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
@@ -8,15 +9,31 @@ import Lista_Elementos from '../../Componentes/Lista_Elementos';
 import Nav_Usuario from '../../Componentes/Nav_Usuario';
 
 import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
+import { render } from '@testing-library/react';
 
 
 function Usuario_Carreras(){
 
+        const [fechacarrera, setFechacarrera] = useState();
+        
 
-        const elementos = ["Carrera_Numero_1", "Carrera_Numero_2", "Carrera_Numero_3", "Carrera_Numero_4"
-        ,"Carrera_Numero_5", "Carrera_Numero_6", "Carrera_Numero_7", "Carrera_Numero_8"
-        ,"Carrera_Numero_9", "Carrera_Numero_10", "Carrera_Numero_11" , "Carrera_Numero_12"];
+        let carr = [
+            {key: "1", Col2: "Carrera_Numero_1"},
+            {key: "2", Col2: "Carrera_Numero_2"},
+            {key: "3", Col2: "Carrera_Numero_3"},
+            {key: "4", Col2: "Carrera_Numero_4"},
+            {key: "5", Col2: "Carrera_Numero_5"},
+            {key: "6", Col2: "Carrera_Numero_6"},
+            {key: "7", Col2: "Carrera_Numero_7"},
+            {key: "8", Col2: "Carrera_Numero_8"},
+            {key: "9", Col2: "Carrera_Numero_9"},
+            {key: "10", Col2: "Carrera_Numero_10"},
+            {key: "11", Col2: "Carrera_Numero_11"},
+            {key: "12", Col2: "Carrera_Numero_12"}
+        ]
 
+        const [carreras, setCarreras] = useState(carr);
+        
         //Inicio Direcciones
         const navigate = useNavigate();
         const toUsuarioApuestas=(direccion)=>{
@@ -26,6 +43,35 @@ function Usuario_Carreras(){
                 }});
         }
         //Fin Direcciones
+
+        //Una vez presionado el boton del form
+        const cargarCarreras= (e) => {
+            e.preventDefault();
+            console.log("Se solicitan las carreras de la fecha: "+fechacarrera);
+            
+            if(1==1){ //Las carreras de ese dia se pueden cargar correctamente
+                let carr2 = [
+                    {key: "13", Col2: "Carrera_Numero_13"},
+                    {key: "14", Col2: "Carrera_Numero_14"},
+                    {key: "15", Col2: "Carrera_Numero_15"},
+                    {key: "16", Col2: "Carrera_Numero_16"},
+                    {key: "17", Col2: "Carrera_Numero_17"},
+                    {key: "18", Col2: "Carrera_Numero_18"},
+                    {key: "19", Col2: "Carrera_Numero_19"},
+                    {key: "20", Col2: "Carrera_Numero_20"},
+                    {key: "21", Col2: "Carrera_Numero_21"},
+                    {key: "22", Col2: "Carrera_Numero_22"},
+                    {key: "23", Col2: "Carrera_Numero_23"},
+                    {key: "24", Col2: "Carrera_Numero_24"}
+                ]
+                setCarreras(carr2);
+            }
+            else{   //Las carreras de ese dia NO se pueden cargar 
+            }
+        }
+
+
+        
 
         return (
 
@@ -38,7 +84,13 @@ function Usuario_Carreras(){
 
                 <div className='DLista'>
                     <h2 className='subtitulo'>CARRERAS DEL DÍA</h2>
-                    <Lista_Elementos elementos={elementos} dir="/usuario_carreras_info" />
+
+                    <form id='FormFecha' onSubmit={e => {cargarCarreras(e)}}>
+                        <div id='FechaInput'><input type="date" required placeholder='Card Number' onChange={e => setFechacarrera(e.target.value)}></input></div>
+                        <div id='FechaBoton'><Boton_Direccion  nombre={"Seleccionar"} /></div>
+                    </form> 
+                    
+                    <Lista_Elementos elementos={carreras} dir="/usuario_carreras_info" />
                     <div className='DivBotonApuesta'><Boton_Direccion fun={()=>toUsuarioApuestas('/usuario_apuestas')} nombre="Apuestas" /></div>
                     <div><Boton_Direccion fun={()=>toUsuarioApuestas('/usuario_apuestas_historial')} nombre="Historial" /></div>
                 </div>

@@ -26,6 +26,17 @@ html, body {
     color: rgb(255, 136, 0);
 }
 
+#FormFecha{
+    grid-column: 1/4;
+    display: flex;
+    justify-self: center;
+    margin: 25px 0px;
+}
+#FechaInput{
+    margin-left: 40px;
+    
+}
+
 .DLista{
     display: grid;
     grid-template-columns: auto auto;
