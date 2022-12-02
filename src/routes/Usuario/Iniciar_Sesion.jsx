@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 import Footer from '../../Componentes/Footer';
@@ -13,6 +13,25 @@ import '../../StyleSheets/Usuario/Iniciar_Sesion.css';
 
 function Iniciar_Sesion(){
 
+        //Borrar
+        const [lugar, setLugar] = useState(false);
+        useEffect(() => {
+          getLugar();
+        }, []);
+        function getLugar() {
+          fetch('http://localhost:3000')
+            .then(response => {
+              return response.text();
+            })
+            .then(data => {
+              setLugar(data);
+              
+            });
+        }
+        console.log("-- Lugar: "+getLugar());
+        //Borrar
+        
+        
         const [usuario, setUsuario] = useState();
         const [password, setPassword] = useState()
 

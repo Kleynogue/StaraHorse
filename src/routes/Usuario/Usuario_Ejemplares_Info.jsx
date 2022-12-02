@@ -16,6 +16,7 @@ function Usuario_Ejemplares_Info(props){
 
         const location = useLocation();
         console.log("El nombre del ejemplar es: "+location.state.nombre+" de clave "+location.state.clave);
+        
 
         //Columnas del record del ejemplar
         let header = ["Lugar de llegada", "Distancia", "Jinete", "Fecha","Peso del ejemplar","Tiempo"];

@@ -9,11 +9,10 @@ import Lista_Elementos from '../../Componentes/Lista_Elementos';
 import Nav_Usuario from '../../Componentes/Nav_Usuario';
 
 import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
-import { render } from '@testing-library/react';
+
 
 
 function Usuario_Carreras(){
-
         
         //Inicio Direcciones
         const navigate = useNavigate();

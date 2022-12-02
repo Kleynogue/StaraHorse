@@ -67,7 +67,38 @@ function Tabla(props){
                   </tr>
                )
             }
-
+            case 8:{
+               const { Col1, Col2, Col3, Col4, Col5, Col6, Col7, Col8 } = Elementos 
+               return (
+                  <tr key={Col1}>
+                     <td>{Col1}</td>
+                     <td>{Col2}</td>
+                     <td>{Col3}</td>
+                     <td>{Col4}</td>
+                     <td>{Col5}</td>
+                     <td>{Col6}</td>
+                     <td>{Col7}</td>
+                     <td>{Col8}</td>
+                  </tr>
+               )
+            }
+            case 10:{
+               const { Col1, Col2, Col3, Col4, Col5, Col6, Col7, Col8, Col9, Col10 } = Elementos 
+               return (
+                  <tr key={Col1}>
+                     <td>{Col1}</td>
+                     <td>{Col2}</td>
+                     <td>{Col3}</td>
+                     <td>{Col4}</td>
+                     <td>{Col5}</td>
+                     <td>{Col6}</td>
+                     <td>{Col7}</td>
+                     <td>{Col8}</td>
+                     <td>{Col9}</td>
+                     <td>{Col10}</td>
+                  </tr>
+               )
+            }
          }  
          
          

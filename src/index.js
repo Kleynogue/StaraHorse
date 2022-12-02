@@ -27,6 +27,7 @@ import Jinete_Carreras from './routes/Jinete/Jinete_Carreras';
 import Jinete_Perfil from './routes/Jinete/Jinete_Perfil';
 import Jinete_Cuenta from './routes/Jinete/Jinete_Cuenta';
 import Jinete_Cuenta_Datos from './routes/Jinete/Jinete_Cuenta_Datos';
+import Usuario_Carreras_Resultado from './routes/Usuario/Usuario_Carreras_Resultado';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -43,6 +44,7 @@ root.render(
 
       <Route path='/usuario_carreras' element={<Usuario_Carreras/>}/>
         <Route path='/usuario_carreras_info' element={<Usuario_Carreras_Informacion/>}/>
+        <Route path='/usuario_carreras_resultado' element={<Usuario_Carreras_Resultado/>}/>
 
       <Route path='/usuario_ejemplares' element={<Usuario_Ejemplares/>}/>
         <Route path='/usuario_ejemplares_info' element={<Usuario_Ejemplares_Info/>}/>
