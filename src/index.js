@@ -28,6 +28,13 @@ import Jinete_Perfil from './routes/Jinete/Jinete_Perfil';
 import Jinete_Cuenta from './routes/Jinete/Jinete_Cuenta';
 import Jinete_Cuenta_Datos from './routes/Jinete/Jinete_Cuenta_Datos';
 import Usuario_Carreras_Resultado from './routes/Usuario/Usuario_Carreras_Resultado';
+import Jinete_Carreras_Informacion from './routes/Jinete/Jinete_Carreras_Informacion';
+import Entrenador_Cuenta from './routes/Entrenador/Entrenador_Cuenta';
+import Entrenador_Cuenta_Datos from './routes/Entrenador/Entrenador_Cuenta_Datos';
+import Entrenador_Perfil from './routes/Entrenador/Entrenador_Perfil';
+import Entrenador_Ejemplares from './routes/Entrenador/Entrenador_Ejemplares';
+import Entrenador_Carreras from './routes/Entrenador/Entrenador_Carreras';
+import Entrenador_Carreras_Informacion from './routes/Entrenador/Entrenador_Carreras_Informacion';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -71,11 +78,21 @@ root.render(
         <Route path='/usuario_cuenta_solicitud' element={<Usuario_Cuenta_Privilegios/>}/>
     
     
+
       <Route path='/jinete_carreras' element={<Jinete_Carreras/>}/>
+        <Route path='/jinete_carreras_info' element={<Jinete_Carreras_Informacion/>}/>
       <Route path='/jinete_perfil' element={<Jinete_Perfil/>}/>
       <Route path='/jinete_cuenta' element={<Jinete_Cuenta/>}/>
         <Route path='/jinete_cuenta_datos' element={<Jinete_Cuenta_Datos/>}/>
 
+
+
+      <Route path='/entrenador_cuenta' element={<Entrenador_Cuenta/>}/>
+        <Route path='/entrenador_cuenta_datos' element={<Entrenador_Cuenta_Datos/>}/>
+      <Route path='/entrenador_perfil' element={<Entrenador_Perfil/>}/>
+      <Route path='/entrenador_ejemplares' element={<Entrenador_Ejemplares/>}/>
+      <Route path='/entrenador_carreras' element={<Entrenador_Carreras/>}/>
+        <Route path='/entrenador_carreras_info' element={<Entrenador_Carreras_Informacion/>}/>
 
 
     </Routes> 

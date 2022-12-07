@@ -153,3 +153,12 @@ input[type="date"]{
     justify-self: center;
     margin-top: 50px;
 }
+
+#EntrenadorListaEjemplares{
+    margin: 60px;
+}
+
+#EntrenadorListaEjemplaresCarrera{
+    margin: 50px;
+    grid-column: 1/3;
+}

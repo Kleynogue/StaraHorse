@@ -17,7 +17,20 @@ import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 function Jinete_Cuenta_Datos(){
 
 
-        
+        const navigate = useNavigate();
+        const ComboBoxHandleSubmit= (e,elemento,valor) => {
+            e.preventDefault();
+            console.log("El usuario selecciona la opcion: "+elemento);
+            if(1==1){ //Todo ocurre correctamente
+                navigate("/"+valor+"_cuenta",{
+                    state:{
+                    //Variables
+                }});     
+            }
+            else{   //Algun error con la solicitud
+            }
+        }
+
 
         //Estados de los valores del jinete
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
@@ -77,7 +90,7 @@ function Jinete_Cuenta_Datos(){
                     <div></div>
                     <div></div>
 
-                    <div className='ComboboxPrivilegios'><Combobox_Roles opciones={rol} /></div>
+                    <div className='ComboboxPrivilegios'><Combobox_Roles opciones={rol} fun={ComboBoxHandleSubmit} textoBoton="Cambiar"/></div>
                            
                 </div>
 

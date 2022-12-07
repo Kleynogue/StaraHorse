@@ -4,17 +4,16 @@ import { useState } from 'react';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
-import Nav_Usuario from '../../Componentes/Nav_Usuario';
 import Campo_Menu_Lateral from '../../Componentes/Campo_Menu_Lateral';
 import Campo_Menu_Ampliado from '../../Componentes/Campo_Menu_Ampliado';
 import Combobox_Roles from '../../Componentes/Combobox_Roles';
-import Boton_Direccion from '../../Componentes/Boton_Direccion';
+import Nav_Entrenador from '../../Componentes/Nav_Entrenador';
 
 import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 
 
+function Entrenador_Cuenta_Datos(){
 
-function Usuario_Cuenta_Datos(){
 
         const navigate = useNavigate();
         const ComboBoxHandleSubmit= (e,elemento,valor) => {
@@ -24,11 +23,12 @@ function Usuario_Cuenta_Datos(){
                 navigate("/"+valor+"_cuenta",{
                     state:{
                     //Variables
-                    }});     
+                }});     
             }
             else{   //Algun error con la solicitud
             }
         }
+
 
         //Estados de los valores del jinete
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
@@ -71,7 +71,7 @@ function Usuario_Cuenta_Datos(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Usuario />
+                    <Nav_Entrenador />
                 </div>
 
                 <div className='MenuInfo'>
@@ -104,4 +104,4 @@ function Usuario_Cuenta_Datos(){
 }            
 
 
-export default Usuario_Cuenta_Datos;
+export default Entrenador_Cuenta_Datos;

@@ -6,12 +6,12 @@ import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
 import Boton_Direccion from '../../Componentes/Boton_Direccion';
 import Lista_Elementos from '../../Componentes/Lista_Elementos';
-import Nav_Jinete from '../../Componentes/Nav_Jinete';
+import Nav_Entrenador from '../../Componentes/Nav_Entrenador';
 
-import '../../StyleSheets/Jinete/Jinete_Menu_Principal.css';
+import '../../StyleSheets/Entrenador/Entrenador_Menu_Principal.css';
 
 
-function Jinete_Carreras(props){
+function Entrenador_Carreras(props){
 
 
         //Estados de las carreras
@@ -79,7 +79,7 @@ function Jinete_Carreras(props){
 
                     <div>
                         <Cabecera/>
-                        <Nav_Jinete />
+                        <Nav_Entrenador />
                     </div>
 
                     <div className='DLista'>
@@ -90,10 +90,8 @@ function Jinete_Carreras(props){
                             <div id='FechaBoton'><Boton_Direccion  nombre={"Seleccionar"} /></div>
                         </form> 
 
-                        <div id="CarreraLista"><Lista_Elementos elementos={carreras} dir="/jinete_carreras_info" /></div>
+                        <div id="CarreraLista"><Lista_Elementos elementos={carreras} dir="/entrenador_carreras_info" /></div>
                         
-                        
-
                     </div>
 
                     <div>
@@ -107,4 +105,4 @@ function Jinete_Carreras(props){
 }            
 
 
-export default Jinete_Carreras;
+export default Entrenador_Carreras;
