@@ -165,13 +165,13 @@ function Entrenador_Carreras_Informacion(){
                     <div id='Trecord'><div id='TituloRecord'>Record</div><Tabla datos={record} columnas={COLreco} col={4}/></div>
                     <div id='Tejemplares'><Tabla datos={ejemplares} columnas={COLejem} col={10}/></div>
                     
+                    <div id='ComboboxSolicitudEntrenador'><Combobox_Roles opciones={implemento} fun={ComboBoxHandleSubmit} textoBoton="Añadir"/></div>
 
                     <div id="EntrenadorListaEjemplaresCarrera">
                         <Lista_Elementos_Boton elementos={ejemplaresEntrenador} titulo="" boton="Inscribir a este Ejemplar" fun={ListaHandleSubmit}/>
                     </div>
 
 
-                    <div id='ComboboxSolicitudJinete'><Combobox_Roles opciones={implemento} fun={ComboBoxHandleSubmit} textoBoton="Añadir"/></div>
 
 
 

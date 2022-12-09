@@ -100,7 +100,7 @@ function Usuario_Carreras(){
                         <div id='FechaBoton'><Boton_Direccion  nombre={"Seleccionar"} /></div>
                     </form> 
                     
-                    <Lista_Elementos elementos={carreras} dir="/usuario_carreras_info" />
+                    <div id="UsuarioCarreraLista"><Lista_Elementos elementos={carreras} dir="/usuario_carreras_info" /></div>
                     <div className='DivBotonApuesta'><Boton_Direccion fun={()=>toUsuarioApuestas('/usuario_apuestas')} nombre="Apuestas" /></div>
                     <div><Boton_Direccion fun={()=>toUsuarioApuestas('/usuario_apuestas_historial')} nombre="Historial" /></div>
                 </div>

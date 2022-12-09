@@ -44,6 +44,11 @@ html, body {
     justify-content: center;
 }
 
+#UsuarioCarreraLista{
+    grid-column: 1/4;
+    justify-self: center;
+}
+
 .DivBotonApuesta{
     justify-self: start;
     padding-left: 40px;

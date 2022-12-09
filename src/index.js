@@ -35,6 +35,7 @@ import Entrenador_Perfil from './routes/Entrenador/Entrenador_Perfil';
 import Entrenador_Ejemplares from './routes/Entrenador/Entrenador_Ejemplares';
 import Entrenador_Carreras from './routes/Entrenador/Entrenador_Carreras';
 import Entrenador_Carreras_Informacion from './routes/Entrenador/Entrenador_Carreras_Informacion';
+import Entrenador_Solicitudes from './routes/Entrenador/Entrenador_Solicitudes';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -93,6 +94,7 @@ root.render(
       <Route path='/entrenador_ejemplares' element={<Entrenador_Ejemplares/>}/>
       <Route path='/entrenador_carreras' element={<Entrenador_Carreras/>}/>
         <Route path='/entrenador_carreras_info' element={<Entrenador_Carreras_Informacion/>}/>
+      <Route path='/entrenador_solicitudes' element={<Entrenador_Solicitudes/>}/>
 
 
     </Routes> 
