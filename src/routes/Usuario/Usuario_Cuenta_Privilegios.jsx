@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 
 import Footer from '../../Componentes/Footer';
@@ -8,7 +9,6 @@ import Boton_Direccion from '../../Componentes/Boton_Direccion';
 
 
 import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
-import { useState } from 'react';
 
 
 function Usuario_Cuenta_Privilegios(){
@@ -19,10 +19,10 @@ function Usuario_Cuenta_Privilegios(){
         const [estado, setEstado] = useState()
         const [hidden, setHidden] = useState(true);
 
-        
+        //Una vez presionado el boton del form
         const handleSubmit= (e) => {
             e.preventDefault();
-            console.log("You have submitted:"+estado);
+            console.log("Selecciono el rol de:"+estado);
             if(estado!="jinete"){
                 /*De ser necesario aqui se pueden hacer comprobaciones respecto a la solicitud de entrenador y propietario */
                 alert('Privilegio '+estado+' solicitado con exito');
@@ -33,13 +33,14 @@ function Usuario_Cuenta_Privilegios(){
             }   
         }
 
-
+        //Se muestran las opciones extra para los jinetes
         const jinete= () => {
             setEstado("jinete");
             if(hidden){
                 setHidden(s => !s);
             }   
         }
+        //Se ocultan las opciones extra para los jinetes
         const otro= (est) => {
             setEstado(est);
             if(!hidden){
@@ -102,10 +103,10 @@ function Usuario_Cuenta_Privilegios(){
                         </div>
                         
                         {!hidden ? 
-                            <form id='FormJinete' >
+                            <div id='FormJinete' >
                                 <div id='PesoInput'><input type="number" required="" placeholder='Peso' onChange={e => setPeso(e.target.value)}></input></div>
                                 <div id='AlturaInput'><input type="number" required="" placeholder='Altura' onChange={e => setAltura(e.target.value)}></input></div>
-                            </form>  
+                            </div>  
                         : null}
                         
                         <div className='BotonSolicitar'><Boton_Direccion nombre="Solicitar" /></div>

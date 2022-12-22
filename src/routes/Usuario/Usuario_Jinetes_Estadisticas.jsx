@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate,useLocation } from 'react-router';
- 
+import { useState } from 'react';
+
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
 import Nav_Usuario from '../../Componentes/Nav_Usuario';
@@ -21,6 +22,27 @@ function Usuario_Jinetes_Estadisticas(){
                     }});
         }
     
+        //Estados de los valores del jinete
+        const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
+        const [nombre, setNombre] = useState();
+        const [posicion, setPosicion] = useState();
+        const [dinero, setDinero] = useState();
+        const [cinco, setCinco] = useState();
+        
+
+        //Se establecen los valores de los estados 
+        const EstablecerEstadisticasJinete = () => {
+            if(cargado=="false"){
+                setNombre("Nombre");
+                setPosicion("Posicion");
+                setDinero("Dinero");
+                setCinco("cinco primeros");
+                
+                setCargado("true");
+            }
+            
+        }
+        EstablecerEstadisticasJinete();
 
         return (
 
@@ -33,10 +55,10 @@ function Usuario_Jinetes_Estadisticas(){
 
                 <div className='MenuInfo'>
                     <h2 className='subtitulo'>JINETES</h2>
-                    <Campo_Menu titulo="Nombre"/>
-                    <Campo_Menu titulo="Posicion Actual"/>
-                    <Campo_Menu titulo="Dinero Ganado"/>
-                    <Campo_Menu titulo="5 primeros"/>
+                    <Campo_Menu titulo="Nombre" valor={nombre}/>
+                    <Campo_Menu titulo="Posicion Actual" valor={posicion}/>
+                    <Campo_Menu titulo="Dinero Ganado" valor={dinero}/>
+                    <Campo_Menu titulo="5 primeros" valor={cinco}/>
                     <div></div>
                     <div className='BotonJinete' ><Boton_Direccion fun={()=>toJinetesInfo('/usuario_jinetes_info')} nombre="Regresar"  /></div>      
                 </div>

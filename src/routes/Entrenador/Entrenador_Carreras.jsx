@@ -6,23 +6,13 @@ import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
 import Boton_Direccion from '../../Componentes/Boton_Direccion';
 import Lista_Elementos from '../../Componentes/Lista_Elementos';
-import Nav_Usuario from '../../Componentes/Nav_Usuario';
+import Nav_Entrenador from '../../Componentes/Nav_Entrenador';
 
-import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
+import '../../StyleSheets/Entrenador/Entrenador_Menu_Principal.css';
 
 
+function Entrenador_Carreras(props){
 
-function Usuario_Carreras(){
-        
-        //Inicio Direcciones
-        const navigate = useNavigate();
-        const toUsuarioApuestas=(direccion)=>{
-            navigate(direccion,{
-                state:{
-                //Variables
-                }});
-        }
-        //Fin Direcciones
 
         //Estados de las carreras
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
@@ -82,33 +72,32 @@ function Usuario_Carreras(){
             }
         }
 
-
         return (
 
             <div className='bodyUsuario'>
+                
 
-                <div>
-                    <Cabecera/>
-                    <Nav_Usuario />
-                </div>
+                    <div>
+                        <Cabecera/>
+                        <Nav_Entrenador />
+                    </div>
 
-                <div className='DLista'>
-                    <h2 className='subtitulo'>CARRERAS DEL DÍA</h2>
+                    <div className='DLista'>
+                        <h2 className='subtitulo'>CARRERAS</h2>
 
-                    <form id='FormFecha' onSubmit={e => {cargarCarreras(e)}}>
-                        <div id='FechaInput'><input type="date" required onChange={e => setFechacarrera(e.target.value)}></input></div>
-                        <div id='FechaBoton'><Boton_Direccion  nombre={"Seleccionar"} /></div>
-                    </form> 
-                    
-                    <div id="UsuarioCarreraLista"><Lista_Elementos elementos={carreras} dir="/usuario_carreras_info" /></div>
-                    <div className='DivBotonApuesta'><Boton_Direccion fun={()=>toUsuarioApuestas('/usuario_apuestas')} nombre="Apuestas" /></div>
-                    <div><Boton_Direccion fun={()=>toUsuarioApuestas('/usuario_apuestas_historial')} nombre="Historial" /></div>
-                </div>
+                        <form id='FormFecha' onSubmit={e => {cargarCarreras(e)}} >
+                            <div id='FechaInput'><input type="date" required onChange={e => setFechacarrera(e.target.value)}></input></div>
+                            <div id='FechaBoton'><Boton_Direccion  nombre={"Seleccionar"} /></div>
+                        </form> 
 
-                <div>
-                    <Footer/>
-                </div>
+                        <div id="CarreraLista"><Lista_Elementos elementos={carreras} dir="/entrenador_carreras_info" /></div>
+                        
+                    </div>
 
+                    <div>
+                        <Footer/>
+                    </div>   
+                
             </div>
 
         );
@@ -116,4 +105,4 @@ function Usuario_Carreras(){
 }            
 
 
-export default Usuario_Carreras;
+export default Entrenador_Carreras;

@@ -4,28 +4,32 @@ import { useState } from 'react';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
-import Nav_Usuario from '../../Componentes/Nav_Usuario';
+import Nav_Jinete from '../../Componentes/Nav_Jinete';
 import Tabla from '../../Componentes/Tabla';
 import Boton_Direccion_Ampliado from '../../Componentes/Boton_Direccion_Ampliado';
+import Combobox_Roles from '../../Componentes/Combobox_Roles';
 
-import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
+import '../../StyleSheets/Jinete/Jinete_Menu_Principal.css';
 
 
-function Usuario_Carreras_Informacion(){
+function Jinete_Carreras_Informacion(){
 
         const location = useLocation();
         console.log("El nombre de la carrera es: "+location.state.nombre+" de clave "+location.state.clave);
 
-        //Inicio Direcciones
-        const navigate = useNavigate();
-        const toUsuarioCarreraResultado=(direccion)=>{
-            navigate(direccion,{
-                state:{
-                nombre:location.state.nombre,
-                clave:location.state.clave,
-                }});
+
+        const ComboBoxHandleSubmit= (e,elemento,valor) => {
+            e.preventDefault();
+            console.log("El usuario selecciona la opcion: "+elemento);
+            if(1==1){ //Todo ocurre correctamente
+                console.log("Solicitud del "+elemento+" procesada con exito.");     
+            }
+            else{   //Algun error con la solicitud
+            }
         }
-        //Fin Direcciones
+
+
+       
 
         //Columnas del record del ejemplar
         let COLprin = ["Fecha", "Hora", "Distancia", "N Llamado","Tipo de Carrera","N Carrera", "Nombre", "Categoria"];
@@ -42,6 +46,9 @@ function Usuario_Carreras_Informacion(){
         const [favoritos, setFavoritos] = useState();
         const [record, setRecord] = useState();
         const [ejemplares, setEjemplares] = useState();
+
+        const [solicitud, setSolicitud] = useState();
+
         //const [, set] = useState();
 
 
@@ -82,9 +89,24 @@ function Usuario_Carreras_Informacion(){
                     {Col1: "Ejemplar_1", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_1", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"},
                     {Col1: "Ejemplar_2", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_2", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"},
                     {Col1: "Ejemplar_3", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_3", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"},
-                    {Col1: "Ejemplar_4", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_4", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"}
+                    {Col1: "Ejemplar_4", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_4", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"},
+                    {Col1: "Ejemplar_5", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_5", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"},
+                    {Col1: "Ejemplar_6", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_6", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"},
+                    {Col1: "Ejemplar_7", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_7", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"}
                 ]
                 setEjemplares(ejem);
+
+                let soli = [
+                    { value: "1", label: "Ejemplar_1"},
+                    { value: "2", label: "Ejemplar_2"},
+                    { value: "3", label: "Ejemplar_3"},
+                    { value: "4", label: "Ejemplar_4"},
+                    { value: "5", label: "Ejemplar_5"},
+                    { value: "6", label: "Ejemplar_6"},
+                    { value: "7", label: "Ejemplar_7"},       
+                ]
+                setSolicitud(soli);
+
 
                 setCargado("true");
             }
@@ -101,7 +123,7 @@ function Usuario_Carreras_Informacion(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Usuario />
+                    <Nav_Jinete />
                 </div>
 
                 <div className='DLista'>
@@ -112,7 +134,7 @@ function Usuario_Carreras_Informacion(){
                     <div id='Trecord'><div id='TituloRecord'>Record</div><Tabla datos={record} columnas={COLreco} col={4}/></div>
                     <div id='Tejemplares'><Tabla datos={ejemplares} columnas={COLejem} col={10}/></div>
                     
-                    <div id='BotonResultados' ><Boton_Direccion_Ampliado fun={()=>toUsuarioCarreraResultado('/usuario_carreras_resultado')} nombre="Resultado"  /></div>      
+                    <div id='ComboboxSolicitudJinete'><Combobox_Roles opciones={solicitud} fun={ComboBoxHandleSubmit} textoBoton="Solicitar"/></div>
 
                 </div>
 
@@ -127,4 +149,4 @@ function Usuario_Carreras_Informacion(){
 }            
 
 
-export default Usuario_Carreras_Informacion;
+export default Jinete_Carreras_Informacion;

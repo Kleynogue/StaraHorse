@@ -6,19 +6,23 @@ import '../StyleSheets/Componentes/Lista_Elementos_Reducida.css';
 function Lista_Elementos_Reducida(props) {
 
     const navigate = useNavigate();
-    const toA=(Elemento)=>{
+    const toA=(nombre, clave)=>{
         navigate(props.dir,{
             state:{
-                Elemento
+                nombre,
+                clave
         }});
-        console.log("El eleme se llamaaaaaa: "+Elemento);
+        console.log("- El elemento se llama: "+nombre+" de clave "+clave);
     }
 
-    const elementos = props.elementos;
-    const renderListado = () =>{
-        return elementos.map((String,index) =>    
-            <li key={index} onClick={()=>toA(String)}>{String}</li>     
-        );
+    const renderListado=()=> {
+      
+        return props.elementos.map((Elementos) => {      
+                 const { key, Col2} = Elementos 
+                 return (
+                    <li key={key} onClick={()=>toA(Col2,key)}>{Col2}</li>           
+                 )   
+        })
     }
 
     return (

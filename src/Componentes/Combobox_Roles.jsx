@@ -12,17 +12,6 @@ function Combobox_Roles(props){
 
     const [selectedOption, setSelectedOption] = useState(null);    
 
-    //Inicio Direcciones
-    const navigate = useNavigate();
-    const toA=(direccion)=>{
-
-        navigate("/"+direccion+"_carreras",{
-            state:{
-            //Variables
-            }});
-    }
-    //Fin Direcciones
-
     const customerStyles = { 
         control: (styles, {isFocused}) => ({ 
             ...styles, 
@@ -46,9 +35,9 @@ function Combobox_Roles(props){
 
     return(
 
-        <form id='FormRol' >
+        <form id='FormRol' onSubmit={e => {props.fun(e,selectedOption.label,selectedOption.value)}}>
             <div id='SelectRol'><Select styles={customerStyles} options={props.opciones} defaultValue={selectedOption}  onChange={setSelectedOption} /></div>
-            <div id='BotonRol'><Boton_Direccion fun={()=>toA(selectedOption.value)} nombre="Cambiar"  /></div>    
+            <div id='BotonRol'><Boton_Direccion nombre={props.textoBoton}  /></div>    
         </form>
     );
     

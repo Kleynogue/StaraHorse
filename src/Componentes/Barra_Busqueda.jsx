@@ -1,15 +1,20 @@
+import { useState } from 'react';
+
 import '../StyleSheets/Componentes/Barra_Busqueda.css';
 
-function Barra_Busqueda(){
+function Barra_Busqueda(props){
+    
+    const [busqueda, setBusqueda] = useState();
+    
     return(
 
-        <div className="BarraBusqueda">
+        <form className="BarraBusqueda" onSubmit={(e) => {props.fun(e,busqueda)}}>
 
-            <input type="text"placeholder="Buscar"className="textField"name="busqueda"/>   
+            <input type="text"placeholder="Buscar" required className="textField"name="busqueda" onChange={e => setBusqueda(e.target.value)}/>   
 
-            <button className='btnBuscar'></button>
+            <button type='submit' className='btnBuscar'></button>
             
-        </div>
+        </form>
     );
     
 }

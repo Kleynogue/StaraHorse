@@ -3,14 +3,12 @@ import { useNavigate,useLocation } from 'react-router';
 
 import Footer from '../../Componentes/Footer';
 import Cabecera from '../../Componentes/Cabecera';
-import Nav_Usuario from '../../Componentes/Nav_Usuario';
 import Boton_Direccion_Ampliado from '../../Componentes/Boton_Direccion_Ampliado';
-
+import Nav_Entrenador from '../../Componentes/Nav_Entrenador';
 
 import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 
-
-function Usuario_Cuenta(){
+function Entrenador_Cuenta(){
 
         //Inicio Direcciones
         const navigate = useNavigate();
@@ -29,13 +27,12 @@ function Usuario_Cuenta(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Usuario />
+                    <Nav_Entrenador />
                 </div>
 
                 <div className='MenuInfo'>
                     <h2 className='subtitulo'>CONFIGURACION DE CUENTA</h2>
-                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado fun={()=>toUsuarioCuenta('/usuario_cuenta_datos')} nombre="Datos Personales"  /></div>      
-                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado fun={()=>toUsuarioCuenta('/usuario_cuenta_solicitud')} nombre="Solicitar Privilegios"  /></div>      
+                    <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado fun={()=>toUsuarioCuenta('/entrenador_cuenta_datos')} nombre="Datos Personales"  /></div>      
                     <div className='BotonMenuCuenta' ><Boton_Direccion_Ampliado fun={()=>toUsuarioCuenta('/iniciar_sesion')} nombre="Cerrar Sesion"  /></div>      
 
                 </div>
@@ -51,4 +48,4 @@ function Usuario_Cuenta(){
 }            
 
 
-export default Usuario_Cuenta;
+export default Entrenador_Cuenta;

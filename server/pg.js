@@ -14,7 +14,7 @@ async function getColumn(table, func){
     await pool.query(`select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = '${table}' limit 1`, func);
 }
 
-module.exports = {
+  module.exports = {
     pool,
     getColumn
-};
+  }
