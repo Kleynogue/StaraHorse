@@ -10,9 +10,11 @@ const config = {
 
 const pool = new Pool(config);
 
-module.exports.pool = pool;
+async function getColumn(table, func){
+    await pool.query(`select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = '${table}' limit 1`, func);
+}
 
-// pool.query("Select * from lugar", (err, data) =>{
-//     let lugar = data.rows;
-//     console.log(lugar);
-// })
+module.exports = {
+    pool,
+    getColumn
+};
