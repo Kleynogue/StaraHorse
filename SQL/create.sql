@@ -1,4 +1,3 @@
---ENTIDADES FUERTES
 
 CREATE TABLE LUGAR(
     Luga_ID serial,
@@ -265,8 +264,8 @@ CREATE TABLE USUARIO(
     CONSTRAINT jinete_representa FOREIGN KEY(Usua_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),
     CONSTRAINT entrenador_representa FOREIGN KEY(Usua_FK_Entrenador) REFERENCES ENTRENADOR(Entr_Pers_ID),
     CONSTRAINT veterinario_representa FOREIGN KEY(Usua_FK_Veterinario) REFERENCES VETERINARIO(Vete_Pers_ID),
-    CONSTRAINT visitante_representa FOREIGN KEY(Usua_FK_Visitante) REFERENCES VISITANTE(Visi_Pers_ID)
-    CONSTRAINT cumple FOREIGN KEY(Usua_FK_Rol) REFERENCES ROL(Rol_ID),
+    CONSTRAINT visitante_representa FOREIGN KEY(Usua_FK_Visitante) REFERENCES VISITANTE(Visi_Pers_ID),
+    CONSTRAINT cumple FOREIGN KEY(Usua_FK_Rol) REFERENCES ROL(Rol_ID)
 
 );
 
@@ -476,7 +475,7 @@ CREATE TABLE EJE_PRO_STUD(
     Eje_Pro_Stud_ID serial,
     CONSTRAINT pk_eje_stu PRIMARY KEY(Eje_Pro_Stud_ID),
     CONSTRAINT conserva FOREIGN KEY(Eje_Pro_Stud_FK_Stud) REFERENCES STUD(Stud_ID),
-    CONSTRAINT poseido FOREIGN KEY(Eje_Pro_Stud_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID)
+    CONSTRAINT poseido FOREIGN KEY(Eje_Pro_Stud_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID),
     CONSTRAINT posee FOREIGN KEY(Eje_Pro_Stud_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID)
 
 );
@@ -518,7 +517,7 @@ CREATE TABLE ACCION(
     Acci_FK_Per_Rol integer not null,
     Acci_FK_Usuario integer not null,
     CONSTRAINT pk_accion PRIMARY KEY(Acci_ID),
-    CONSTRAINT emplea FOREIGN KEY(Acci_FK_Per_Rol) REFERENCES PER_ROL(Per_Rol_ID)
+    CONSTRAINT emplea FOREIGN KEY(Acci_FK_Per_Rol) REFERENCES PER_ROL(Per_Rol_ID),
     CONSTRAINT realiza FOREIGN KEY(Acci_FK_Usuario) REFERENCES USUARIO(Usua_ID)
 );
 
