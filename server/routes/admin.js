@@ -11,4 +11,4 @@ router.get('/Admin/:table/edit/:id',edit);
 router.put('/Admin/:table/edit/:id',update);
 router.delete('/Admin/:table',remove);
 
-module.exports = router;    
+module.exports = router;

@@ -1,4 +1,4 @@
-const { pool, getColumn } = require('../pg');
+const { pool, getColumn } = require('../settings/pg');
 const admin = require('../models/admin');
 const  utils  = require("../settings/utils");
 
