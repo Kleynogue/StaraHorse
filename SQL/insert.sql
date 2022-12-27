@@ -1501,3 +1501,12 @@
     insert into lugar(Luga_tipo, Luga_nombre,Luga_FK_Lugar) values('Parroquia','La Victoria',361);
     insert into lugar(Luga_tipo, Luga_nombre,Luga_FK_Lugar) values('Parroquia','Rafael Urdaneta',361);
     insert into lugar(Luga_tipo, Luga_nombre,Luga_FK_Lugar) values('Parroquia','Raúl Cuenca',361);
+
+    insert into jinete(Pers_p_Nombre,Pers_s_Nombre,Pers_p_Apellido, Pers_s_Apellido,Pers_CI,Jine_Altura,Jine_Peso, Jine_Fecha_Nac ) values ('Alvaro',null,'Finol','Navarro','16.608.957',1.48,53,11-16-1983);
+    insert into jinete(Pers_p_Nombre,Pers_s_Nombre,Pers_p_Apellido, Pers_s_Apellido,Pers_CI,Jine_Altura,Jine_Peso, Jine_Fecha_Nac ) values ('Francisco',null,'Urdaneta',null,'18.015.608',1.51,53,09-25-1985);
+    insert into jinete(Pers_p_Nombre,Pers_s_Nombre,Pers_p_Apellido, Pers_s_Apellido,Pers_CI,Jine_Altura,Jine_Peso, Jine_Fecha_Nac ) values ('Robert',null,'Capriles',null,'27.195.721',1.50,53,04-09-2000);          
+    insert into jinete(Pers_p_Nombre,Pers_s_Nombre,Pers_p_Apellido, Pers_s_Apellido,Pers_CI,Jine_Altura,Jine_Peso, Jine_Fecha_Nac ) values ('Maykor',null ,'Ibarra',null,'25.212.010',53,1.63,02-17-1992);
+    insert into jinete(Pers_p_Nombre,Pers_s_Nombre,Pers_p_Apellido, Pers_s_Apellido,Pers_CI,Jine_Altura,Jine_Peso, Jine_Fecha_Nac ) values ('Abrain',null,'Montes',null,'28.661.136',53,1.78,12-25-2001);
+    insert into jinete(Pers_p_Nombre,Pers_s_Nombre,Pers_p_Apellido, Pers_s_Apellido,Pers_CI,Jine_Altura,Jine_Peso, Jine_Fecha_Nac ) values ('Kelvin',null,'Aray',null,'27.013.198',53,1.78,07-01-1999);
+
+    insert into carrera
