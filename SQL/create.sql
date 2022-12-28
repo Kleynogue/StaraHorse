@@ -208,7 +208,7 @@ CREATE TABLE EJEMPLAR(
     Ejem_Sexo VARCHAR not null,
     Ejem_Fecha_Nacimiento date not null,
     Ejem_Fecha_Ingreso date not null,
-    Ejem_Peso numeric(5,2) not null,
+    Ejem_Peso numeric not null,
     Ejem_FK_Padre integer,
     Ejem_FK_Madre integer,
     Ejem_FK_Hacienda integer not null,

@@ -1509,4 +1509,38 @@
     insert into jinete(Pers_p_Nombre,Pers_s_Nombre,Pers_p_Apellido, Pers_s_Apellido,Pers_CI,Jine_Altura,Jine_Peso, Jine_Fecha_Nac ) values ('Abrain',null,'Montes',null,'28.661.136',53,1.78,12-25-2001);
     insert into jinete(Pers_p_Nombre,Pers_s_Nombre,Pers_p_Apellido, Pers_s_Apellido,Pers_CI,Jine_Altura,Jine_Peso, Jine_Fecha_Nac ) values ('Kelvin',null,'Aray',null,'27.013.198',53,1.78,07-01-1999);
 
-    insert into carrera
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Alegría', 'Güigüe', 627);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Bello Monte', 'Montalban', 111);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Los Caracaros', 'Táchira', 288);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Agua miel', 'Yaracuy', 25);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Luisiana', 'El rincón', 8);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('La Orlyana', 'Anzoátegui', 1469);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('La Primavera', 'Falcón', 13);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Los Samanes', 'Yaracuy', 25);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Vista Hermosa', 'Carabobo', 628);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('La Celeste', 'Anzoátegui', 3);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Paumar', 'Carabobo', 111);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Monumental', 'Yaracuy', 25);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Urama', 'Yaracuy', 25);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('La Alhambra', 'Tocoron', 5);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Oropal', 'Palo negro', 5);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('La Mulera', 'Carabobo', 628);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Montesano', 'Aragua', 5);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('El Bosque', 'Carabobo', 8);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('H.M.', 'Bolívar', 7);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('El Centauro', 'Carabobo', 8);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('La Invasión', 'Yaracuy', 334);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('La Encantada', 'El Hatillo', 1020);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Erre-Ene', 'Miranda', 18);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('La Lechuza', 'Desconocido', 1);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Del Mar', 'Carabobo', 116);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('San Joaquín', 'Carabobo', 8);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('La Giralda', 'Yaracuy', 25);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('El Rosal', 'Aragua', 5);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('La Alameda', 'Carabobo', 628);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Los Aguacates', 'Valencia', 116);
+    insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('El Nuevo Color', 'Carabobo', 628);    
+
+    insert into ejemplar(ejem_nombre, ejem_num_tatuaje, ejem_pelaje, ejem_sexo, ejem_fecha_nacimiento, ejem_fecha_ingreso, ejem_peso) values ('FightingBrave', 2, 'Tordillo', 'Caballo', '2016-01-01', '2018-01-01', 300.5);
+
+    insert into ejemplar values ()
