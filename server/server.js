@@ -12,11 +12,11 @@ const corsOption = {
 app.use(cors(corsOption));
 app.use(express.text());
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false})); 
 
 
 app.use("/", require("./routes/admin"));
 
-port = 3000;
+port = 80;
 app.listen(port);
 console.log(`Server on port ${port}`);
