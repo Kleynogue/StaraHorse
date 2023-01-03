@@ -17,6 +17,6 @@ app.use(express.urlencoded({extended: false}));
 
 app.use("/", require("./routes/admin"));
 
-port = 80;
+port = 3000;
 app.listen(port);
 console.log(`Server on port ${port}`);

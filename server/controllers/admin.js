@@ -17,6 +17,7 @@ function index(req, res, next){
 
 function insert(req, res, next){
     try {
+        console.log(req.body.ejem_peso)
         let columns = utils.stringify(req.body.columns,"");
         let values = utils.stringify(req.body.values,"");
         let body ={

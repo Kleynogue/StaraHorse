@@ -194,10 +194,12 @@ CREATE TABLE CARRERA(
     Carr_Reclamo boolean not null,
     Carr_FK_Pista integer not null,
     Carr_FK_Cat_Car integer not null,
+    Carr_pista_variante VARCHAR,
     CONSTRAINT pk_carrera PRIMARY KEY(Carr_ID),
     CONSTRAINT ocurre FOREIGN KEY(Carr_FK_Pista) REFERENCES PISTA(Pist_ID),
     CONSTRAINT presenta FOREIGN KEY(Carr_FK_Cat_Car) REFERENCES CATEGORIA_CARRERA(Cat_Car_ID),
-    CONSTRAINT sexo_ejemplar CHECK(Carr_Sexo like 'Caballo' or Carr_Sexo like 'Yegua')
+    CONSTRAINT sexo_ejemplar CHECK(Carr_Sexo like 'Caballo' or Carr_Sexo like 'Yegua'),
+    CONSTRAINT variante_pista CHECK(Carr_pista_variante in ('Fangosa', 'Seca', 'Arena'))
 );
 
 CREATE TABLE EJEMPLAR(
