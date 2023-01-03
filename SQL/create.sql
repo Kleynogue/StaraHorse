@@ -55,7 +55,7 @@ CREATE TABLE VETERINARIO(
     Vete_Pers_p_Apellido VARCHAR not null,
     Vete_Pers_s_Apellido VARCHAR,
     Vete_Pers_CI integer not null,
-    Vete_Titulo VARCHAR not null,
+    Vete_Titulo VARCHAR,
     Vete_Fecha_Nac date,
     CONSTRAINT pk_veterinario PRIMARY KEY(Vete_Pers_ID)
 );
@@ -102,8 +102,9 @@ CREATE TABLE HORARIO_RESTAURANTE(
     Hor_Res_ID serial,
     Hor_Res_Hora_Apertura Time not null,
     Hor_Res_Hora_Cierre time not null,
-    Hor_Res_Dia date not null,
-    CONSTRAINT pk_horario_restaurante PRIMARY KEY(Hor_Res_ID)
+    Hor_Res_Dia VARCHAR not null,
+    CONSTRAINT pk_horario_restaurante PRIMARY KEY(Hor_Res_ID),
+    CONSTRAINT dia CHECK(Hor_Res_Dia in('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'))
 );
 
 CREATE TABLE RESTAURANTE(
@@ -234,6 +235,13 @@ CREATE TABLE UNIFORME(
     CONSTRAINT estado_uniforme CHECK(Unif_Estatus like 'Activo' or Unif_Estatus like 'Desuso')
 );
 
+
+CREATE TABLE COMENTARIO(
+    Come_ID serial,
+    Come_Descripcion VARCHAR not null,
+    CONSTRAINT pk_comentario PRIMARY KEY(Come_ID)
+);
+
 CREATE TABLE TELEFONO(
     Tele_ID serial,
     Tele_Tipo VARCHAR not null,
@@ -317,7 +325,7 @@ CREATE TABLE TAQUILLA(
     Taqu_FK_Area integer not null,
     CONSTRAINT pk_taquilla PRIMARY KEY(Taqu_ID),
     CONSTRAINT se_ubica FOREIGN KEY(Taqu_FK_Area) REFERENCES AREA(Area_ID),
-    CONSTRAINT tipo_taquilla CHECK(Taqu_Tipo like 'Boletos' or Taqu_Tipo like 'Apuestas')
+    CONSTRAINT tipo_taquilla CHECK(Taqu_Tipo in ('Boletos', 'Apuestas', 'Ambos'))
 );
 
 CREATE TABLE APUESTA(
@@ -379,7 +387,7 @@ CREATE TABLE MATERIAL(
 CREATE TABLE BOX(
     Box_ID serial,
     Box_Numero integer not null,
-    Box_Descripcion VARCHAR not null,
+    Box_Descripcion VARCHAR,
     Box_FK_Caballeriza integer not null,
     CONSTRAINT pk_box PRIMARY KEY(Box_ID),
     CONSTRAINT compuesta FOREIGN KEY(Box_FK_Caballeriza) REFERENCES CABALLERIZA(Caba_ID)
@@ -536,10 +544,12 @@ CREATE TABLE INSCRIPCION(
     Insc_FK_Ejemplar integer not null,
     Insc_FK_Jinete integer not null,
     Insc_Num_Gualdrapa integer not null,
+    Insc_FK_Comentario integer,
     CONSTRAINT pk_inscripcion PRIMARY KEY(Insc_FK_Carrera, Insc_FK_Ejemplar),
     CONSTRAINT posibilita FOREIGN KEY(Insc_FK_Carrera) REFERENCES CARRERA(Carr_ID),
     CONSTRAINT participan FOREIGN KEY(Insc_FK_Ejemplar) REFERENCES EJE_ENT(Eje_Ent_ID),
     CONSTRAINT participa FOREIGN KEY(Insc_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),
+    CONSTRAINT cuenta FOREIGN KEY(Insc_FK_Comentario) REFERENCES COMENTARIO(Come_ID),
     CONSTRAINT numero_favorito CHECK(Insc_Num_Favorito between 1 and 3)
 );
 
@@ -581,15 +591,6 @@ CREATE TABLE RETIRO(
     CONSTRAINT pk_retiro PRIMARY KEY(Reti_FK_Motivo_Retiro, Reti_FK_Inscripcion_1, Reti_FK_Inscripcion_2),
     CONSTRAINT identifica FOREIGN KEY(Reti_FK_Motivo_Retiro) REFERENCES MOTIVO_RETIRO(Mot_Ret_ID),
     CONSTRAINT permite FOREIGN KEY(Reti_FK_Inscripcion_1, Reti_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
-);
-
-CREATE TABLE COMENTARIO(
-    Come_ID serial,
-    Come_Descripcion VARCHAR not null,
-    Come_FK_Inscripcion_1 integer not null,
-    Come_FK_Inscripcion_2 integer not null,
-    CONSTRAINT pk_comentario PRIMARY KEY(Come_ID),
-    CONSTRAINT cuenta FOREIGN KEY(Come_FK_Inscripcion_1, Come_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
 );
 
 CREATE TABLE RESULTADO(
