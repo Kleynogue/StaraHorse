@@ -248,7 +248,7 @@ CREATE TABLE TELEFONO(
     Tele_Numero VARCHAR not null,
     Tele_FK_Propietario integer not null,
     CONSTRAINT pk_telefono PRIMARY KEY(Tele_ID),
-    CONSTRAINT tipo_telefono CHECK(Tele_Tipo like 'Local' or Tele_Tipo like 'Celular'),
+    CONSTRAINT tipo_telefono CHECK(Tele_Tipo in ('Local', 'Celular')),
     CONSTRAINT utiliza FOREIGN KEY(Tele_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID)
 );
 
@@ -263,12 +263,12 @@ CREATE TABLE USUARIO(
     Usua_ID serial,
     Usua_Nombre VARCHAR not null unique,
     Usua_Contrasena VARCHAR not null,
-    Usua_FK_Propietario integer unique,
-    Usua_FK_Jinete integer unique,
-    Usua_FK_Entrenador integer unique,
-    Usua_FK_Veterinario integer unique,
-    Usua_FK_Visitante integer unique,
-    Usua_FK_Rol integer unique,
+    Usua_FK_Propietario integer,
+    Usua_FK_Jinete integer,
+    Usua_FK_Entrenador integer,
+    Usua_FK_Veterinario integer,
+    Usua_FK_Visitante integer,
+    Usua_FK_Rol integer,
     CONSTRAINT pk_usuario PRIMARY KEY(Usua_ID),
     CONSTRAINT propietario_representa FOREIGN KEY(Usua_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID),
     CONSTRAINT jinete_representa FOREIGN KEY(Usua_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),

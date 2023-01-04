@@ -16,6 +16,7 @@ app.use(express.urlencoded({extended: false}));
 
 
 app.use("/", require("./routes/admin"));
+app.use("/", require("./a/route"));
 
 port = 3000;
 app.listen(port);

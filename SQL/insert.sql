@@ -1561,6 +1561,50 @@
     insert into Visitante (Visi_Pers_p_Nombre, Visi_Pers_s_Nombre, Visi_Pers_p_Apellido, Visi_Pers_s_Apellido, Visi_Pers_CI) values ('Jeff', 'Gisela', 'Maxstead', 'Accomb', 25870918);
     insert into Visitante (Visi_Pers_p_Nombre, Visi_Pers_s_Nombre, Visi_Pers_p_Apellido, Visi_Pers_s_Apellido, Visi_Pers_CI) values ('Joelie', 'Niles', 'Trimble', 'Beange', 24580788);
 
+    insert into comentario(Come_Descripcion) values ('Debe Mejorar');
+    insert into comentario(Come_Descripcion) values ('SEGUNDA FAVORITA');
+    insert into comentario(Come_Descripcion) values ('PRIMERA FAVORITA');
+    insert into comentario(Come_Descripcion) values ('Posible sorpresa');
+    insert into comentario(Come_Descripcion) values ('Ojo con éste');
+    insert into comentario(Come_Descripcion) values ('PRIMER FAVORITO');
+    insert into comentario(Come_Descripcion) values ('SEGUNDO FAVORITO');
+    insert into comentario(Come_Descripcion) values ('No es despreciable');
+    insert into comentario(Come_Descripcion) values ('Regular oportunidad');
+    insert into comentario(Come_Descripcion) values ('Tercer favorito');
+    insert into comentario(Come_Descripcion) values ('Anda de dato');
+    insert into comentario(Come_Descripcion) values ('Dato atrasado');
+    insert into comentario(Come_Descripcion) values ('Luce para figurar');
+    insert into comentario(Come_Descripcion) values ('De cuadra ganadora');
+    insert into comentario(Come_Descripcion) values ('Anda bien');
+    insert into comentario(Come_Descripcion) values ('Es temible');
+    insert into comentario(Come_Descripcion) values ('Regular chance');
+    insert into comentario(Come_Descripcion) values ('Costará ganarle');
+    insert into comentario(Come_Descripcion) values ('Tiene como repetir');
+    insert into comentario(Come_Descripcion) values ('Bien montada');
+    insert into comentario(Come_Descripcion) values ('Tercera favorita');
+    insert into comentario(Come_Descripcion) values ('Lo hará bien');
+    insert into comentario(Come_Descripcion) values ('Animará hasta el final');
+    insert into comentario(Come_Descripcion) values ('Mejoró en la anterior');
+    insert into comentario(Come_Descripcion) values ('Llave ganadora');
+    insert into comentario(Come_Descripcion) values ('No la olviden');
+    insert into comentario(Come_Descripcion) values ('Buen descargo');
+    insert into comentario(Come_Descripcion) values ('De cuadra efectiva');
+    insert into comentario(Come_Descripcion) values ('A lo mejor figura');
+    insert into comentario(Come_Descripcion) values ('Ojo al final');
+    insert into comentario(Come_Descripcion) values ('Es un peligro');
+    insert into comentario(Come_Descripcion) values ('Favorecida en el descargo');
+    insert into comentario(Come_Descripcion) values ('Cuidado con ésta');
+    insert into comentario(Come_Descripcion) values ('Es veloz, cuidado');
+    insert into comentario(Come_Descripcion) values ('Esperaremos');
+    insert into comentario(Come_Descripcion) values ('No lo olviden');
+    insert into comentario(Come_Descripcion) values ('Mejoró, cuidado');
+    insert into comentario(Come_Descripcion) values ('No nos gusta');
+    insert into comentario(Come_Descripcion) values ('Tiene mucho que buscar');
+    insert into comentario(Come_Descripcion) values ('Luce algo');
+    insert into comentario(Come_Descripcion) values ('De cuadra caliente');
+    insert into comentario(Come_Descripcion) values ('Algo de chance');
+    insert into comentario(Come_Descripcion) values ('Buen debut. Cuidado');
+
     insert into TIPO_AREA(Tip_Are_Nombre, Tip_Are_Descripcion) values ('Tribuna', 'Donde se encuentras los palcos');
     insert into TIPO_AREA(Tip_Are_Nombre, Tip_Are_Descripcion) values ('Gradas', 'Desde donde los visitantes ven las carreras');
     insert into TIPO_AREA(Tip_Are_Nombre, Tip_Are_Descripcion) values ('Pasillo', 'Area intermedia');
@@ -1573,17 +1617,52 @@
     insert into Area (Area_Nombre, Area_Precio_Entrada, Area_Nivel, Area_Butacas, Area_Capacidad, Area_FK_Tipo_Area) values ('Westport', 46.1, 3, 3, 332, 5);
     insert into Area (Area_Nombre, Area_Precio_Entrada, Area_Nivel, Area_Butacas, Area_Capacidad, Area_FK_Tipo_Area) values ('Arapahoe', null, 2, 3, 352, 3);
 
+    insert into Material (Mate_Nombre, Mate_Descripcion) values ('Arena Triturada', 'Protege los cascos de los ejemplares');
+    insert into Material (Mate_Nombre, Mate_Descripcion) values ('Material 1', 'Material usado para las pistas');
+    insert into Material (Mate_Nombre, Mate_Descripcion) values ('Material 2', 'Material usado para las pistas');
+    insert into Material (Mate_Nombre, Mate_Descripcion) values ('Material 3', 'Material usado para las pistas');
+    insert into Material (Mate_Nombre, Mate_Descripcion) values ('Material 4', 'Material usado para las pistas');
+
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Gríngolas', 'Gr');
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Lengua Amarrada', 'La');
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Bozal', 'Bz');
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Bozal Lengüero', 'BL');
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Bozal Blanco Nose Band', 'BB');
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Martingala', 'M');
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Guayo', 'G');
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Vendas', 'V');
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Orejas Tapadas', 'O.T.');
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Casquillos Correctivos', 'C.C.');
+    insert into Implemento (Impl_Nombre, Impl_Abreviacion) values ('Casquillos de Hierro', 'C.H.');
+
     insert into Pista (Pist_Longitud, Pist_Capacidad) values (1200, 5);
     insert into Pista (Pist_Longitud, Pist_Capacidad) values (1600, 12);
     insert into Pista (Pist_Longitud, Pist_Capacidad) values (1200, 10);
     insert into Pista (Pist_Longitud, Pist_Capacidad) values (2000, 9);
     insert into Pista (Pist_Longitud, Pist_Capacidad) values (1800, 16);
 
-    insert into Color (Colo_Nombre) values ('Fucsia');
-    insert into Color (Colo_Nombre) values ('Verde');
-    insert into Color (Colo_Nombre) values ('Morado');
-    insert into Color (Colo_Nombre) values ('Naranja');
-    insert into Color (Colo_Nombre) values ('Azul');
+    insert into color(Colo_Nombre) values ('Negro');
+    insert into color(Colo_Nombre) values ('Blanco');
+    insert into color(Colo_Nombre) values ('Amarillo');
+    insert into color(Colo_Nombre) values ('Morado');
+    insert into color(Colo_Nombre) values ('Dorado');
+    insert into color(Colo_Nombre) values ('Azul');
+    insert into color(Colo_Nombre) values ('Verde');
+    insert into color(Colo_Nombre) values ('Rojo');
+    insert into color(Colo_Nombre) values ('Vinotinto');
+    insert into color(Colo_Nombre) values ('Carrubio');
+    insert into color(Colo_Nombre) values ('Fucsia');
+    insert into color(Colo_Nombre) values ('Verde oscuro');
+    insert into color(Colo_Nombre) values ('Azul marino');
+    insert into color(Colo_Nombre) values ('Gris');
+    insert into color(Colo_Nombre) values ('Azul eléctrico');
+    insert into color(Colo_Nombre) values ('Plata');
+    insert into color(Colo_Nombre) values ('Turquesa');
+    insert into color(Colo_Nombre) values ('Naranja');
+    insert into color(Colo_Nombre) values ('Azul celeste');
+    insert into color(Colo_Nombre) values ('Azul estrella');
+    insert into color(Colo_Nombre) values ('Marrón');
+    insert into color(Colo_Nombre) values ('Rosa');
 
     insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (11, true, 4);
     insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (12, true, 1);
@@ -1609,11 +1688,36 @@
     insert into Restaurante (Rest_Nombre, Rest_Capacidad, Rest_FK_Horario, Rest_FK_Area) values ('Sundown', 50, 2, 3);
     insert into Restaurante (Rest_Nombre, Rest_Capacidad, Rest_FK_Horario, Rest_FK_Area) values ('Fallview', 45, 2, 1);
 
+    insert into Telefono (Tele_Tipo, Tele_Numero, Tele_FK_Propietario) values ('Local', '0212270123', 5);
+    insert into Telefono (Tele_Tipo, Tele_Numero, Tele_FK_Propietario) values ('Local', '02705749889', 5);
+    insert into Telefono (Tele_Tipo, Tele_Numero, Tele_FK_Propietario) values ('Local', '02124398228', 2);
+    insert into Telefono (Tele_Tipo, Tele_Numero, Tele_FK_Propietario) values ('Celular', '04244991556', 5);
+    insert into Telefono (Tele_Tipo, Tele_Numero, Tele_FK_Propietario) values ('Local', '02676527466', 4);
+
     insert into Taquilla (Taqu_Nro, Taqu_Tipo, Taqu_FK_Area) values (15, 'Apuestas', 1);
     insert into Taquilla (Taqu_Nro, Taqu_Tipo, Taqu_FK_Area) values (26, 'Boletos', 3);
     insert into Taquilla (Taqu_Nro, Taqu_Tipo, Taqu_FK_Area) values (11, 'Apuestas', 3);
     insert into Taquilla (Taqu_Nro, Taqu_Tipo, Taqu_FK_Area) values (19, 'Boletos', 2);
     insert into Taquilla (Taqu_Nro, Taqu_Tipo, Taqu_FK_Area) values (11, 'Boletos', 4);
+
+    insert into Rol (Rol_Nombre, Rol_Descripcion) values ('Visitante', 'Rol de los visitantes del hipodromo');
+    insert into Rol (Rol_Nombre, Rol_Descripcion) values ('Administrador', 'Admin del sistema');
+    insert into Rol (Rol_Nombre, Rol_Descripcion) values ('Jinete', 'Rol de los jinetes');
+    insert into Rol (Rol_Nombre, Rol_Descripcion) values ('Entrenador', 'Rol de entrenadores');
+    insert into Rol (Rol_Nombre, Rol_Descripcion) values ('Propietario', 'Rol de los propietarios');
+    insert into Rol (Rol_Nombre, Rol_Descripcion) values ('Defecto', 'Rol por defecto al entrar');
+
+    insert into Usuario (Usua_Nombre, Usua_Contrasena, Usua_FK_Propietario, Usua_FK_Jinete, Usua_FK_Entrenador, Usua_FK_Veterinario, Usua_FK_Visitante, Usua_FK_Rol) values ('npaz0', 'UbrCcwCM5', null, 19, null, null, null, 3);
+    insert into Usuario (Usua_Nombre, Usua_Contrasena, Usua_FK_Propietario, Usua_FK_Jinete, Usua_FK_Entrenador, Usua_FK_Veterinario, Usua_FK_Visitante, Usua_FK_Rol) values ('ascholtis1', 'wneIKflDAtr', null, null, null, 2, null, 1);
+    insert into Usuario (Usua_Nombre, Usua_Contrasena, Usua_FK_Propietario, Usua_FK_Jinete, Usua_FK_Entrenador, Usua_FK_Veterinario, Usua_FK_Visitante, Usua_FK_Rol) values ('dkeyden2', 'OqZS5if7TD', 1, 24, null, null, null, 5);
+    insert into Usuario (Usua_Nombre, Usua_Contrasena, Usua_FK_Propietario, Usua_FK_Jinete, Usua_FK_Entrenador, Usua_FK_Veterinario, Usua_FK_Visitante, Usua_FK_Rol) values ('gpendock3', 'CGrcyLd1r', 1, null, null, 1, null, 1);
+    insert into Usuario (Usua_Nombre, Usua_Contrasena, Usua_FK_Propietario, Usua_FK_Jinete, Usua_FK_Entrenador, Usua_FK_Veterinario, Usua_FK_Visitante, Usua_FK_Rol) values ('wsundin4', 'LgN71z7', null, null, null, null, 2, 1);
+
+    insert into Permiso (Perm_Nombre, Perm_Descripcion) values ('Editar', 'Permite editar las tablas');
+    insert into Permiso (Perm_Nombre, Perm_Descripcion) values ('Ver reportes', 'Visualizar reportes');
+    insert into Permiso (Perm_Nombre, Perm_Descripcion) values ('Asignar roles', 'Permite que el usuario asigne roles a otros usuarios');
+    insert into Permiso (Perm_Nombre, Perm_Descripcion) values ('Ver datos', 'Permite ver los datos de todas las tablas');
+    insert into Permiso (Perm_Nombre, Perm_Descripcion) values ('Iniciar sesión', 'Permite entrar al sistema');
 
     insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Alegría', 'Güigüe', 627);
     insert into hacienda(Haci_Nombre, Haci_Direccion, Haci_FK_Lugar) values ('Bello Monte', 'Montalban', 111);
