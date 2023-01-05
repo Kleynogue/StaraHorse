@@ -14,21 +14,22 @@ import '../../StyleSheets/Usuario/Iniciar_Sesion.css';
 function Iniciar_Sesion(){
 
         //Borrar
-        const [lugar, setLugar] = useState(false);
+        const [lugar, setLugar] = useState([]);
         useEffect(() => {
-          getLugar();
-        }, []);
-        function getLugar() {
-          fetch('http://localhost:3000')
-            .then(response => {
-              return response.text();
-            })
-            .then(data => {
-              setLugar(data);
-              
+          const getLugar = async () => {
+            
+            fetch('http://starahorse.ddns.net/Admin/Lugar')
+            .then((response) => response.json())
+            .then((data) => {
+                setLugar(data)
+                console.log(data)
             });
-        }
-        console.log("-- Lugar: "+getLugar());
+
+            console.log("+++ Lugar: "+JSON.stringify(lugar));
+          }
+          getLugar();
+          
+        }, []);
         //Borrar
         
         
@@ -54,6 +55,13 @@ function Iniciar_Sesion(){
                 toUsuarioCarreras();
             }
             else{   //Usuario incorecto
+                
+                var a = lugar.map(function(x){
+                    console.log("nuevoooooooooooooooooo");
+                    console.log("bbbb: "+ JSON.stringify(x.luga_id));
+                    console.log("cccc: "+ JSON.stringify(x.luga_tipo));
+                    console.log("ddd: "+ JSON.stringify(x.luga_nombre));
+                })
 
             }
         }
@@ -75,12 +83,14 @@ function Iniciar_Sesion(){
 
                         <div className='Password'>Contraseña</div>
                         <div className='Password'><input  type="password" required onChange={e => setPassword(e.target.value)}></input></div>
-                            
+                              
                         <div className='BotonIniciar'><Boton_Direccion  nombre="Iniciar Sesion" /></div>
+                    
                     </form>
                 
 
                 <div>
+                     
                     <Footer/>
                 </div>
                 

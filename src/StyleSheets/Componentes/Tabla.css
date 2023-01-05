@@ -9,7 +9,7 @@
     border-collapse: collapse;
     border: 3px solid rgb(170, 159, 148);
     width: 100%;
-    
+    line-height: 30px;
   }
   
   #students td, #students th {
@@ -28,3 +28,12 @@
     background-color: rgb(243, 112, 33);
     color: white;
   }
+
+  #BotonCrud{
+    display: flex;
+    width: 115px;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  
+  
