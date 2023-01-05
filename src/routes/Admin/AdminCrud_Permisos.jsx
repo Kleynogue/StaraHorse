@@ -18,33 +18,9 @@ function AdminCrud_Permisos(){
 
         const [hidden, setHidden] = useState(true);
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
-        const [area, setArea] = useState();
-        
-
-        const [opcArea, setOpcArea] = useState();
-        
-
-
-        const customerStyles = { 
-            control: (styles, {isFocused}) => ({ 
-                ...styles, 
-                
-                backgroundColor: "#FFFFFF",
-                border: "5px 5px 0 0", 
-                borderColor: "#F37021",
-                boxShadow: 'none' }), 
-                color: "#817A72",
-    
-            option: (styles, {isFocused}) => { 
-                return { 
-                    ...styles, 
-                    backgroundColor: isFocused ? "#F37021" : "#FFFFFF",
-                    color: isFocused ? "#FFFFFF" : "#817A72",
-                    }
-            }, input: styles => ({ ...styles, color: "#817A72" }), 
-        
-        
-        };
+        const [nombre, setNombre] = useState();
+        const [descripcion, setDescripcion] = useState();
+            
 
         const location = useLocation();
         //Inicio Direcciones
@@ -62,16 +38,7 @@ function AdminCrud_Permisos(){
         const EstablecerCrud = () => {
             if(cargado=="false"){
 
-                const OpArea = [
-                    { value: '1', label: 'Area 1' },
-                    { value: '2', label: 'Area 2' },
-                    { value: '3', label: 'Area 3' },
-                    { value: '4', label: 'Area 4' },
-                    { value: '5', label: 'Area 5' },
-                ]
-                setOpcArea(OpArea);
-
-               
+                
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
                 }
@@ -87,10 +54,16 @@ function AdminCrud_Permisos(){
             e.preventDefault();
             
             if(location.state.estado=="Create"){
-                alert("Se crea un nuevo elemento")
+                if(nombre && descripcion){
+                    alert("Se crea con exito el Permiso")
+                }
+                else{
+                    alert("Todos los campos deben ser llenados")
+                }
             }
             else{
-                alert("Se actualizan los datos");
+                if(nombre){alert("Se actuliza nombre por: "+nombre)}
+                if(descripcion){alert("Se actuliza descripcion por: "+descripcion)}
             }
             
         }
@@ -116,8 +89,11 @@ function AdminCrud_Permisos(){
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
-                        <div >Area</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcArea} defaultValue={area}  onChange={setArea}  /></div>
+                        <div >Nombre</div>
+                        <div ><input  type="text" onChange={e => setNombre(e.target.value)}></input></div>
+
+                        <div >Descripcion</div>
+                        <div ><input  type="text" onChange={e => setDescripcion(e.target.value)}></input></div>
 
                     
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>

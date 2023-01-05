@@ -18,11 +18,14 @@ function AdminCrud_Usuarios(){
 
         const [hidden, setHidden] = useState(true);
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
-        const [area, setArea] = useState();
-        
+        const [nombre, setNombre] = useState();
+        const [constrasena, setConstrasena] = useState();
+        const [rol, setRol] = useState();
+        const [rolSeleccionado, setRolSeleccionado] = useState();
 
-        const [opcArea, setOpcArea] = useState();
-        
+        const [opcRol, setOpcRol] = useState();
+        const [opcRolSeleccionado, setOpcRolSeleccionado] = useState();
+
 
 
         const customerStyles = { 
@@ -62,14 +65,19 @@ function AdminCrud_Usuarios(){
         const EstablecerCrud = () => {
             if(cargado=="false"){
 
-                const OpArea = [
-                    { value: '1', label: 'Area 1' },
-                    { value: '2', label: 'Area 2' },
-                    { value: '3', label: 'Area 3' },
-                    { value: '4', label: 'Area 4' },
-                    { value: '5', label: 'Area 5' },
+                const OpRol = [
+                    { value: '1', label: 'Rol 1' },
+                    { value: '2', label: 'Rol 2' },
+                    { value: '3', label: 'Rol 3' },
+                    { value: '4', label: 'Rol 4' },
                 ]
-                setOpcArea(OpArea);
+                setOpcRol(OpRol);
+
+                const OpRolSelec = [
+                    { value: '1', label: 'Rol 1' },
+                    { value: '2', label: 'Rol 2' },
+                ]
+                setOpcRolSeleccionado(OpRolSelec);
 
                
                 if(location.state.estado=="Update"){
@@ -87,10 +95,19 @@ function AdminCrud_Usuarios(){
             e.preventDefault();
             
             if(location.state.estado=="Create"){
-                alert("Se crea un nuevo elemento")
+                //rol y rolSeleccionado pueden ser null
+                if(nombre && constrasena){
+                    alert("Se crea con exito el Usuario")
+                }
+                else{
+                    alert("Todos los campos deben ser llenados")
+                }
             }
             else{
-                alert("Se actualizan los datos");
+                if(nombre){alert("Se actuliza nombre por: "+nombre)}
+                if(constrasena){alert("Se actuliza constrasena por: "+constrasena)}
+                if(rol){alert("Se incorpora el rol: "+rol.label)}
+                if(rolSeleccionado){alert("Se elimina el rol: "+rolSeleccionado.label)}
             }
             
         }
@@ -116,8 +133,18 @@ function AdminCrud_Usuarios(){
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
-                        <div >Area</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcArea} defaultValue={area}  onChange={setArea}  /></div>
+                        <div >Nombre</div>
+                        <div ><input  type="text" onChange={e => setNombre(e.target.value)}></input></div>
+
+                        <div >Password</div>
+                        <div ><input  type="text" onChange={e => setConstrasena(e.target.value)}></input></div>
+
+                        <div >Rol</div>
+                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcRol} defaultValue={rol}  onChange={setRol}  /></div>
+
+                        <div id='mensaje'>EL ELEMENTO SELECCIONADO SERA ELIMINADO</div>
+                        <div >Rol</div>
+                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcRolSeleccionado} defaultValue={rolSeleccionado}  onChange={setRolSeleccionado} /></div>
 
                     
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
