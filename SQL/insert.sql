@@ -1556,8 +1556,8 @@
     insert into Veterinario (Vete_Pers_p_Nombre, Vete_Pers_s_Nombre, Vete_Pers_p_Apellido, Vete_Pers_s_Apellido, Vete_Pers_CI, Vete_Fecha_Nac) values ('Florie', 'Errol', 'Francisco', 'Domeny', 23774009, '1956-11-01');
 
     insert into Visitante (Visi_Pers_p_Nombre, Visi_Pers_s_Nombre, Visi_Pers_p_Apellido, Visi_Pers_s_Apellido, Visi_Pers_CI) values ('Vivyanne', 'Alva', 'Powers', 'Clitherow', 25910817);
-    insert into Visitante (Visi_Pers_p_Nombre, Visi_Pers_s_Nombre, Visi_Pers_p_Apellido, Visi_Pers_s_Apellido, Visi_Pers_CI) values ('Genni', 'Talyah', 'Saby', 'Penkman', 26843356);
-    insert into Visitante (Visi_Pers_p_Nombre, Visi_Pers_s_Nombre, Visi_Pers_p_Apellido, Visi_Pers_s_Apellido, Visi_Pers_CI) values ('Craig', 'Viviana', 'Cossons', 'Nott', 20627202);
+    insert into Visitante (Visi_Pers_p_Nombre, Visi_Pers_s_Nombre, Visi_Pers_p_Apellido, Visi_Pers_s_Apellido, Visi_Pers_CI) values ('Amanda', 'Talyah', 'Saby', 'Penkman', 26843356);
+    insert into Visitante (Visi_Pers_p_Nombre, Visi_Pers_s_Nombre, Visi_Pers_p_Apellido, Visi_Pers_s_Apellido, Visi_Pers_CI) values ('Louis', 'Viviana', 'Cossons', 'Nott', 20627202);
     insert into Visitante (Visi_Pers_p_Nombre, Visi_Pers_s_Nombre, Visi_Pers_p_Apellido, Visi_Pers_s_Apellido, Visi_Pers_CI) values ('Jeff', 'Gisela', 'Maxstead', 'Accomb', 25870918);
     insert into Visitante (Visi_Pers_p_Nombre, Visi_Pers_s_Nombre, Visi_Pers_p_Apellido, Visi_Pers_s_Apellido, Visi_Pers_CI) values ('Joelie', 'Niles', 'Trimble', 'Beange', 24580788);
 
@@ -1614,7 +1614,7 @@
     insert into Area (Area_Nombre, Area_Precio_Entrada, Area_Nivel, Area_Butacas, Area_Capacidad, Area_FK_Tipo_Area) values ('Hermina', null, 3, null, 455, 2);
     insert into Area (Area_Nombre, Area_Precio_Entrada, Area_Nivel, Area_Butacas, Area_Capacidad, Area_FK_Tipo_Area) values ('Darwin', null, 1, 2, 356, 1);
     insert into Area (Area_Nombre, Area_Precio_Entrada, Area_Nivel, Area_Butacas, Area_Capacidad, Area_FK_Tipo_Area) values ('Oeste', 36.3, 2, null, 455, 3);
-    insert into Area (Area_Nombre, Area_Precio_Entrada, Area_Nivel, Area_Butacas, Area_Capacidad, Area_FK_Tipo_Area) values ('Westport', 46.1, 3, 3, 332, 5);
+    insert into Area (Area_Nombre, Area_Precio_Entrada, Area_Nivel, Area_Butacas, Area_Capacidad, Area_FK_Tipo_Area) values ('Westport', 46.1, 1, 3, 332, 5);
     insert into Area (Area_Nombre, Area_Precio_Entrada, Area_Nivel, Area_Butacas, Area_Capacidad, Area_FK_Tipo_Area) values ('Arapahoe', null, 2, 3, 352, 3);
 
     insert into Material (Mate_Nombre, Mate_Descripcion) values ('Arena Triturada', 'Protege los cascos de los ejemplares');
@@ -1640,6 +1640,18 @@
     insert into Pista (Pist_Longitud, Pist_Capacidad) values (1200, 10);
     insert into Pista (Pist_Longitud, Pist_Capacidad) values (2000, 9);
     insert into Pista (Pist_Longitud, Pist_Capacidad) values (1800, 16);
+
+    insert into MAT_PIS (Mat_Pis_FK_Pista, Mat_Pis_FK_Material) values (4, 4);
+    insert into MAT_PIS (Mat_Pis_FK_Pista, Mat_Pis_FK_Material) values (2, 1);
+    insert into MAT_PIS (Mat_Pis_FK_Pista, Mat_Pis_FK_Material) values (2, 4);
+    insert into MAT_PIS (Mat_Pis_FK_Pista, Mat_Pis_FK_Material) values (1, 4);
+    insert into MAT_PIS (Mat_Pis_FK_Pista, Mat_Pis_FK_Material) values (2, 3);
+
+    insert into Entrada_Acceso (Ent_Acc_Nombre, Ent_Acc_Descripcion, Ent_Acc_Puestos_Estac, Ent_Acc_FK_Area) values ('Entrada 1', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.', null, 4);
+    insert into Entrada_Acceso (Ent_Acc_Nombre, Ent_Acc_Descripcion, Ent_Acc_Puestos_Estac, Ent_Acc_FK_Area) values ('Entrada 2', 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.', null, 2);
+    insert into Entrada_Acceso (Ent_Acc_Nombre, Ent_Acc_Descripcion, Ent_Acc_Puestos_Estac, Ent_Acc_FK_Area) values ('Entrada 3', 'Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.', null, 3);
+    insert into Entrada_Acceso (Ent_Acc_Nombre, Ent_Acc_Descripcion, Ent_Acc_Puestos_Estac, Ent_Acc_FK_Area) values ('Entrada 4', 'Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.', 160, 3);
+    insert into Entrada_Acceso (Ent_Acc_Nombre, Ent_Acc_Descripcion, Ent_Acc_Puestos_Estac, Ent_Acc_FK_Area) values ('Entrada 5', 'Donec ut dolor.', 150, 1);
 
     insert into color(Colo_Nombre) values ('Negro');
     insert into color(Colo_Nombre) values ('Blanco');
@@ -1675,6 +1687,12 @@
     insert into Box (Box_Numero, Box_FK_Caballeriza) values (3, 1);
     insert into Box (Box_Numero, Box_FK_Caballeriza) values (4, 1);
     insert into Box (Box_Numero, Box_FK_Caballeriza) values (5, 5);
+    
+    insert into Cab_Vet (Cab_Vet_Fecha_Ini, Cab_Vet_Fecha_Fin, Cab_Vet_FK_Veterinario, Cab_Vet_FK_Caballeriza) values ('2014-03-29', null, 4, 4);
+    insert into Cab_Vet (Cab_Vet_Fecha_Ini, Cab_Vet_Fecha_Fin, Cab_Vet_FK_Veterinario, Cab_Vet_FK_Caballeriza) values ('2011-08-20', '2015-01-08', 4, 4);
+    insert into Cab_Vet (Cab_Vet_Fecha_Ini, Cab_Vet_Fecha_Fin, Cab_Vet_FK_Veterinario, Cab_Vet_FK_Caballeriza) values ('2021-03-20', null, 1, 2);
+    insert into Cab_Vet (Cab_Vet_Fecha_Ini, Cab_Vet_Fecha_Fin, Cab_Vet_FK_Veterinario, Cab_Vet_FK_Caballeriza) values ('2011-09-10', '2017-03-29', 3, 3);
+    insert into Cab_Vet (Cab_Vet_Fecha_Ini, Cab_Vet_Fecha_Fin, Cab_Vet_FK_Veterinario, Cab_Vet_FK_Caballeriza) values ('2011-08-22', null, 3, 3);
 
     insert into HORARIO_RESTAURANTE(Hor_Res_Hora_Apertura, Hor_Res_Hora_Cierre, Hor_Res_Dia) values ('7:00', '18:00' , 'Domingo');
     insert into HORARIO_RESTAURANTE(Hor_Res_Hora_Apertura, Hor_Res_Hora_Cierre, Hor_Res_Dia) values ('7:00', '18:00' , 'Domingo');
@@ -1699,6 +1717,12 @@
     insert into Taquilla (Taqu_Nro, Taqu_Tipo, Taqu_FK_Area) values (11, 'Apuestas', 3);
     insert into Taquilla (Taqu_Nro, Taqu_Tipo, Taqu_FK_Area) values (19, 'Boletos', 2);
     insert into Taquilla (Taqu_Nro, Taqu_Tipo, Taqu_FK_Area) values (11, 'Boletos', 4);
+
+    insert into Boleto (Bole_Fecha, Bole_Valor, Bole_FK_Visitante, Bole_FK_Entrada, Bole_FK_Taquilla) values ('2022-09-17', 94.72, 2, 5, 5);
+    insert into Boleto (Bole_Fecha, Bole_Valor, Bole_FK_Visitante, Bole_FK_Entrada, Bole_FK_Taquilla) values ('2022-11-15', 98.66, 2, 2, 4);
+    insert into Boleto (Bole_Fecha, Bole_Valor, Bole_FK_Visitante, Bole_FK_Entrada, Bole_FK_Taquilla) values ('2022-10-04', 65.77, 3, 4, 2);
+    insert into Boleto (Bole_Fecha, Bole_Valor, Bole_FK_Visitante, Bole_FK_Entrada, Bole_FK_Taquilla) values ('2022-06-30', 10.67, 2, 1, 2);
+    insert into Boleto (Bole_Fecha, Bole_Valor, Bole_FK_Visitante, Bole_FK_Entrada, Bole_FK_Taquilla) values ('2022-04-05', 26.87, 2, 3, 5);
 
     insert into Rol (Rol_Nombre, Rol_Descripcion) values ('Visitante', 'Rol de los visitantes del hipodromo');
     insert into Rol (Rol_Nombre, Rol_Descripcion) values ('Administrador', 'Admin del sistema');

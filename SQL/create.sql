@@ -199,7 +199,7 @@ CREATE TABLE CARRERA(
     CONSTRAINT pk_carrera PRIMARY KEY(Carr_ID),
     CONSTRAINT ocurre FOREIGN KEY(Carr_FK_Pista) REFERENCES PISTA(Pist_ID),
     CONSTRAINT presenta FOREIGN KEY(Carr_FK_Cat_Car) REFERENCES CATEGORIA_CARRERA(Cat_Car_ID),
-    CONSTRAINT sexo_ejemplar CHECK(Carr_Sexo like 'Caballo' or Carr_Sexo like 'Yegua'),
+    CONSTRAINT sexo_ejemplar CHECK(Carr_Sexo in ('Caballo', 'Yegua')),
     CONSTRAINT variante_pista CHECK(Carr_pista_variante in ('Fangosa', 'Seca', 'Arena'))
 );
 
@@ -219,8 +219,8 @@ CREATE TABLE EJEMPLAR(
     CONSTRAINT padre FOREIGN KEY(Ejem_FK_Padre) REFERENCES EJEMPLAR(Ejem_ID),
     CONSTRAINT madre FOREIGN KEY(Ejem_FK_Madre) REFERENCES EJEMPLAR(Ejem_ID),
     CONSTRAINT proviene FOREIGN KEY(Ejem_FK_Hacienda) REFERENCES HACIENDA(Haci_ID),
-    CONSTRAINT tipo_pelaje CHECK(Ejem_Pelaje like 'Castaño' or Ejem_Pelaje like 'Alazan' or Ejem_Pelaje like 'Zaino' or Ejem_Pelaje like 'Tordillo'),
-    CONSTRAINT ejemplar_sexo CHECK(Ejem_Sexo like 'Caballo' or Ejem_Sexo like 'Yegua')
+    CONSTRAINT tipo_pelaje CHECK(Ejem_Pelaje in ('Castaño', 'Alazan', 'Zaino', 'Tordillo')),
+    CONSTRAINT ejemplar_sexo CHECK(Ejem_Sexo in ('Caballo', 'Yegua'))
 );
 
 CREATE TABLE UNIFORME(
@@ -231,8 +231,8 @@ CREATE TABLE UNIFORME(
     Unif_FK_Stud integer not null,
     CONSTRAINT pk_uniforme PRIMARY KEY(Unif_ID),
     CONSTRAINT viste FOREIGN KEY(Unif_FK_Stud) REFERENCES STUD(Stud_ID),
-    CONSTRAINT tipo_uniforme CHECK(Unif_Tipo like 'Gorra' or Unif_Tipo like 'Chaquetilla'),
-    CONSTRAINT estado_uniforme CHECK(Unif_Estatus like 'Activo' or Unif_Estatus like 'Desuso')
+    CONSTRAINT tipo_uniforme CHECK(Unif_Tipo in ('Gorra, Chaquetilla')),
+    CONSTRAINT estado_uniforme CHECK(Unif_Estatus in ('Activo', 'Desuso'))
 );
 
 
@@ -308,7 +308,7 @@ CREATE TABLE TARJETA(
     Tarj_Tipo VARCHAR not null,
     Tarj_Fecha_Venc date not null,
     CONSTRAINT pk_tarjeta PRIMARY KEY(Tarj_Met_Pag_ID),
-    CONSTRAINT tipo_tarjeta CHECK(Tarj_Tipo like 'Debito' or Tarj_Tipo like 'Credito')
+    CONSTRAINT tipo_tarjeta CHECK(Tarj_Tipo in ('Debito', 'Credito'))
 );
 
 CREATE TABLE EFECTIVO(
@@ -357,7 +357,7 @@ CREATE TABLE PREMIO(
     Prem_Tipo VARCHAR not null,
     Prem_Posicion integer not null,
     CONSTRAINT pk_premio PRIMARY KEY(Prem_ID),
-    CONSTRAINT tipo_premio CHECK(Prem_Tipo like 'Normal' or Prem_Tipo like 'Especial')
+    CONSTRAINT tipo_premio CHECK(Prem_Tipo in ('Normal', 'Especial'))
 );
 
 CREATE TABLE ENTRADA_ACCESO(
@@ -614,7 +614,7 @@ CREATE TABLE IMP_INS(
     CONSTRAINT pk_imp_ins PRIMARY KEY(Imp_Ins_FK_Implemento, Imp_Ins_FK_Inscripcion_1, Imp_Ins_FK_Inscripcion_2),
     CONSTRAINT implementan FOREIGN KEY(Imp_Ins_FK_Implemento) REFERENCES IMPLEMENTO(Impl_ID),
     CONSTRAINT emplea FOREIGN KEY(Imp_Ins_FK_Inscripcion_1, Imp_Ins_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar),
-    CONSTRAINT aprobacion_implemento CHECK(Imp_Ins_Aprobacion like 'Aprobado' or Imp_Ins_Aprobacion like 'Rechazado' or Imp_Ins_Aprobacion like 'En espera')
+    CONSTRAINT aprobacion_implemento CHECK(Imp_Ins_Aprobacion in ('Aprobado', 'Rechazado', 'En espera'))
 );
 
 CREATE TABLE MED_INS(
@@ -625,7 +625,7 @@ CREATE TABLE MED_INS(
     CONSTRAINT pk_med_ins PRIMARY KEY(Med_Ins_FK_Medicamento, Med_Ins_FK_Inscripcion_1, Med_Ins_FK_Inscripcion_2),
     CONSTRAINT usado FOREIGN KEY(Med_Ins_FK_Medicamento) REFERENCES MEDICAMENTO(Medi_ID),
     CONSTRAINT usa FOREIGN KEY(Med_Ins_FK_Inscripcion_1, Med_Ins_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar),
-    CONSTRAINT aprobacion_medicamento CHECK(Med_Ins_Aprobacion like 'Aprobado' or Med_Ins_Aprobacion like 'Rechazo' or Med_Ins_Aprobacion like 'En espera')
+    CONSTRAINT aprobacion_medicamento CHECK(Med_Ins_Aprobacion in ('Aprobado', 'Rechazado', 'En espera'))
 );
 
 CREATE TABLE DETALLE_APUESTA(
