@@ -1,4 +1,3 @@
---ENTIDADES FUERTES
 
 CREATE TABLE LUGAR(
     Luga_ID serial,
@@ -56,7 +55,7 @@ CREATE TABLE VETERINARIO(
     Vete_Pers_p_Apellido VARCHAR not null,
     Vete_Pers_s_Apellido VARCHAR,
     Vete_Pers_CI integer not null,
-    Vete_Titulo VARCHAR not null,
+    Vete_Titulo VARCHAR,
     Vete_Fecha_Nac date,
     CONSTRAINT pk_veterinario PRIMARY KEY(Vete_Pers_ID)
 );
@@ -103,8 +102,9 @@ CREATE TABLE HORARIO_RESTAURANTE(
     Hor_Res_ID serial,
     Hor_Res_Hora_Apertura Time not null,
     Hor_Res_Hora_Cierre time not null,
-    Hor_Res_Dia date not null,
-    CONSTRAINT pk_horario_restaurante PRIMARY KEY(Hor_Res_ID)
+    Hor_Res_Dia VARCHAR not null,
+    CONSTRAINT pk_horario_restaurante PRIMARY KEY(Hor_Res_ID),
+    CONSTRAINT dia CHECK(Hor_Res_Dia in('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'))
 );
 
 CREATE TABLE RESTAURANTE(
@@ -154,6 +154,9 @@ CREATE TABLE TIPO_APUESTA(
     Tip_Apu_ID serial,
     Tip_Apu_Nombre VARCHAR not null,
     Tip_Apu_Descripcion VARCHAR not null,
+    Tip_Apu_Max_Ejemplares integer not null,
+    Tip_Apu_Min_Ejemplares integer not null,
+    Tip_Apu_Min_Apuesta integer not null,
     CONSTRAINT pk_tipo_apuesta PRIMARY KEY(Tip_Apu_ID)
 );
 
@@ -180,7 +183,7 @@ CREATE TABLE CATEGORIA_CARRERA(
 CREATE TABLE CARRERA(
     Carr_ID serial,
     Carr_Nombre VARCHAR not null,
-    Carr_Fecha date not null,
+    Carr_Fecha_Hora date not null,
     Carr_Numero_Llamado integer not null,
     Carr_Distancia integer not null,
     Carr_Descripcion VARCHAR not null,
@@ -192,10 +195,12 @@ CREATE TABLE CARRERA(
     Carr_Reclamo boolean not null,
     Carr_FK_Pista integer not null,
     Carr_FK_Cat_Car integer not null,
+    Carr_pista_variante VARCHAR,
     CONSTRAINT pk_carrera PRIMARY KEY(Carr_ID),
     CONSTRAINT ocurre FOREIGN KEY(Carr_FK_Pista) REFERENCES PISTA(Pist_ID),
     CONSTRAINT presenta FOREIGN KEY(Carr_FK_Cat_Car) REFERENCES CATEGORIA_CARRERA(Cat_Car_ID),
-    CONSTRAINT sexo_ejemplar CHECK(Carr_Sexo like 'Caballo' or Carr_Sexo like 'Yegua')
+    CONSTRAINT sexo_ejemplar CHECK(Carr_Sexo in ('Caballo', 'Yegua')),
+    CONSTRAINT variante_pista CHECK(Carr_pista_variante in ('Fangosa', 'Seca', 'Arena'))
 );
 
 CREATE TABLE EJEMPLAR(
@@ -206,6 +211,7 @@ CREATE TABLE EJEMPLAR(
     Ejem_Sexo VARCHAR not null,
     Ejem_Fecha_Nacimiento date not null,
     Ejem_Fecha_Ingreso date not null,
+    Ejem_Peso numeric not null,
     Ejem_FK_Padre integer,
     Ejem_FK_Madre integer,
     Ejem_FK_Hacienda integer not null,
@@ -213,8 +219,8 @@ CREATE TABLE EJEMPLAR(
     CONSTRAINT padre FOREIGN KEY(Ejem_FK_Padre) REFERENCES EJEMPLAR(Ejem_ID),
     CONSTRAINT madre FOREIGN KEY(Ejem_FK_Madre) REFERENCES EJEMPLAR(Ejem_ID),
     CONSTRAINT proviene FOREIGN KEY(Ejem_FK_Hacienda) REFERENCES HACIENDA(Haci_ID),
-    CONSTRAINT tipo_pelaje CHECK(Ejem_Pelaje like 'Castaño' or Ejem_Pelaje like 'Alazan' or Ejem_Pelaje like 'Zaino' or Ejem_Pelaje like 'Tordillo'),
-    CONSTRAINT ejemplar_sexo CHECK(Ejem_Sexo like 'Caballo' or Ejem_Sexo like 'Yegua')
+    CONSTRAINT tipo_pelaje CHECK(Ejem_Pelaje in ('Castaño', 'Alazan', 'Zaino', 'Tordillo')),
+    CONSTRAINT ejemplar_sexo CHECK(Ejem_Sexo in ('Caballo', 'Yegua'))
 );
 
 CREATE TABLE UNIFORME(
@@ -225,8 +231,15 @@ CREATE TABLE UNIFORME(
     Unif_FK_Stud integer not null,
     CONSTRAINT pk_uniforme PRIMARY KEY(Unif_ID),
     CONSTRAINT viste FOREIGN KEY(Unif_FK_Stud) REFERENCES STUD(Stud_ID),
-    CONSTRAINT tipo_uniforme CHECK(Unif_Tipo like 'Gorra' or Unif_Tipo like 'Chaquetilla'),
-    CONSTRAINT estado_uniforme CHECK(Unif_Estatus like 'Activo' or Unif_Estatus like 'Desuso')
+    CONSTRAINT tipo_uniforme CHECK(Unif_Tipo in ('Gorra, Chaquetilla')),
+    CONSTRAINT estado_uniforme CHECK(Unif_Estatus in ('Activo', 'Desuso'))
+);
+
+
+CREATE TABLE COMENTARIO(
+    Come_ID serial,
+    Come_Descripcion VARCHAR not null,
+    CONSTRAINT pk_comentario PRIMARY KEY(Come_ID)
 );
 
 CREATE TABLE TELEFONO(
@@ -235,25 +248,8 @@ CREATE TABLE TELEFONO(
     Tele_Numero VARCHAR not null,
     Tele_FK_Propietario integer not null,
     CONSTRAINT pk_telefono PRIMARY KEY(Tele_ID),
-    CONSTRAINT tipo_telefono CHECK(Tele_Tipo like 'Local' or Tele_Tipo like 'Celular'),
+    CONSTRAINT tipo_telefono CHECK(Tele_Tipo in ('Local', 'Celular')),
     CONSTRAINT utiliza FOREIGN KEY(Tele_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID)
-);
-
-CREATE TABLE USUARIO(
-    Usua_ID serial,
-    Usua_Nombre VARCHAR not null unique,
-    Usua_Contrasena VARCHAR not null,
-    Usua_FK_Propietario integer unique,
-    Usua_FK_Jinete integer unique,
-    Usua_FK_Entrenador integer unique,
-    Usua_FK_Veterinario integer unique,
-    Usua_FK_Visitante integer unique,
-    CONSTRAINT pk_usuario PRIMARY KEY(Usua_ID),
-    CONSTRAINT propietario_representa FOREIGN KEY(Usua_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID),
-    CONSTRAINT jinete_representa FOREIGN KEY(Usua_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),
-    CONSTRAINT entrenador_representa FOREIGN KEY(Usua_FK_Entrenador) REFERENCES ENTRENADOR(Entr_Pers_ID),
-    CONSTRAINT veterinario_representa FOREIGN KEY(Usua_FK_Veterinario) REFERENCES VETERINARIO(Vete_Pers_ID),
-    CONSTRAINT visitante_representa FOREIGN KEY(Usua_FK_Visitante) REFERENCES VISITANTE(Visi_Pers_ID)
 );
 
 CREATE TABLE ROL(
@@ -262,6 +258,28 @@ CREATE TABLE ROL(
     Rol_Descripcion VARCHAR not null,
     CONSTRAINT pk_rol PRIMARY KEY(Rol_ID)
 );
+
+CREATE TABLE USUARIO(
+    Usua_ID serial,
+    Usua_Nombre VARCHAR not null unique,
+    Usua_Contrasena VARCHAR not null,
+    Usua_FK_Propietario integer,
+    Usua_FK_Jinete integer,
+    Usua_FK_Entrenador integer,
+    Usua_FK_Veterinario integer,
+    Usua_FK_Visitante integer,
+    Usua_FK_Rol integer,
+    CONSTRAINT pk_usuario PRIMARY KEY(Usua_ID),
+    CONSTRAINT propietario_representa FOREIGN KEY(Usua_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID),
+    CONSTRAINT jinete_representa FOREIGN KEY(Usua_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),
+    CONSTRAINT entrenador_representa FOREIGN KEY(Usua_FK_Entrenador) REFERENCES ENTRENADOR(Entr_Pers_ID),
+    CONSTRAINT veterinario_representa FOREIGN KEY(Usua_FK_Veterinario) REFERENCES VETERINARIO(Vete_Pers_ID),
+    CONSTRAINT visitante_representa FOREIGN KEY(Usua_FK_Visitante) REFERENCES VISITANTE(Visi_Pers_ID),
+    CONSTRAINT cumple FOREIGN KEY(Usua_FK_Rol) REFERENCES ROL(Rol_ID)
+
+);
+
+
 
 CREATE TABLE PERMISO(
     Perm_ID serial,
@@ -290,7 +308,7 @@ CREATE TABLE TARJETA(
     Tarj_Tipo VARCHAR not null,
     Tarj_Fecha_Venc date not null,
     CONSTRAINT pk_tarjeta PRIMARY KEY(Tarj_Met_Pag_ID),
-    CONSTRAINT tipo_tarjeta CHECK(Tarj_Tipo like 'Debito' or Tarj_Tipo like 'Credito')
+    CONSTRAINT tipo_tarjeta CHECK(Tarj_Tipo in ('Debito', 'Credito'))
 );
 
 CREATE TABLE EFECTIVO(
@@ -307,7 +325,7 @@ CREATE TABLE TAQUILLA(
     Taqu_FK_Area integer not null,
     CONSTRAINT pk_taquilla PRIMARY KEY(Taqu_ID),
     CONSTRAINT se_ubica FOREIGN KEY(Taqu_FK_Area) REFERENCES AREA(Area_ID),
-    CONSTRAINT tipo_taquilla CHECK(Taqu_Tipo like 'Boletos' or Taqu_Tipo like 'Apuestas')
+    CONSTRAINT tipo_taquilla CHECK(Taqu_Tipo in ('Boletos', 'Apuestas', 'Ambos'))
 );
 
 CREATE TABLE APUESTA(
@@ -316,6 +334,7 @@ CREATE TABLE APUESTA(
     Apue_Monto numeric not null,
     Apue_Cobrada boolean,
     Apue_Fecha date not null,
+    Apue_Dividendo date not null,
     Apue_FK_Usuario integer,
     Apue_FK_Propietario integer,
     Apue_FK_Entrenador integer,
@@ -338,7 +357,7 @@ CREATE TABLE PREMIO(
     Prem_Tipo VARCHAR not null,
     Prem_Posicion integer not null,
     CONSTRAINT pk_premio PRIMARY KEY(Prem_ID),
-    CONSTRAINT tipo_premio CHECK(Prem_Tipo like 'Normal' or Prem_Tipo like 'Especial')
+    CONSTRAINT tipo_premio CHECK(Prem_Tipo in ('Normal', 'Especial'))
 );
 
 CREATE TABLE ENTRADA_ACCESO(
@@ -368,7 +387,7 @@ CREATE TABLE MATERIAL(
 CREATE TABLE BOX(
     Box_ID serial,
     Box_Numero integer not null,
-    Box_Descripcion VARCHAR not null,
+    Box_Descripcion VARCHAR,
     Box_FK_Caballeriza integer not null,
     CONSTRAINT pk_box PRIMARY KEY(Box_ID),
     CONSTRAINT compuesta FOREIGN KEY(Box_FK_Caballeriza) REFERENCES CABALLERIZA(Caba_ID)
@@ -387,30 +406,15 @@ CREATE TABLE BOLETO(
     CONSTRAINT consigue FOREIGN KEY(Bole_FK_Taquilla) REFERENCES Taquilla(Taqu_ID)
 );
 
-CREATE TABLE USU_ROL(
-    Usu_Rol_Fecha_Ini date not null,
-    Usu_Rol_Fecha_Fin date,
-    Usu_Rol_FK_Rol integer not null,
-    Usu_Rol_FK_Usuario integer not null,
-    Usu_Rol_FK_Permiso integer not null,
-    Usu_Rol_ID serial,
-    CONSTRAINT pk_usuario_rol PRIMARY KEY(Usu_Rol_ID),
-    CONSTRAINT aplica FOREIGN KEY(Usu_Rol_FK_Rol) REFERENCES ROL(Rol_ID),
-    CONSTRAINT cumplen FOREIGN KEY(Usu_Rol_FK_Usuario) REFERENCES USUARIO(Usua_ID),
-    CONSTRAINT adquiere FOREIGN KEY(Usu_Rol_FK_Permiso) REFERENCES PERMISO(Perm_ID)
-);
-
-CREATE TABLE EJE_PRO(
-    Eje_Pro_Porcentaje integer not null,
-    Eje_Pro_Fecha_Compra date not null,
-    Eje_Pro_Fecha_Venta date,
-    Eje_Pro_FK_Ejemplar integer not null,
-    Eje_Pro_FK_Propietario integer not null,
-    Eje_Pro_ID serial,
-    CONSTRAINT pk_Eje_Pro PRIMARY KEY(Eje_Pro_ID),
-    CONSTRAINT poseido FOREIGN KEY(Eje_Pro_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID),
-    CONSTRAINT posee FOREIGN KEY(Eje_Pro_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID),
-    CONSTRAINT rango_porcentaje CHECK(Eje_Pro_Porcentaje between 0 and 100)
+CREATE TABLE PER_ROL(
+    Per_Rol_Fecha_Ini date not null,
+    Per_Rol_Fecha_Fin date,
+    Per_Rol_FK_Rol integer not null,
+    Per_Rol_FK_Permiso integer not null,
+    Per_Rol_ID serial,
+    CONSTRAINT pk_usuario_rol PRIMARY KEY(Per_Rol_ID),
+    CONSTRAINT aplica FOREIGN KEY(Per_Rol_FK_Rol) REFERENCES ROL(Rol_ID),
+    CONSTRAINT adquiere FOREIGN KEY(Per_Rol_FK_Permiso) REFERENCES PERMISO(Perm_ID)
 );
 
 CREATE TABLE EJE_ENT(
@@ -469,20 +473,25 @@ CREATE TABLE UNI_COL(
     CONSTRAINT encuentra FOREIGN KEY(Uni_Col_FK_Color) REFERENCES COLOR(Colo_ID)
 );
 
-CREATE TABLE EJE_STU(
-    Eje_Stu_Fecha_Ini date not null,
-    Eje_Stu_Fecha_fin date,
-    Eje_Stu_FK_Stud integer not null,
-    Eje_Stu_FK_Ejemplar integer not null,
-    Eje_Stu_ID serial,
-    CONSTRAINT pk_eje_stu PRIMARY KEY(Eje_Stu_ID),
-    CONSTRAINT conserva FOREIGN KEY(Eje_Stu_FK_Stud) REFERENCES STUD(Stud_ID),
-    CONSTRAINT conservado FOREIGN KEY(Eje_Stu_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID)
+CREATE TABLE EJE_PRO_STUD(
+    Eje_Pro_Stud_Porcentaje integer not null,
+    Eje_Pro_Stud_Fecha_Compra date not null,
+    Eje_Pro_Stud_Fecha_Venta date,
+    Eje_Pro_Stud_Fecha_Ini date not null,
+    Eje_Pro_Stud_Fecha_fin date,
+    Eje_Pro_Stud_FK_Stud integer not null,
+    Eje_Pro_Stud_FK_Ejemplar integer not null,
+    Eje_Pro_Stud_FK_Propietario integer not null,
+    Eje_Pro_Stud_ID serial,
+    CONSTRAINT pk_eje_stu PRIMARY KEY(Eje_Pro_Stud_ID),
+    CONSTRAINT conserva FOREIGN KEY(Eje_Pro_Stud_FK_Stud) REFERENCES STUD(Stud_ID),
+    CONSTRAINT poseido FOREIGN KEY(Eje_Pro_Stud_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID),
+    CONSTRAINT posee FOREIGN KEY(Eje_Pro_Stud_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID)
+
 );
 
 CREATE TABLE Car_Pre(
     Car_Pre_Monto numeric not null,
-    Car_Pre_Entregado boolean not null,
     Car_Pre_FK_Carrera integer not null,
     Car_Pre_FK_Premio integer not null,
     CONSTRAINT pk_car_pre PRIMARY KEY(Car_Pre_FK_Carrera, Car_Pre_FK_Premio),
@@ -515,9 +524,11 @@ CREATE TABLE ACCION(
     Acci_ID serial,
     Acci_Fecha date not null,
     Acci_Descripcion VARCHAR not null,
-    Acci_FK_Usu_Rol integer not null,
+    Acci_FK_Per_Rol integer not null,
+    Acci_FK_Usuario integer not null,
     CONSTRAINT pk_accion PRIMARY KEY(Acci_ID),
-    CONSTRAINT realizada FOREIGN KEY(Acci_FK_Usu_Rol) REFERENCES USU_ROL(Usu_Rol_ID)
+    CONSTRAINT emplea FOREIGN KEY(Acci_FK_Per_Rol) REFERENCES PER_ROL(Per_Rol_ID),
+    CONSTRAINT realiza FOREIGN KEY(Acci_FK_Usuario) REFERENCES USUARIO(Usua_ID)
 );
 
 CREATE TABLE INSCRIPCION(
@@ -531,10 +542,14 @@ CREATE TABLE INSCRIPCION(
     Insc_Premio_Stud numeric,
     Insc_FK_Carrera integer not null,
     Insc_FK_Ejemplar integer not null,
+    Insc_FK_Jinete integer not null,
     Insc_Num_Gualdrapa integer not null,
+    Insc_FK_Comentario integer,
     CONSTRAINT pk_inscripcion PRIMARY KEY(Insc_FK_Carrera, Insc_FK_Ejemplar),
     CONSTRAINT posibilita FOREIGN KEY(Insc_FK_Carrera) REFERENCES CARRERA(Carr_ID),
     CONSTRAINT participan FOREIGN KEY(Insc_FK_Ejemplar) REFERENCES EJE_ENT(Eje_Ent_ID),
+    CONSTRAINT participa FOREIGN KEY(Insc_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),
+    CONSTRAINT cuenta FOREIGN KEY(Insc_FK_Comentario) REFERENCES COMENTARIO(Come_ID),
     CONSTRAINT numero_favorito CHECK(Insc_Num_Favorito between 1 and 3)
 );
 
@@ -578,15 +593,6 @@ CREATE TABLE RETIRO(
     CONSTRAINT permite FOREIGN KEY(Reti_FK_Inscripcion_1, Reti_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
 );
 
-CREATE TABLE COMENTARIO(
-    Come_ID serial,
-    Come_Descripcion VARCHAR not null,
-    Come_FK_Inscripcion_1 integer not null,
-    Come_FK_Inscripcion_2 integer not null,
-    CONSTRAINT pk_comentario PRIMARY KEY(Come_ID),
-    CONSTRAINT cuenta FOREIGN KEY(Come_FK_Inscripcion_1, Come_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
-);
-
 CREATE TABLE RESULTADO(
     Resu_ID serial,
     Resu_Hora_Partida time not null,
@@ -608,7 +614,7 @@ CREATE TABLE IMP_INS(
     CONSTRAINT pk_imp_ins PRIMARY KEY(Imp_Ins_FK_Implemento, Imp_Ins_FK_Inscripcion_1, Imp_Ins_FK_Inscripcion_2),
     CONSTRAINT implementan FOREIGN KEY(Imp_Ins_FK_Implemento) REFERENCES IMPLEMENTO(Impl_ID),
     CONSTRAINT emplea FOREIGN KEY(Imp_Ins_FK_Inscripcion_1, Imp_Ins_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar),
-    CONSTRAINT aprobacion_implemento CHECK(Imp_Ins_Aprobacion like 'Aprobado' or Imp_Ins_Aprobacion like 'Rechazado' or Imp_Ins_Aprobacion like 'En espera')
+    CONSTRAINT aprobacion_implemento CHECK(Imp_Ins_Aprobacion in ('Aprobado', 'Rechazado', 'En espera'))
 );
 
 CREATE TABLE MED_INS(
@@ -619,12 +625,12 @@ CREATE TABLE MED_INS(
     CONSTRAINT pk_med_ins PRIMARY KEY(Med_Ins_FK_Medicamento, Med_Ins_FK_Inscripcion_1, Med_Ins_FK_Inscripcion_2),
     CONSTRAINT usado FOREIGN KEY(Med_Ins_FK_Medicamento) REFERENCES MEDICAMENTO(Medi_ID),
     CONSTRAINT usa FOREIGN KEY(Med_Ins_FK_Inscripcion_1, Med_Ins_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar),
-    CONSTRAINT aprobacion_medicamento CHECK(Med_Ins_Aprobacion like 'Aprobado' or Med_Ins_Aprobacion like 'Rechazo' or Med_Ins_Aprobacion like 'En espera')
+    CONSTRAINT aprobacion_medicamento CHECK(Med_Ins_Aprobacion in ('Aprobado', 'Rechazado', 'En espera'))
 );
 
 CREATE TABLE DETALLE_APUESTA(
     Det_Apu_Posicion integer not null,
-    Det_Apu_Dividendo numeric,
+    Det_Apu_Orden numeric,
     Det_Apu_FK_Apuesta integer not null,
     Det_Apu_FK_Inscripcion_1 integer not null,
     Det_Apu_FK_Inscripcion_2 integer not null,
