@@ -36,6 +36,33 @@ import Entrenador_Ejemplares from './routes/Entrenador/Entrenador_Ejemplares';
 import Entrenador_Carreras from './routes/Entrenador/Entrenador_Carreras';
 import Entrenador_Carreras_Informacion from './routes/Entrenador/Entrenador_Carreras_Informacion';
 import Entrenador_Solicitudes from './routes/Entrenador/Entrenador_Solicitudes';
+import Admin_Cuenta from './routes/Admin/Admin_Cuenta';
+import Admin_Cruds from './routes/Admin/AdminCruds';
+import Admin_Reset from './routes/Admin/Admin_Reset';
+import AdminCrud_Ejemplares from './routes/Admin/AdminCrud_Ejemplares';
+import AdminCrud_Jinetes from './routes/Admin/AdminCrud_Jinetes';
+import AdminCrud_Implementos from './routes/Admin/AdminCrud_Implementos';
+import AdminCrud_Entrenadores from './routes/Admin/AdminCrud_Entrenadores';
+import AdminCrud_Veterinarios from './routes/Admin/AdminCrud_Veterinarios';
+import AdminCrud_Propietarios from './routes/Admin/AdminCrud_Propietarios';
+import AdminCrud_Studs from './routes/Admin/AdminCrud_Studs';
+import AdminCrud_Restaurantes from './routes/Admin/AdminCrud_Restaurantes';
+import AdminCrud_Uniformes from './routes/Admin/AdminCrud_Uniformes';
+import AdminCrud_Pistas from './routes/Admin/AdminCrud_Pistas';
+import AdminCrud_Haciendas from './routes/Admin/AdminCrud_Haciendas';
+import AdminCrud_Carreras from './routes/Admin/AdminCrud_Carreras';
+import Admin_Cuenta_Datos from './routes/Admin/Admin_Cuenta_Datos';
+import AdminCrud_Resultados from './routes/Admin/AdminCrud_Resultados';
+import AdminCrud_Cuadras from './routes/Admin/AdminCrud_Cuadras';
+import AdminCrud_Usuarios from './routes/Admin/AdminCrud_Usuarios';
+import AdminCrud_Rol from './routes/Admin/AdminCrud_Rol';
+import AdminCrud_Permisos from './routes/Admin/AdminCrud_Permisos';
+import Propietario_Cuenta from './routes/Propietario/Propietario_Cuenta';
+import Propietario_Cuenta_Datos from './routes/Propietario/Propietario_Cuenta_Datos';
+import Propietario_Ejemplares from './routes/Propietario/Propietario_Ejemplares';
+import Propietario_Ejemplares_Crud from './routes/Propietario/Propietario_Ejemplares_Crud';
+import Propietario_Studs from './routes/Propietario/Propietario_Studs';
+import Propietario_Studs_Crud from './routes/Propietario/Propietario_Studs_Crud';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -88,6 +115,15 @@ root.render(
 
 
 
+      <Route path='/propietario_cuenta' element={<Propietario_Cuenta/>}/>
+      <Route path='/propietario_cuenta_datos' element={<Propietario_Cuenta_Datos/>}/>
+      <Route path='/propietario_ejemplares' element={<Propietario_Ejemplares/>}/>
+        <Route path='/propietario_ejemplares_crud' element={<Propietario_Ejemplares_Crud/>}/>
+      <Route path='/propietario_studs' element={<Propietario_Studs/>}/>
+        <Route path='/propietario_studs_crud' element={<Propietario_Studs_Crud/>}/>
+
+
+
       <Route path='/entrenador_cuenta' element={<Entrenador_Cuenta/>}/>
         <Route path='/entrenador_cuenta_datos' element={<Entrenador_Cuenta_Datos/>}/>
       <Route path='/entrenador_perfil' element={<Entrenador_Perfil/>}/>
@@ -95,6 +131,30 @@ root.render(
       <Route path='/entrenador_carreras' element={<Entrenador_Carreras/>}/>
         <Route path='/entrenador_carreras_info' element={<Entrenador_Carreras_Informacion/>}/>
       <Route path='/entrenador_solicitudes' element={<Entrenador_Solicitudes/>}/>
+
+
+      <Route path='/admin_cuenta' element={<Admin_Cuenta/>}/>
+        <Route path='/admin_cuenta_datos' element={<Admin_Cuenta_Datos/>}/>
+      <Route path='/admin_cruds' element={<Admin_Cruds/>}/>
+        <Route path='/admin_cruds_ejemplar' element={<AdminCrud_Ejemplares/>}/>
+        <Route path='/admin_cruds_jinete' element={<AdminCrud_Jinetes/>}/>
+        <Route path='/admin_cruds_implemento' element={<AdminCrud_Implementos/>}/>
+        <Route path='/admin_cruds_entrenador' element={<AdminCrud_Entrenadores/>}/>
+        <Route path='/admin_cruds_veterinario' element={<AdminCrud_Veterinarios/>}/>
+        <Route path='/admin_cruds_propietario' element={<AdminCrud_Propietarios/>}/>
+        <Route path='/admin_cruds_stud' element={<AdminCrud_Studs/>}/>
+        <Route path='/admin_cruds_restaurante' element={<AdminCrud_Restaurantes/>}/>
+        <Route path='/admin_cruds_uniforme' element={<AdminCrud_Uniformes/>}/>
+        <Route path='/admin_cruds_pista' element={<AdminCrud_Pistas/>}/>
+        <Route path='/admin_cruds_hacienda' element={<AdminCrud_Haciendas/>}/>
+        <Route path='/admin_cruds_carrera' element={<AdminCrud_Carreras/>}/>
+        <Route path='/admin_cruds_resultado' element={<AdminCrud_Resultados/>}/>
+        <Route path='/admin_cruds_cuadra' element={<AdminCrud_Cuadras/>}/>
+        <Route path='/admin_cruds_usuario' element={<AdminCrud_Usuarios/>}/>
+        <Route path='/admin_cruds_rol' element={<AdminCrud_Rol/>}/>
+        <Route path='/admin_cruds_permiso' element={<AdminCrud_Permisos/>}/>
+
+      <Route path='/admin_reset' element={<Admin_Reset/>}/>
 
 
     </Routes> 
