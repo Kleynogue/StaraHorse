@@ -64,7 +64,6 @@ function AdminCrud_Haciendas(){
             if(cargado=="false"){
 
                 const OpLugar = [
-                    { value: '0', label: 'No aplica' },
                     { value: '1', label: 'Lugar 1' },
                     { value: '2', label: 'Lugar 2' },
                     { value: '3', label: 'Lugar 3' },
