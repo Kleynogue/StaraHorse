@@ -2177,99 +2177,99 @@
     insert into Enf_Eje (Enf_Eje_Fecha_Ini, Enf_Eje_Fecha_Fin, Enf_Eje_FK_Ejemplar, Enf_Eje_FK_Enfermedad, Enf_Eje_FK_Medicamento) values ('2022-04-07', '2022-4-23', 97, 3, null);
     insert into Enf_Eje (Enf_Eje_Fecha_Ini, Enf_Eje_Fecha_Fin, Enf_Eje_FK_Ejemplar, Enf_Eje_FK_Enfermedad, Enf_Eje_FK_Medicamento) values ('2022-01-10', '2022-02-13', 52, 2, 3);
 
-    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('claudicación miembro anterior izquierdo')
-    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('cólico')
-    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('claudicación miembro anterior derecho')
-    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('escaparse antes de la carrera')
-    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('estado febril')
-    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('alergia')
-    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('hemorragia pulmonar')
-    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('inapetencia')
-    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('golpearse en el aparato')
-    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('escaparse en los traqueos')
+    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('claudicación miembro anterior izquierdo');
+    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('cólico');
+    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('claudicación miembro anterior derecho');
+    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('escaparse antes de la carrera');
+    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('estado febril');
+    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('alergia');
+    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('hemorragia pulmonar');
+    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('inapetencia');
+    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('golpearse en el aparato');
+    insert into Motivo_Retiro(Mot_Ret_Descripcion) values ('escaparse en los traqueos');
 
-    insert into Categoria_Carrera(Cat_Car_Nombre, Cat_Car_Descripcion) values ('Normal', 'Carreras que se corren frecuentemente')
+    insert into Categoria_Carrera(Cat_Car_Nombre, Cat_Car_Descripcion) values ('Normal', 'Carreras que se corren frecuentemente');
     insert into Categoria_Carrera(Cat_Car_Nombre, Cat_Car_Descripcion) values ('Clásico', 'Conmemoran algún acontecimiento o personaje célebre');
     insert into Categoria_Carrera(Cat_Car_Nombre, Cat_Car_Descripcion) values ('Copa', 'Carreras importantes nacionalmente');
     insert into Categoria_Carrera(Cat_Car_Nombre, Cat_Car_Descripcion) values ('Reclamo', 'Carreras destinadas para vender ejemplares');
     insert into Categoria_Carrera(Cat_Car_Nombre, Cat_Car_Descripcion) values ('Práctica', 'Carreras donde corren los ejemplares para entrenar');
 
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Punto Blanco')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Yofyel')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'M.M.')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Daga Española')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'San Remo')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Barcelona')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Adag')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Azatlan')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Hermanos Egas')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Iñaki')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Mi Gran Abuela')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'DAF 1')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Extinguisher Capi')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Los Cotuas')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'King Of Kings')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Apple')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Dava')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Doble S')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Chamus')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Ayubi & Aleman')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Los Samanes & Susana')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Grupo El Yankee')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'St Lucia Stable-Santanyi')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Mo Cuishle')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Cigar')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Odde')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'La Fontonera')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Loschads')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Z.M')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'J.Sánchez')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'My Society')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Agnelbel')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'P.P')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'La Ciencia')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Emma Lucia')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Corinthius')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Mon Rol')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Mamá Adela')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Dubai 2021')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'El Incomodo')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Gimnasio')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'El Doret')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'El Patriarca')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Zurich')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Arantxa II')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Lucky Dog Stable')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Los Precisos')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Taramundi')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'R.Q')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Diego y sus Amigos III')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'P.G')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Yurenyerly')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Los Audaces')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Adrian C')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'L & H')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Surprise Day')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Las Veritas')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Sanchecitos')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Sr Jose Luis')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'SettePower')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Copo de Nieve')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Black Tito')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'L.F')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Linda Abril')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Fast Navy')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Las Acacias VBP')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Mi Mamita')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'San Ros')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Transformers')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Roygam')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Hacedion')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'LosSamanes-Matilde&Domingo')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Sermar')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'El Gran Misterio')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'San Michael')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Virgen de Guadalupe')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Andrea Stable I')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Ferálico')
-    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Cold Power')
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Punto Blanco');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Yofyel');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'M.M.');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Daga Española');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'San Remo');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Barcelona');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Adag');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Azatlan');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Hermanos Egas');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Iñaki');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Mi Gran Abuela');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'DAF 1');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Extinguisher Capi');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Los Cotuas');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'King Of Kings');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Apple');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Dava');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Doble S');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Chamus');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Ayubi & Aleman');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Los Samanes & Susana');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Grupo El Yankee');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'St Lucia Stable-Santanyi');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Mo Cuishle');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Cigar');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Odde');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'La Fontonera');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Loschads');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Z.M');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'J.Sánchez');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'My Society');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Agnelbel');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'P.P');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'La Ciencia');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Emma Lucia');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Corinthius');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Mon Rol');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Mamá Adela');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Dubai 2021');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'El Incomodo');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Gimnasio');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'El Doret');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'El Patriarca');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Zurich');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Arantxa II');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Lucky Dog Stable');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Los Precisos');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Taramundi');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'R.Q');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Diego y sus Amigos III');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'P.G');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Yurenyerly');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Los Audaces');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Adrian C');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'L & H');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Surprise Day');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Las Veritas');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Sanchecitos');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Sr Jose Luis');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'SettePower');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Copo de Nieve');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Black Tito');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'L.F');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Linda Abril');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Fast Navy');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Las Acacias VBP');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Mi Mamita');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'San Ros');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Transformers');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Roygam');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Hacedion');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'LosSamanes-Matilde&Domingo');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Sermar');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'El Gran Misterio');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'San Michael');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Virgen de Guadalupe');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Andrea Stable I');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Ferálico');
+    insert into Stud(Stud_Fecha_Creacion, Stud_Nombre) values ('2000-01-01', 'Cold Power');
