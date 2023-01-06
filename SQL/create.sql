@@ -457,7 +457,7 @@ CREATE TABLE ENF_EJE(
     Enf_Eje_Fecha_Fin date,
     Enf_Eje_FK_Ejemplar integer not null,
     Enf_Eje_FK_Enfermedad integer not null,
-    Enf_Eje_FK_Medicamento integer not null,
+    Enf_Eje_FK_Medicamento integer,
     Enf_Eje_ID serial,
     CONSTRAINT pk_enf_eje PRIMARY KEY(Enf_Eje_ID),
     CONSTRAINT padece FOREIGN KEY(Enf_Eje_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID),
