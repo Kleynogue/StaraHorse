@@ -269,7 +269,7 @@ CREATE TABLE USUARIO(
     Usua_FK_Entrenador integer,
     Usua_FK_Veterinario integer,
     Usua_FK_Visitante integer,
-    Usua_FK_Rol integer,
+    Usua_FK_Rol integer not null,
     CONSTRAINT pk_usuario PRIMARY KEY(Usua_ID),
     CONSTRAINT propietario_representa FOREIGN KEY(Usua_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID),
     CONSTRAINT jinete_representa FOREIGN KEY(Usua_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),
