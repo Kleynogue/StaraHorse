@@ -20,6 +20,7 @@ function AdminCrud_Carreras(){
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
         const [nombre, setNombre] = useState();
         const [fecha, setFecha] = useState();
+        const [hora, setHora] = useState();
         const [numLlamado, setNumLlamado] = useState();
         const [distancia, setDistancia] = useState();
         const [descripcion, setDescripcion] = useState();
@@ -30,6 +31,7 @@ function AdminCrud_Carreras(){
         const [maxGanadas, setMaxGanadas] = useState();
         const [reclamo, setReclamo] = useState();
         const [pista, setPista] = useState();
+        const [pistaVariante, setPistaVariante] = useState();
         const [categoria, setCategoria] = useState();
         const [premioPosicion, setPremioPosicion] = useState();
         const [premioTipo, setPremioTipo] = useState();
@@ -58,6 +60,14 @@ function AdminCrud_Carreras(){
         const [opcComentario, setOpcComentario] = useState();
         const [opcFavorito, setOpcFavorito] = useState();
         const [opcJinete, setOpcJinete] = useState();
+
+        const [insJinete, setInsJinete] = useState("NULL");
+        const [insFavorito, setInsFavorito] = useState("NULL");
+        const [insComentario, setInsComentario] = useState("NULL");
+        const [insPP, setInsPP] = useState("NULL");
+        const [insPrecio, setInsPrecio] = useState("NULL");
+        const [insGualdrapa, setInsGualdrapa] = useState("NULL");
+
 
 
         const customerStyles = { 
@@ -252,8 +262,6 @@ function AdminCrud_Carreras(){
             
         }
 
-
-
         return (
 
             <div className='bodyUsuario'>
@@ -279,6 +287,9 @@ function AdminCrud_Carreras(){
                         <div >Fecha</div>
                         <div ><input  type="date" onChange={e => setFecha(e.target.value)}></input></div>
 
+                        <div >Hora</div>
+                        <div ><input  type="time" onChange={e => setHora(e.target.value)}></input></div>
+
                         <div >Numero de Llamado</div>
                         <div ><input  type="number" onChange={e => setNumLlamado(e.target.value)}></input></div>
 
@@ -300,6 +311,9 @@ function AdminCrud_Carreras(){
                         <div >* Maximo de Ganadas</div>
                         <div ><input  type="number" onChange={e => setMaxGanadas(e.target.value)}></input></div>
 
+                        <div >Pista Variante</div>
+                        <div ><input  type="text" onChange={e => setPistaVariante(e.target.value)}></input></div>
+
                         <div >Sexo</div>
                         <div id='ComboboxCrud'><Select styles={customerStyles} options={opcSexo} defaultValue={sexo}  onChange={setSexo}  /></div>
 
@@ -313,9 +327,8 @@ function AdminCrud_Carreras(){
                         <div id='ComboboxCrud'><Select styles={customerStyles} options={opcCategoria} defaultValue={categoria}  onChange={setCategoria}  /></div>
 
                         <div id='mensaje'>----------------------------------------------------------</div>
+                        <div id='mensaje'>PREMIOS</div>
 
-                        <div >Premio:</div>
-                        <div></div>
                         
                         <div >Posicion</div>
                         <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPremioPosicion} defaultValue={premioPosicion}  onChange={setPremioPosicion}  /></div>
@@ -327,21 +340,23 @@ function AdminCrud_Carreras(){
                         <div ><input  type="number" onChange={e => setPremioMonto(e.target.value)}></input></div>
                         
                         <div id='mensaje'>EL ELEMENTO SELECCIONADO SERA ELIMINADO</div>
-                        <div >Premio</div>
+                        <div >Eliminar Premio</div>
                         <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPremioSeleccionado} defaultValue={premioSeleccionado}  onChange={setPremioSeleccionado}  /></div>
                         
                         <div id='mensaje'>----------------------------------------------------------</div>
+                        <div id='mensaje'>INSCRITOS</div>
 
-                        <div >Ejemplares:</div>
+                        <div >Inscribir Ejemplar</div>
                         <div id='ComboboxCrud'><Select styles={customerStyles} options={opcEjemplares} defaultValue={insertarEjemplar}  onChange={setInsertarEjemplar}  /></div>
                         
                         <div id='mensaje'>EL ELEMENTO SELECCIONADO SERA ELIMINADO</div>
-                        <div >Ejemplar</div>
+                        <div >Eliminar Ejemplar</div>
                         <div id='ComboboxCrud'><Select styles={customerStyles} options={opcEjemplaresCarrera} defaultValue={eliminarEjemplar}  onChange={setEliminarEjemplar}  /></div>
                         
                         <div id='mensaje'>----------------------------------------------------------</div>
+                        <div id='mensaje'>INSCRIPCIONES</div>
 
-                        <div >Ejemplares Inscripcion:</div>
+                        <div >Ejemplar Inscritos</div>
                         <div id='ComboboxCrud'><Select styles={customerStyles} options={opcEjemplaresCarrera} defaultValue={datosEjemplar}  onChange={setDatosEjemplar}  /></div>
                         
                         <div >Jinete</div>
@@ -357,10 +372,30 @@ function AdminCrud_Carreras(){
                         <div ><input  type="number" onChange={e => setPuesto(e.target.value)}></input></div>
                         
                         <div >Precio</div>
-                        <div ><input  type="number" onChange={e => setPrecio(e.target.value)}></input></div>
+                        <div ><input  type="number"  onChange={e => setPrecio(e.target.value)}></input></div>
 
                         <div >Gualdrapa</div>
                         <div ><input  type="number" onChange={e => setGualdrapa(e.target.value)}></input></div>
+
+                        <div id='mensaje'>RESUMEN DE INSCRITOS</div>
+                        <div >Jinete</div>
+                        <div className='ResInscritos'>{insJinete}</div>
+
+                        <div >Favorito</div>
+                        <div className='ResInscritos'>{insFavorito}</div>
+
+                        <div >Comentario</div>
+                        <div className='ResInscritos'>{insComentario}</div>
+
+                        <div >Puesto en Pista</div>
+                        <div className='ResInscritos'>{insPP}</div>
+
+                        <div >Precio</div>
+                        <div className='ResInscritos'>{insPrecio}</div>
+
+                        <div >Gualdrapa</div>
+                        <div className='ResInscritos'>{insGualdrapa}</div>
+
 
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
                     

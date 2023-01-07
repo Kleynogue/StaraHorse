@@ -63,6 +63,7 @@ import Propietario_Ejemplares from './routes/Propietario/Propietario_Ejemplares'
 import Propietario_Ejemplares_Crud from './routes/Propietario/Propietario_Ejemplares_Crud';
 import Propietario_Studs from './routes/Propietario/Propietario_Studs';
 import Propietario_Studs_Crud from './routes/Propietario/Propietario_Studs_Crud';
+import Usuario_Carreras_Informacion_Record from './routes/Usuario/Usuario_Carreras_Informacion_Record';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -79,6 +80,7 @@ root.render(
 
       <Route path='/usuario_carreras' element={<Usuario_Carreras/>}/>
         <Route path='/usuario_carreras_info' element={<Usuario_Carreras_Informacion/>}/>
+        <Route path='/usuario_carreras_info_record' element={<Usuario_Carreras_Informacion_Record/>}/>
         <Route path='/usuario_carreras_resultado' element={<Usuario_Carreras_Resultado/>}/>
 
       <Route path='/usuario_ejemplares' element={<Usuario_Ejemplares/>}/>
