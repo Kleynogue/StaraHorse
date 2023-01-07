@@ -232,7 +232,7 @@ CREATE TABLE UNIFORME(
     Unif_FK_Stud integer not null,
     CONSTRAINT pk_uniforme PRIMARY KEY(Unif_ID),
     CONSTRAINT viste FOREIGN KEY(Unif_FK_Stud) REFERENCES STUD(Stud_ID),
-    CONSTRAINT tipo_uniforme CHECK(Unif_Tipo in ('Gorra, Chaquetilla')),
+    CONSTRAINT tipo_uniforme CHECK(Unif_Tipo in ('Gorra', 'Chaquetilla')),
     CONSTRAINT estado_uniforme CHECK(Unif_Estatus in ('Activo', 'Desuso'))
 );
 

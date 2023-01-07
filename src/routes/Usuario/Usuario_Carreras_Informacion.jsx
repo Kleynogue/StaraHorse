@@ -25,14 +25,21 @@ function Usuario_Carreras_Informacion(){
                 clave:location.state.clave,
                 }});
         }
+
+        const toRecordEjemplar=(clave)=>{
+            navigate('/usuario_carreras_info_record',{
+                state:{
+                    clave,
+                }});
+        }
         //Fin Direcciones
 
         //Columnas del record del ejemplar
         let COLprin = ["Fecha", "Hora", "Distancia", "N Llamado","Tipo de Carrera","N Carrera", "Nombre", "Categoria"];
-        let COLprem = ["Lugar de Llegada","Bs. a Repartir"];
+        let COLprem = ["Llegada","Bs. a Repartir"];
         let COLfavo = ["Favoritos","Ejemplar"];
         let COLreco = ["Ejemplar","Jinete","Peso del Jinete","Fecha"];
-        let COLejem = ["Ejemplar","Edad","Peso (Kg)","Estado", "Jinete", "Peso Jinete (Kg)", "Implementos", "Puesto de Partida", "Precio", "Comentarios"];
+        let COLejem = ["N","Ejemplar, Sexo, Pelaje, Edad, Peso","Padres, Origen", "Jinete, Ks, Entrenador","Propietario, Uniforme", "Implementos", "PP", "Comentarios"];
 
 
         //Estados de los valores del ejemplar
@@ -78,13 +85,15 @@ function Usuario_Carreras_Informacion(){
                 setRecord(reco);
 
                 //Datos de los ejemplares
-                let ejem = [
-                    {Col1: "Ejemplar_1", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_1", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"},
-                    {Col1: "Ejemplar_2", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_2", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"},
-                    {Col1: "Ejemplar_3", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_3", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"},
-                    {Col1: "Ejemplar_4", Col2: "00", Col3: "00",Col4: "Estado", Col5: "Jinete_4", Col6: "00", Col7: "Implemento", Col8: "00", Col9: "0000", Col10: "Comentarios"}
+                const ejem = [
+                    {Col1: "1", Col2: "Ejemplar_1, C, C, 5a, 100", Col3: "Padres_1, Hacienda_1", Col4: "Jinete_1, 51, Entrenador_1",Col5: "Stud_1, Descripcion_1",Col6: "Implemento", Col7: "1", Col8: "Comentario"},
+                    {Col1: "2", Col2: "Ejemplar_2, C, C, 5a, 200", Col3: "Padres_2, Hacienda_2", Col4: "Jinete_2, 52, Entrenador_2",Col5: "Stud_2, Descripcion_2",Col6: "Implemento", Col7: "2", Col8: "Comentario"},
+                    {Col1: "3", Col2: "Ejemplar_3, C, C, 5a, 300", Col3: "Padres_3, Hacienda_3", Col4: "Jinete_3, 53, Entrenador_3",Col5: "Stud_3, Descripcion_3",Col6: "Implemento", Col7: "3", Col8: "Comentario"},
+
                 ]
                 setEjemplares(ejem);
+                
+
 
                 setCargado("true");
             }
@@ -110,7 +119,7 @@ function Usuario_Carreras_Informacion(){
                     <div id='Tpremio'><Tabla datos={premio} columnas={COLprem} col={2}/></div>
                     <div id='Tfavoritos'><Tabla datos={favoritos} columnas={COLfavo} col={2}/></div>
                     <div id='Trecord'><div id='TituloRecord'>Record</div><Tabla datos={record} columnas={COLreco} col={4}/></div>
-                    <div id='Tejemplares'><Tabla datos={ejemplares} columnas={COLejem} col={10}/></div>
+                    <div id='Tejemplares'><Tabla datos={ejemplares} columnas={COLejem} col={8} fun={toRecordEjemplar}/></div>
                     
                     <div id='BotonResultados' ><Boton_Direccion_Ampliado fun={()=>toUsuarioCarreraResultado('/usuario_carreras_resultado')} nombre="Resultado"  /></div>      
 
