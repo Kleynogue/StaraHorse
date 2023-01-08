@@ -1676,11 +1676,51 @@
     insert into color(Colo_Nombre) values ('Marrón');
     insert into color(Colo_Nombre) values ('Rosa');
 
-    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (11, true, 4);
-    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (12, true, 1);
-    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (12, true, 2);
-    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (9, true, 3);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (36, true, 4);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (34, true, 1);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (25, true, 2);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (30, true, 3);
     insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (16, true, 1);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (10, true, 1);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (36, true, 2);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (12, true, 3);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (13, true, 4);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (30, true, 5);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (13, true, 1);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (25, true, 2);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (28, true, 3);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (10, true, 4);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (15, true, 5);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (24, true, 5);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (13, true, 4);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (14, true, 1);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (16, true, 2);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (17, true, 3);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (12, true, 5);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (21, true, 4);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (15, true, 1);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (25, true, 2);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (25, true, 3);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (23, true, 3);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (19, true, 2);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (40, true, 1);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (25, true, 4);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (27, true, 5);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (26, true, 5);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (22, true, 4);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (28, true, 1);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (31, true, 2);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (34, true, 5);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (25, true, 4);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (27, true, 2);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (26, true, 3);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (36, true, 3);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (34, true, 1);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (40, true, 4);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (19, true, 4);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (25, true, 2);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (26, true, 5);
+    insert into Caballeriza (Caba_Capacidad, Caba_Funcional, Caba_FK_Area) values (27, true, 1);
 
     insert into Box (Box_Numero, Box_FK_Caballeriza) values (1, 2);
     insert into Box (Box_Numero, Box_FK_Caballeriza) values (2, 3);
@@ -2992,3 +3032,42 @@
     insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Cesar',null,'Moron',null,11557596,'1980-10-30');
     insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Jesus',null,'Romero',null,10845803,'1980-10-30');
     insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Jesus',null,'Villegas ',null,14060788,'1980-10-30');
+
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,31,1);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,30,2);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,29,3);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,28,4);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,27,5);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,26,6);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,25,7);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,24,8);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,23,9);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,22,10);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,21,11);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,20,12);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,19,13);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,18,14);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,17,15);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,16,16);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,15,17);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,14,18);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,13,19);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,12,20);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,11,21);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,10,22);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,9,23);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,8,24);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,7,25);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,6,26);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,5,2);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,4,28);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,3,29);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,2,30);
+    insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,1,31);
+
+
+
+
+
+
+

@@ -184,7 +184,7 @@ CREATE TABLE CATEGORIA_CARRERA(
 CREATE TABLE CARRERA(
     Carr_ID serial,
     Carr_Nombre VARCHAR not null,
-    Carr_Fecha_Hora date not null,
+    Carr_Fecha_Hora TIMESTAMP not null,
     Carr_Numero_Llamado integer not null,
     Carr_Distancia integer not null,
     Carr_Descripcion VARCHAR not null,
