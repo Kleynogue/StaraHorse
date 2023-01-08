@@ -2760,6 +2760,7 @@
     insert into UNI_COL(Uni_Col_FK_Uniforme,Uni_Col_FK_Color) values(155,2);
     insert into UNI_COL(Uni_Col_FK_Uniforme,Uni_Col_FK_Color) values(156,1);
     insert into UNI_COL(Uni_Col_FK_Uniforme,Uni_Col_FK_Color) values(157,8);
+
     
     insert into STU_PRO(Stu_Pro_Fecha_Union,Stu_Pro_Fecha_Salida,Stu_Pro_Porcentaje,Stu_Pro_FK_Propietario,Stu_Pro_FK_Stud) values ('2000-01-01',null,33,1,1);
     insert into STU_PRO(Stu_Pro_Fecha_Union,Stu_Pro_Fecha_Salida,Stu_Pro_Porcentaje,Stu_Pro_FK_Propietario,Stu_Pro_FK_Stud) values ('2000-01-01',null,33,5,1);
@@ -2960,3 +2961,34 @@
     insert into STU_PRO(Stu_Pro_Fecha_Union,Stu_Pro_Fecha_Salida,Stu_Pro_Porcentaje,Stu_Pro_FK_Propietario,Stu_Pro_FK_Stud) values ('2000-01-01',null,33,2,79);
     insert into STU_PRO(Stu_Pro_Fecha_Union,Stu_Pro_Fecha_Salida,Stu_Pro_Porcentaje,Stu_Pro_FK_Propietario,Stu_Pro_FK_Stud) values ('2000-01-01',null,34,1,79);
 
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Radames',null,'Santamaria',null,9971485,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Gabriel',null,'Marquez',null,8826723,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Ramon',null,'Garcia','Mosquera',11154375,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Ricardo',null,'Rosillo',null,12342985,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Fernando','Junior','Parilli',null,2531886,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Jose',null,'Querales',null,11479646,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Fernando',null,'Parilli',null,8226187,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Juan','Carlos','Garcia',null,8201652,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Antonio',null,'Bellardi',null,8487899,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Jose','Gregorio','Rodriguez',null,14261187,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Ismael',null,'Martinez',null,9492869,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Miguel',null,'Cortez',null,9379138,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('German',null,'Rojas',null,10684566,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Rafael',null,'Cartolano',null,12038167,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Ezequiel',null,'Gonzalez',null,14062818,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Luis',null,'Peraza',null,12926866,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('David',null,'Regalado',null,12238546,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Humberto',null,'Correia',null,10279305,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Yordi',null,'Carvajal',null,14632127,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Aldo',null,'Traversa',null,11691839,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Cesar',null,'Perez',null,10272633,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Carlos',null,'Regalado',null,11373895,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Gabriel',null,'Marquez',null,11001187,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Nelson',null,'Henriquez',null,9584306,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Ramiro',null,'Caldeira',null,13860859,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Carlos',null,'Arocha',null,13874651,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Juan',null,'Garcia',null,13487801,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Freddy',null,'Escobar',null,13541643,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Cesar',null,'Moron',null,11557596,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Jesus',null,'Romero',null,10845803,'1980-10-30');
+    insert into Entrenador(Entr_Pers_p_Nombre,Entr_Pers_s_Nombre,Entr_Pers_p_Apellido, Entr_Pers_s_Apellido, Entr_Pers_CI, Entr_Fecha_Nac) values ('Jesus',null,'Villegas ',null,14060788,'1980-10-30');
