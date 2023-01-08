@@ -62,7 +62,7 @@ function getImplements(req, res, next){
     });
 };
 
-function getTrainers(){
+function getTrainers(req, res, next){
     reports.trainers(pool, (err, datos)=>{
         if(err != null){
             next(err);

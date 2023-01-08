@@ -1776,6 +1776,7 @@
     insert into Usuario (Usua_Nombre, Usua_Contrasena, Usua_FK_Propietario, Usua_FK_Jinete, Usua_FK_Entrenador, Usua_FK_Veterinario, Usua_FK_Visitante, Usua_FK_Rol) values ('dkeyden2', 'OqZS5if7TD', 1, 24, null, null, null, 5);
     insert into Usuario (Usua_Nombre, Usua_Contrasena, Usua_FK_Propietario, Usua_FK_Jinete, Usua_FK_Entrenador, Usua_FK_Veterinario, Usua_FK_Visitante, Usua_FK_Rol) values ('gpendock3', 'CGrcyLd1r', 1, null, null, 1, null, 1);
     insert into Usuario (Usua_Nombre, Usua_Contrasena, Usua_FK_Propietario, Usua_FK_Jinete, Usua_FK_Entrenador, Usua_FK_Veterinario, Usua_FK_Visitante, Usua_FK_Rol) values ('wsundin4', 'LgN71z7', null, null, null, null, 2, 1);
+    insert into Usuario (Usua_Nombre, Usua_Contrasena, Usua_FK_Visitante, Usua_FK_Rol) values ('NBD_grupo1', '123456', 1, 6);
 
     insert into Permiso (Perm_Nombre, Perm_Descripcion) values ('Editar', 'Permite editar las tablas');
     insert into Permiso (Perm_Nombre, Perm_Descripcion) values ('Ver reportes', 'Visualizar reportes');
@@ -3065,7 +3066,28 @@
     insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,2,30);
     insert into CAB_ENT(Cab_Ent_Fecha_Ini,Cab_Ent_Fecha_Fin,Cab_Ent_FK_Entrenador,Cab_Ent_Fk_Caballeriza) values ('2022-11-20',null,1,31);
 
+    insert into Efectivo (Efec_Met_Pag_Descripcion, Efec_Denominacion) values ('Pago de boleto', 'Euros');
+    insert into Efectivo (Efec_Met_Pag_Descripcion, Efec_Denominacion) values ('Pago de boleto', 'Bolívares');
+    insert into Efectivo (Efec_Met_Pag_Descripcion, Efec_Denominacion) values ('Pago de apuesta', 'Bolívares');
+    insert into Efectivo (Efec_Met_Pag_Descripcion, Efec_Denominacion) values ('Pago de apuesta', 'Euros');
+    insert into Efectivo (Efec_Met_Pag_Descripcion, Efec_Denominacion) values ('Pago de boleto', 'Dólares');
 
+    insert into Tarjeta (Tarj_Met_Pag_Descripcion, Tarj_Nro, Tarj_Tipo, Tarj_Fecha_Venc) values ('Pago de boleto', '4041592156004', 'Debito', '2022-02-20');
+    insert into Tarjeta (Tarj_Met_Pag_Descripcion, Tarj_Nro, Tarj_Tipo, Tarj_Fecha_Venc) values ('Pago de boleto', '4041593455488', 'Debito', '2022-08-23');
+    insert into Tarjeta (Tarj_Met_Pag_Descripcion, Tarj_Nro, Tarj_Tipo, Tarj_Fecha_Venc) values ('Pago de apuesta', '5100139964571982', 'Credito', '2025-10-08');
+    insert into Tarjeta (Tarj_Met_Pag_Descripcion, Tarj_Nro, Tarj_Tipo, Tarj_Fecha_Venc) values ('Pago de apuesta', '372301582752749', 'Debito', '2023-02-16');
+    insert into Tarjeta (Tarj_Met_Pag_Descripcion, Tarj_Nro, Tarj_Tipo, Tarj_Fecha_Venc) values ('Pago de apuesta', '337941201285177', 'Debito', '2022-03-07');
+
+    insert into Pago (Pago_Monto, Pago_Descripcion, Pago_Fecha, Pago_Nro_Factura, Pago_FK_Boleto, Pago_FK_Efectivo) values (94.72, 'Pago', '2022-11-27', 1234135, 1, 1);
+    insert into Pago (Pago_Monto, Pago_Descripcion, Pago_Fecha, Pago_Nro_Factura, Pago_FK_Boleto, Pago_FK_Efectivo) values (98.66, 'Pago', '2022-11-27', 3451934, 2, 2);
+    insert into Pago (Pago_Monto, Pago_Descripcion, Pago_Fecha, Pago_Nro_Factura, Pago_FK_Boleto, Pago_FK_Efectivo) values (65.77, 'Pago', '2022-11-27', 234135, 3, 5);
+    insert into Pago (Pago_Monto, Pago_Descripcion, Pago_Fecha, Pago_Nro_Factura, Pago_FK_Boleto, Pago_FK_Tarjeta) values (10.67, 'Pago', '2022-11-27', 32512, 4, 1);
+    insert into Pago (Pago_Monto, Pago_Descripcion, Pago_Fecha, Pago_Nro_Factura, Pago_FK_Boleto, Pago_FK_Tarjeta) values (26.87, 'Pago', '2022-11-27', 1413415, 5, 2);
+    insert into Pago (Pago_Monto, Pago_Descripcion, Pago_Fecha, Pago_Nro_Factura, Pago_FK_Apuesta, Pago_FK_Efectivo) values (493, 'Pago', '2022-11-27', 24213514, 1, 3);
+    insert into Pago (Pago_Monto, Pago_Descripcion, Pago_Fecha, Pago_Nro_Factura, Pago_FK_Apuesta, Pago_FK_Efectivo) values (246, 'Pago', '2022-11-27', 332525, 2, 4);
+    insert into Pago (Pago_Monto, Pago_Descripcion, Pago_Fecha, Pago_Nro_Factura, Pago_FK_Apuesta, Pago_FK_Tarjeta) values (377, 'Pago', '2022-11-27', 14134513, 3, 3);
+    insert into Pago (Pago_Monto, Pago_Descripcion, Pago_Fecha, Pago_Nro_Factura, Pago_FK_Apuesta, Pago_FK_Tarjeta) values (209, 'Pago', '2022-11-27', 1414514, 4, 4);
+    insert into Pago (Pago_Monto, Pago_Descripcion, Pago_Fecha, Pago_Nro_Factura, Pago_FK_Apuesta, Pago_FK_Tarjeta) values (51, 'Pago', '2022-11-27', 13451959, 5, 5);
 
 
 

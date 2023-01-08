@@ -23,7 +23,7 @@ function implements(pg, func){
 };
 
 function trainers(pg, func){
-    pg.query("", func);
+    pg.query("select (Entr_Pers_P_Nombre || ' ' || Entr_Pers_P_Apellido) Entrenador, Caba_ID Cuadra from entrenador, caballeriza, cab_ent where Entr_Pers_ID = Cab_Ent_FK_Entrenador and Caba_ID = Cab_Ent_FK_Caballeriza and Cab_Ent_Fecha_Fin is null", func);
 };
 
 function jockey(pg, func){
