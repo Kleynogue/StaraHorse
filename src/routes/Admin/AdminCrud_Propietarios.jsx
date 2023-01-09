@@ -28,13 +28,14 @@ function AdminCrud_Propietarios(){
         const [correo, setCorreo] = useState();
         const [direccion, setDireccion] = useState();
         const [reside, setReside] = useState();
+        const [tipo, setTipo] = useState();
+        const [telefonos, setTelefonos] = useState();
+        const [telefono, setTelefono] = useState();
 
         const [opcTelefonos, setOpcTelefonos] = useState();
-        const [telefonos, setTelefonos] = useState();
         const [opcTipo, setOpcTipo] = useState();
-        const [tipo, setTipo] = useState();
-        const [telefono, setTelefono] = useState();
-        
+        const [opcReside, setOpcReside] = useState();
+
 
 
         //Inicio Direcciones
@@ -87,6 +88,15 @@ function AdminCrud_Propietarios(){
                 ]
                 setOpcTipo(OpcTipoTelefono);
 
+                const OpcReside = [
+                    { value: '1', label: 'Lugar 1' },
+                    { value: '2', label: 'Lugar 2' },
+                    { value: '3', label: 'Lugar 3' },
+                    { value: '4', label: 'Lugar 4' },
+                    { value: '5', label: 'Lugar 5' },
+                ]
+                setOpcReside(OpcReside);
+
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
                 }
@@ -119,7 +129,7 @@ function AdminCrud_Propietarios(){
                 if(nacimiento){alert("Se actuliza nacimiento por: "+nacimiento)}
                 if(correo){alert("Se actuliza correo por: "+correo)}
                 if(direccion){alert("Se actuliza direccion por: "+direccion)}
-                if(reside){alert("Se actuliza reside por: "+reside)}
+                if(reside){alert("Se actuliza reside por: "+reside.label)}
             }
             
         }
@@ -167,7 +177,7 @@ function AdminCrud_Propietarios(){
                         <div ><input  type="text" onChange={e => setDireccion(e.target.value)}></input></div>
 
                         <div >Reside</div>
-                        <div ><input  type="text" onChange={e => setReside(e.target.value)}></input></div>
+                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcReside} defaultValue={reside}  onChange={setReside} /></div>
 
                         <div >Fecha Nacimiento</div>
                         <div ><input  type="date" onChange={e => setNacimiento(e.target.value)}></input></div>

@@ -155,8 +155,9 @@ CREATE TABLE TIPO_APUESTA(
     Tip_Apu_Nombre VARCHAR not null,
     Tip_Apu_Descripcion VARCHAR not null,
     Tip_Apu_Max_Ejemplares integer not null,
-    Tip_Apu_Min_Ejemplares integer not null,
+    Tip_Apu_Min_Ejemplares_Carr integer,
     Tip_Apu_Min_Apuesta integer not null,
+    Tip_Apu_Ultimas_Car_Validas integer,
     CONSTRAINT pk_tipo_apuesta PRIMARY KEY(Tip_Apu_ID)
 );
 
@@ -183,7 +184,7 @@ CREATE TABLE CATEGORIA_CARRERA(
 CREATE TABLE CARRERA(
     Carr_ID serial,
     Carr_Nombre VARCHAR not null,
-    Carr_Fecha_Hora date not null,
+    Carr_Fecha_Hora TIMESTAMP not null,
     Carr_Numero_Llamado integer not null,
     Carr_Distancia integer not null,
     Carr_Descripcion VARCHAR not null,
@@ -231,7 +232,7 @@ CREATE TABLE UNIFORME(
     Unif_FK_Stud integer not null,
     CONSTRAINT pk_uniforme PRIMARY KEY(Unif_ID),
     CONSTRAINT viste FOREIGN KEY(Unif_FK_Stud) REFERENCES STUD(Stud_ID),
-    CONSTRAINT tipo_uniforme CHECK(Unif_Tipo in ('Gorra, Chaquetilla')),
+    CONSTRAINT tipo_uniforme CHECK(Unif_Tipo in ('Gorra', 'Chaquetilla')),
     CONSTRAINT estado_uniforme CHECK(Unif_Estatus in ('Activo', 'Desuso'))
 );
 
@@ -268,7 +269,7 @@ CREATE TABLE USUARIO(
     Usua_FK_Entrenador integer,
     Usua_FK_Veterinario integer,
     Usua_FK_Visitante integer,
-    Usua_FK_Rol integer,
+    Usua_FK_Rol integer not null,
     CONSTRAINT pk_usuario PRIMARY KEY(Usua_ID),
     CONSTRAINT propietario_representa FOREIGN KEY(Usua_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID),
     CONSTRAINT jinete_representa FOREIGN KEY(Usua_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),
@@ -334,14 +335,14 @@ CREATE TABLE APUESTA(
     Apue_Monto numeric not null,
     Apue_Cobrada boolean,
     Apue_Fecha date not null,
-    Apue_Dividendo date not null,
+    Apue_Dividendo numeric,
     Apue_FK_Usuario integer,
     Apue_FK_Propietario integer,
     Apue_FK_Entrenador integer,
     Apue_FK_Veterinario integer,
     Apue_FK_Visitante integer,
     Apue_FK_Taquilla integer,
-    Apue_FK_Tipo_Apuesta integer,
+    Apue_FK_Tipo_Apuesta integer not null,
     CONSTRAINT pk_apuesta PRIMARY KEY(Apue_ID),
     CONSTRAINT realiza FOREIGN KEY(Apue_FK_Taquilla) REFERENCES Taquilla(Taqu_ID),
     CONSTRAINT propietario_ejecuta FOREIGN KEY(Apue_FK_Propietario) REFERENCES PROPIETARIO(Prop_Pers_ID),
@@ -457,7 +458,7 @@ CREATE TABLE ENF_EJE(
     Enf_Eje_Fecha_Fin date,
     Enf_Eje_FK_Ejemplar integer not null,
     Enf_Eje_FK_Enfermedad integer not null,
-    Enf_Eje_FK_Medicamento integer not null,
+    Enf_Eje_FK_Medicamento integer,
     Enf_Eje_ID serial,
     CONSTRAINT pk_enf_eje PRIMARY KEY(Enf_Eje_ID),
     CONSTRAINT padece FOREIGN KEY(Enf_Eje_FK_Ejemplar) REFERENCES EJEMPLAR(Ejem_ID),

@@ -67,8 +67,8 @@ function Tabla(props){
                   </tr>
                )
             }
-            case 8:{
-               const { Col1, Col2, Col3, Col4, Col5, Col6, Col7, Col8 } = Elementos 
+            case 7:{
+               const { Col1, Col2, Col3, Col4, Col5, Col6, Col7} = Elementos 
                return (
                   <tr key={Col1}>
                      <td>{Col1}</td>
@@ -78,7 +78,21 @@ function Tabla(props){
                      <td>{Col5}</td>
                      <td>{Col6}</td>
                      <td>{Col7}</td>
-                     <td>{Col8}</td>
+                  </tr>
+               )
+            }
+            case 8:{
+               const { Col1, Col2, Col3, Col4, Col5, Col6, Col7, Col8 } = Elementos 
+               return (
+                  <tr key={Col1}>
+                     <td onClick={()=>props.fun(Col1)}>{Col1}</td>
+                     <td onClick={()=>props.fun(Col1)}>{Col2}</td>
+                     <td onClick={()=>props.fun(Col1)}>{Col3}</td>
+                     <td onClick={()=>props.fun(Col1)}>{Col4}</td>
+                     <td onClick={()=>props.fun(Col1)}>{Col5}</td>
+                     <td onClick={()=>props.fun(Col1)}>{Col6}</td>
+                     <td onClick={()=>props.fun(Col1)}>{Col7}</td>
+                     <td onClick={()=>props.fun(Col1)}>{Col8}</td>
                   </tr>
                )
             }
@@ -96,6 +110,27 @@ function Tabla(props){
                      <td>{Col8}</td>
                      <td>{Col9}</td>
                      <td>{Col10}</td>
+                  </tr>
+               )
+            }
+            case 14:{
+               const { Col1, Col2, Col3, Col4, Col5, Col6, Col7, Col8, Col9, Col10, Col11, Col12, Col13, Col14 } = Elementos 
+               return (
+                  <tr key={Col1}>
+                     <td>{Col1}</td>
+                     <td>{Col2}</td>
+                     <td>{Col3}</td>
+                     <td>{Col4}</td>
+                     <td>{Col5}</td>
+                     <td>{Col6}</td>
+                     <td>{Col7}</td>
+                     <td>{Col8}</td>
+                     <td>{Col9}</td>
+                     <td>{Col10}</td>
+                     <td>{Col11}</td>
+                     <td>{Col12}</td>
+                     <td>{Col13}</td>
+                     <td>{Col14}</td>
                   </tr>
                )
             }
