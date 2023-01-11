@@ -3,15 +3,15 @@ function users(pg, func){
 };
 
 function stud_1(pg, func){
-    pg.query("", func);
+    pg.query("Select Stud_Nombre Stud, Unif_Descripcion Uniforme, Unif_tipo Tipo From Stud, Uniforme    Where Stud_ID = Unif_FK_Stud order by stud_id", func);
 };
 
 function stud_2(pg, func){
-    pg.query("", func);
+    pg.query("Select Stud_Nombre Stud, (Prop_Pers_p_nombre || ' ' || Prop_Pers_p_apellido) Propietario, Stu_Pro_Porcentaje Porcentaje from Stud, Stu_Pro, Propietario Where Stud_ID = Stu_Pro_FK_Stud And Prop_Pers_ID = Stu_Pro_FK_Propietario", func);
 };
 
 function stud_3(pg, func){
-    pg.query("", func);
+    pg.query("Select Stud_Nombre Stud, Ejem_Nombre Ejemplar, (Prop_Pers_p_nombre || ' ' || Prop_Pers_p_apellido) Propietario from Stud, Propietario, Ejemplar, Eje_pro_stud Where Eje_pro_stud_FK_Stud = stud_id and eje_pro_stud_FK_ejemplar = ejem_ID and eje_pro_stud_FK_Propietario = prop_pers_ID", func);
 };
 
 function horses(pg, func){

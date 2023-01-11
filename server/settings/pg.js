@@ -11,7 +11,7 @@ const config = {
 const pool = new Pool(config);
 
 async function getColumn(table, func){
-    await pool.query(`select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = '${table}' limit 1`, func);
+    await pool.query(`select column_name from INFORMATION_SCHEMA.COLUMNS where table_name = '${table}' AND column_name like '%id%' limit 1`, func);
 }
 
   module.exports = {
