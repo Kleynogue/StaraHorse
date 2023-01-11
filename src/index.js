@@ -66,6 +66,9 @@ import Propietario_Studs_Crud from './routes/Propietario/Propietario_Studs_Crud'
 import Usuario_Carreras_Informacion_Record from './routes/Usuario/Usuario_Carreras_Informacion_Record';
 import AdminCrud_Uni_Col from './routes/Admin/AdminCrud_Uni_Col';
 import AdminCrud_Inscripciones from './routes/Admin/AdminCrud_Inscripciones';
+import AdminCrud_Rol_Per from './routes/Admin/AdminCrud_Rol_Per';
+import AdminCrud_Motivo_Retiro from './routes/Admin/AdminCrud_Motivo_Retiro';
+import AdminCrud_Retiro from './routes/Admin/AdminCrud_Retiro';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -159,6 +162,9 @@ root.render(
         <Route path='/admin_cruds_permiso' element={<AdminCrud_Permisos/>}/>
         <Route path='/admin_cruds_uni_col' element={<AdminCrud_Uni_Col/>}/>
         <Route path='/admin_cruds_inscripcion' element={<AdminCrud_Inscripciones/>}/>
+        <Route path='/admin_cruds_per_rol' element={<AdminCrud_Rol_Per/>}/>
+        <Route path='/admin_cruds_motivo_retiro' element={<AdminCrud_Motivo_Retiro/>}/>
+        <Route path='/admin_cruds_retiro' element={<AdminCrud_Retiro/>}/>
 
       <Route path='/admin_reset' element={<Admin_Reset/>}/>
 

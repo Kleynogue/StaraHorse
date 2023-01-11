@@ -425,27 +425,47 @@ export function Nav_Admin2(props){
                                 Col4 : item.haci_fk_lugar };
                         }
                         case "Uni_Col":{
-                            /*["Nombre", "Descripcion"]*/
                             return { 
-                                Col1 : item.uni_col_fk_uniforme,
-                                Col2 : item.uni_col_fk_color};
+                                Col1 : item.uni_col_id,
+                                Col2 : item.uni_col_fk_uniforme,
+                                Col3 : item.uni_col_fk_color};
+                        }
+                        case "Per_Rol":{
+                            return { 
+                                Col1 : item.per_rol_id,
+                                Col2 : item.per_rol_fecha_ini,
+                                Col3 : item.per_rol_fecha_fin,
+                                Col4 : item.per_rol_fk_rol,
+                                Col5 : item.per_rol_fk_permiso};
+                        }
+                        case "Retiro":{
+                            return { 
+                                Col1 : item.reti_id,
+                                Col2 : item.reti_fecha,
+                                Col3 : item.reti_fk_motivo_retiro,
+                                Col4 : item.reti_fk_inscripcion};
+                        }
+                        case "Motivo_Retiro":{
+                            return { 
+                                Col1 : item.mot_ret_id,
+                                Col2 : item.mot_ret_descripcion};
                         }
                         case "Inscripcion":{
-                            /*["ID","Nombre", "Fecha", "Llamado", "Distancia","Descripcion","Edad Min","Edad Max","Sexo","Min Ganadas","Max Ganadas","Reclamo","Pista","Categoria"]*/
                             return { 
-                                Col1: item.insc_precio,
-                                Col2 : item.insc_puesto_partida,
-                                Col3 : trueOfalse(item.insc_favorito),
-                                Col4 : item.insc_num_favorito,
-                                Col5 : item.insc_premio_jinete,
-                                Col6 : item.insc_premio_entrenador,
-                                Col7 : item.insc_premio_propietario,
-                                Col8 : item.insc_premio_stud,
-                                Col9 : item.insc_fk_carrera,
-                                Col10 : item.insc_fk_ejemplar,
-                                Col11 : item.insc_fk_jinete,
-                                Col12 : item.insc_num_gualdrapa,
-                                Col13 : item.insc_fk_comentario}; 
+                                Col1: item.insc_id,
+                                Col2: item.insc_precio,
+                                Col3 : item.insc_puesto_partida,
+                                Col4 : trueOfalse(item.insc_favorito),
+                                Col5 : item.insc_num_favorito,
+                                Col6 : item.insc_premio_jinete,
+                                Col7 : item.insc_premio_entrenador,
+                                Col8 : item.insc_premio_propietario,
+                                Col9 : item.insc_premio_stud,
+                                Col10 : item.insc_fk_carrera,
+                                Col11 : item.insc_fk_ejemplar,
+                                Col12 : item.insc_fk_jinete,
+                                Col13 : item.insc_num_gualdrapa,
+                                Col14 : item.insc_fk_comentario}; 
                                 
                         }
 
@@ -485,6 +505,24 @@ export function Nav_Admin2(props){
                                 Col2 : item.abre,
                                 Col3 : item.cierra};
                         }
+                        case "stud-1":{
+                            return { 
+                                Col1 : item.stud,
+                                Col2 : item.uniforme,
+                                Col3 : item.tipo};
+                        }
+                        case "stud-2":{
+                            return { 
+                                Col1 : item.stud,
+                                Col2 : item.propietario,
+                                Col3 : item.porcentaje};
+                        }
+                        case "stud-3":{
+                            return { 
+                                Col1 : item.stud,
+                                Col2 : item.ejemplar,
+                                Col3 : item.propietario};
+                        }
                     }
                 })
         }
@@ -501,22 +539,24 @@ export function Nav_Admin2(props){
                 <div onClick={()=>realizarConsulta(veterinarioFiltrar,"Veterinario",8,["ID","P Nombre", "S Nombre", "P Apellido", "S Apellido","CI","Titulo","Fecha Nac"])}>Veterinario</div>
                 <div onClick={()=>realizarConsulta(propietarioFiltrar,"Propietario",10,["ID","P Nombre", "S Nombre", "P Apellido", "S Apellido","CI","Direccion","Correo","Fecha Nac","Reside"])}>Propietarios</div>      
                 <div onClick={()=>realizarConsulta(studFiltrar,"Stud",3,["ID","Fecha Cre", "Nombre"])}>Studs</div>
-                <div onClick={()=>realizarConsulta(studFiltrar,"Uni_Col",2,["Uniforme", "Color"])}>Uni_Col</div>
+                <div onClick={()=>realizarConsulta(studFiltrar,"Uni_Col",3,["ID","Uniforme", "Color"])}>Uni_Col</div>
 
                 
 
                 <div onClick={()=>realizarConsulta(usuarioFiltrar,"Usuario",8,["ID","Nombre", "Contrasena", "Propietario", "Jinete","Entrenador","Veterinario","Visitante"])}>Usuarios</div>
                 <div onClick={()=>realizarConsulta(rolFiltrar,"Rol",3,["ID","Nombre", "Descripcion"])}>Roles</div>
                 <div onClick={()=>realizarConsulta(permisoFiltrar,"Permiso",3,["ID","Nombre", "Descripcion"])}>Permisos</div>
+                <div onClick={()=>realizarConsulta(permisoFiltrar,"Per_Rol",5,["ID","Fecha Inicial","Fecha Final", "Rol", "Permiso"])}>Per_Rol</div>
+
                 <div onClick={()=>realizarConsulta(restauranteFiltrar,"Restaurante",5,["ID","Nombre", "Capacidad", "Horario", "Area"])}>Restaurantes</div>
                 <div onClick={()=>realizarConsulta(implementoFiltrar,"Implemento",3,["ID","Nombre", "Abreviacion"])}>Implementos</div>
                 <div onClick={()=>realizarConsulta(uniformeFiltrar,"Uniforme",5,["ID", "Tipo", "Descripcion", "Estatus", "Stud"])}>Uniformes</div>
                 <div onClick={()=>realizarConsulta(pistaFiltrar,"Pista",3,["ID","Longitud", "Capacidad"])}>Pistas</div>
-                <div onClick={()=>realizarConsulta(pistaFiltrar,"Inscripcion",13,["Precio","PP", "Fav", "#Fav", "Prem Jine", "Prem Entr","Prem Prop","Prem Stud", "Carrera", "Eje Ent", "Jinete", "Gualdrapa", "Comentario"])}>Inscripciones</div>
+                <div onClick={()=>realizarConsulta(pistaFiltrar,"Inscripcion",14,["ID","Precio","PP", "Fav", "#Fav", "Prem Jine", "Prem Entr","Prem Prop","Prem Stud", "Carrera", "Eje Ent", "Jinete", "Gualdrapa", "Comentario"])}>Inscripciones</div>
 
                 
-
-                <div onClick={()=>realizarConsulta(ejemplarFiltrar,"Grada",7)}>Gradas</div>
+                <div onClick={()=>realizarConsulta(ejemplarFiltrar,"Retiro",4,["ID","Fecha","Motivo","Inscripcion"])}>Retiro</div>
+                <div onClick={()=>realizarConsulta(ejemplarFiltrar,"Motivo_Retiro",2,["ID","Descripcion"])}>Motivo Retiro</div>
                 <div onClick={()=>realizarConsulta(cuadraFiltrar,"Caballeriza",4,["ID","Capacidad", "Funcional", "Area"])}>Cuadras</div>
                 <div onClick={()=>realizarConsulta(resultadoFiltrar,"Resultado",7,["ID","Hora Par", "Tiempo", "Posicion", "Cuerpos","Carrera","Ejemplar"])}>Resultados</div>
                 <div onClick={()=>realizarConsulta(haciendaFiltrar,"Hacienda",4,["ID","Nombre", "Direccion", "Lugar"])}>Haciendas</div>
@@ -528,6 +568,9 @@ export function Nav_Admin2(props){
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"trainers",2,["Entrenador","Cuadra"])}>R Trainer</div>
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"jockey",1,["Nombre"])}>R Jockey</div>
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"restaurants",3,["Nombre", "Abre", "Cierra"])}>R Res</div>
+                <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"stud-1",3,["Stud", "Uniforme", "Tipo"])}>R Stu1</div>
+                <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"stud-2",3,["Stud", "Propietario", "Porcentaje"])}>R Stu2</div>
+                <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"stud-3",3,["Stud", "Ejemplar", "Propietario"])}>R Stu3</div>
 
                 
             </nav>); 
