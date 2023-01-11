@@ -4303,3 +4303,10 @@ insert into car_pre(Car_Pre_Monto,Car_Pre_FK_Carrera,Car_Pre_FK_Premio) values (
     insert into resultado (Resu_Hora_Partida,Resu_Tiempo_Carrera , Resu_Posicion_Ejemplar, Resu_FK_Cuerpos, Resu_FK_Inscripcion) values ('12:00:00','88.40', 5, 48, 1);
     insert into resultado (Resu_Hora_Partida,Resu_Tiempo_Carrera , Resu_Posicion_Ejemplar, Resu_FK_Cuerpos, Resu_FK_Inscripcion) values ('13:30:00','88.40',11, 48, 1);
     insert into resultado (Resu_Hora_Partida,Resu_Tiempo_Carrera , Resu_Posicion_Ejemplar, Resu_FK_Cuerpos, Resu_FK_Inscripcion) values ('12:00:00','88.40', 3, 48, 1);
+
+    insert into DISTANCIA_PARCIAL (Dis_Par_Distancia_Recorrida,Dis_Par_Tiempo,Dis_Par_Posicion,Dis_Par_FK_Ins) values (1100,'00:01:08',5,1);
+    insert into DISTANCIA_PARCIAL (Dis_Par_Distancia_Recorrida,Dis_Par_Tiempo,Dis_Par_Posicion,Dis_Par_FK_Ins) values (1200,'00:01:10',2,1);
+    insert into DISTANCIA_PARCIAL (Dis_Par_Distancia_Recorrida,Dis_Par_Tiempo,Dis_Par_Posicion,Dis_Par_FK_Ins) values (1300,'00:01:04',6,1);
+    insert into DISTANCIA_PARCIAL (Dis_Par_Distancia_Recorrida,Dis_Par_Tiempo,Dis_Par_Posicion,Dis_Par_FK_Ins) values (1050,'00:01:07',3,1);
+    insert into DISTANCIA_PARCIAL (Dis_Par_Distancia_Recorrida,Dis_Par_Tiempo,Dis_Par_Posicion,Dis_Par_FK_Ins) values (1100,'00:00:58',1,1);
+
