@@ -36,7 +36,7 @@ function AdminCrud_Propietarios(){
         const [opcTipo, setOpcTipo] = useState();
         const [opcReside, setOpcReside] = useState();
 
-
+        const [accion, setAccion] = useState();
 
         //Inicio Direcciones
         const navigate = useNavigate();
@@ -99,6 +99,10 @@ function AdminCrud_Propietarios(){
 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
                 
                 setCargado("true");
@@ -150,59 +154,50 @@ function AdminCrud_Propietarios(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
 
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >CI</div>
-                        <div ><input  type="number" onChange={e => setCi(e.target.value)}></input></div>
+                        <div ><input  type="number" id="Prop_Pers_CI" name="Prop_Pers_CI" onChange={e => setCi(e.target.value)}></input></div>
 
                         <div >Primer Nombre</div>
-                        <div ><input  type="text" onChange={e => setPnombre(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Prop_Pers_p_Nombre" name="Prop_Pers_p_Nombre"  onChange={e => setPnombre(e.target.value)}></input></div>
 
                         <div >Segundo Nombre</div>
-                        <div ><input  type="text" onChange={e => setSnombre(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Prop_Pers_s_Nombre" name="Prop_Pers_s_Nombre"  onChange={e => setSnombre(e.target.value)}></input></div>
 
                         <div >Primer Apellido</div>
-                        <div ><input  type="text" onChange={e => setPapellido(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Prop_Pers_p_Apellido" name="Prop_Pers_p_Apellido"  onChange={e => setPapellido(e.target.value)}></input></div>
 
                         <div >Segundo Apellido</div>
-                        <div ><input  type="text" onChange={e => setSapellido(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Prop_Pers_s_Apellido" name="Prop_Pers_s_Apellido"  onChange={e => setSapellido(e.target.value)}></input></div>
 
                         <div >Correo</div>
-                        <div ><input  type="text" onChange={e => setCorreo(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Prop_Correo" name="Prop_Correo"  onChange={e => setCorreo(e.target.value)}></input></div>
 
                         <div >Direccion</div>
-                        <div ><input  type="text" onChange={e => setDireccion(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Prop_Direccion" name="Prop_Direccion"  onChange={e => setDireccion(e.target.value)}></input></div>
 
                         <div >Reside</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcReside} defaultValue={reside}  onChange={setReside} /></div>
+                        <div ><input  type="number" id="Prop_FK_Lugar" name="Prop_FK_Lugar"  onChange={e => setReside(e.target.value)}></input></div>
 
                         <div >Fecha Nacimiento</div>
-                        <div ><input  type="date" onChange={e => setNacimiento(e.target.value)}></input></div>
+                        <div ><input  type="date" id="Prop_Fecha_Nac" name="Prop_Fecha_Nac"  onChange={e => setNacimiento(e.target.value)}></input></div>
 
-                        <div >Telefono</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcTipo} defaultValue={tipo}  onChange={setTipo} /></div>
-                        <div></div>
-                        <div ><input  type="number" onChange={e => setTelefono(e.target.value)}></input></div>
-
-
-                        <div id='mensaje'>EL ELEMENTO SELECCIONADO SERA ELIMINADO</div>
-                        <div >Telefonos</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcTelefonos} defaultValue={telefonos}  onChange={setTelefonos} /></div>
-
+                        
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
                     
                     </form>
 
 
-                    
-            
-
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
+
                 </div>
 
                 <div>

@@ -68,6 +68,7 @@ function AdminCrud_Carreras(){
         const [insPrecio, setInsPrecio] = useState("NULL");
         const [insGualdrapa, setInsGualdrapa] = useState("NULL");
 
+        const [accion, setAccion] = useState();
 
 
         const customerStyles = { 
@@ -207,6 +208,10 @@ function AdminCrud_Carreras(){
 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
 
                 setCargado("true");
@@ -276,133 +281,60 @@ function AdminCrud_Carreras(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
                         
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >Nombre</div>
-                        <div ><input  type="text" onChange={e => setNombre(e.target.value)}></input></div>
+                        <div ><input id="Carr_Nombre" name="Carr_Nombre"  type="text" onChange={e => setNombre(e.target.value)}></input></div>
 
                         <div >Fecha</div>
-                        <div ><input  type="date" onChange={e => setFecha(e.target.value)}></input></div>
-
-                        <div >Hora</div>
-                        <div ><input  type="time" onChange={e => setHora(e.target.value)}></input></div>
+                        <div ><input  id="Carr_Fecha_Hora" name="Carr_Fecha_Hora"   type="datetime-local"  onChange={e => setFecha(e.target.value)}></input></div>
 
                         <div >Numero de Llamado</div>
-                        <div ><input  type="number" onChange={e => setNumLlamado(e.target.value)}></input></div>
+                        <div ><input  id="Carr_Numero_Llamado" name="Carr_Numero_Llamado"  type="number" onChange={e => setNumLlamado(e.target.value)}></input></div>
 
                         <div >Distancia</div>
-                        <div ><input  type="number" onChange={e => setDistancia(e.target.value)}></input></div>
+                        <div ><input  id="Carr_Distancia" name="Carr_Distancia"  type="number" onChange={e => setDistancia(e.target.value)}></input></div>
 
                         <div >Descripcion</div>
-                        <div ><input  type="text" onChange={e => setDescripcion(e.target.value)}></input></div>
+                        <div ><input  id="Carr_Descripcion" name="Carr_Descripcion"  type="text" onChange={e => setDescripcion(e.target.value)}></input></div>
 
                         <div >Edad Minima</div>
-                        <div ><input  type="number" onChange={e => setEdadMin(e.target.value)}></input></div>
+                        <div ><input  id="Carr_Edad_Min" name="Carr_Edad_Min"  type="number" onChange={e => setEdadMin(e.target.value)}></input></div>
 
-                        <div >* Edad Maxima</div>
-                        <div ><input  type="number" onChange={e => setEdadMax(e.target.value)}></input></div>
+                        <div >Edad Maxima</div>
+                        <div ><input  id="Carr_Edad_Max" name="Carr_Edad_Max"  type="number" onChange={e => setEdadMax(e.target.value)}></input></div>
 
                         <div >Minimo de Ganadas</div>
-                        <div ><input  type="number" onChange={e => setMinGanadas(e.target.value)}></input></div>
+                        <div ><input  id="Carr_Min_Carreras_Ganadas" name="Carr_Min_Carreras_Ganadas"  type="number" onChange={e => setMinGanadas(e.target.value)}></input></div>
 
-                        <div >* Maximo de Ganadas</div>
-                        <div ><input  type="number" onChange={e => setMaxGanadas(e.target.value)}></input></div>
-
-                        <div >Pista Variante</div>
-                        <div ><input  type="text" onChange={e => setPistaVariante(e.target.value)}></input></div>
+                        <div >Maximo de Ganadas</div>
+                        <div ><input  id="Carr_Max_Carreras_Ganadas" name="Carr_Max_Carreras_Ganadas"  type="number" onChange={e => setMaxGanadas(e.target.value)}></input></div>
 
                         <div >Sexo</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcSexo} defaultValue={sexo}  onChange={setSexo}  /></div>
+                        <div ><input  id="Carr_Sexo" name="Carr_Sexo"  type="text" onChange={e => setSexo(e.target.value)}></input></div>
 
                         <div >Reclamo</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcReclamo} defaultValue={reclamo}  onChange={setReclamo}  /></div>
+                        <div ><input  id="Carr_Reclamo" name="Carr_Reclamo"  type="text" onChange={e => setReclamo(e.target.value)}></input></div>
 
                         <div >Pista</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPista} defaultValue={pista}  onChange={setPista}  /></div>
+                        <div ><input  id="Carr_FK_Pista" name="Carr_FK_Pista"  type="number" onChange={e => setPista(e.target.value)}></input></div>
 
                         <div >Categoria</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcCategoria} defaultValue={categoria}  onChange={setCategoria}  /></div>
-
-                        <div id='mensaje'>----------------------------------------------------------</div>
-                        <div id='mensaje'>PREMIOS</div>
+                        <div ><input  id="Carr_FK_Cat_Car" name="Carr_FK_Cat_Car"  type="number" onChange={e => setCategoria(e.target.value)}></input></div>
 
                         
-                        <div >Posicion</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPremioPosicion} defaultValue={premioPosicion}  onChange={setPremioPosicion}  /></div>
                         
-                        <div >Tipo</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPremioTipo} defaultValue={premioTipo}  onChange={setPremioTipo}  /></div>
-                        
-                        <div >Monto</div>
-                        <div ><input  type="number" onChange={e => setPremioMonto(e.target.value)}></input></div>
-                        
-                        <div id='mensaje'>EL ELEMENTO SELECCIONADO SERA ELIMINADO</div>
-                        <div >Eliminar Premio</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPremioSeleccionado} defaultValue={premioSeleccionado}  onChange={setPremioSeleccionado}  /></div>
-                        
-                        <div id='mensaje'>----------------------------------------------------------</div>
-                        <div id='mensaje'>INSCRITOS</div>
-
-                        <div >Inscribir Ejemplar</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcEjemplares} defaultValue={insertarEjemplar}  onChange={setInsertarEjemplar}  /></div>
-                        
-                        <div id='mensaje'>EL ELEMENTO SELECCIONADO SERA ELIMINADO</div>
-                        <div >Eliminar Ejemplar</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcEjemplaresCarrera} defaultValue={eliminarEjemplar}  onChange={setEliminarEjemplar}  /></div>
-                        
-                        <div id='mensaje'>----------------------------------------------------------</div>
-                        <div id='mensaje'>INSCRIPCIONES</div>
-
-                        <div >Ejemplar Inscritos</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcEjemplaresCarrera} defaultValue={datosEjemplar}  onChange={setDatosEjemplar}  /></div>
-                        
-                        <div >Jinete</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcJinete} defaultValue={jinete}  onChange={setJinete}  /></div>
-                        
-                        <div >Favorito</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcFavorito} defaultValue={favorito}  onChange={setFavorito}  /></div>
-                        
-                        <div >Comentario</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcComentario} defaultValue={comentario}  onChange={setComentario}  /></div>
-                        
-                        <div >Puesto en Pista</div>
-                        <div ><input  type="number" onChange={e => setPuesto(e.target.value)}></input></div>
-                        
-                        <div >Precio</div>
-                        <div ><input  type="number"  onChange={e => setPrecio(e.target.value)}></input></div>
-
-                        <div >Gualdrapa</div>
-                        <div ><input  type="number" onChange={e => setGualdrapa(e.target.value)}></input></div>
-
-                        <div id='mensaje'>RESUMEN DE INSCRITOS</div>
-                        <div >Jinete</div>
-                        <div className='ResInscritos'>{insJinete}</div>
-
-                        <div >Favorito</div>
-                        <div className='ResInscritos'>{insFavorito}</div>
-
-                        <div >Comentario</div>
-                        <div className='ResInscritos'>{insComentario}</div>
-
-                        <div >Puesto en Pista</div>
-                        <div className='ResInscritos'>{insPP}</div>
-
-                        <div >Precio</div>
-                        <div className='ResInscritos'>{insPrecio}</div>
-
-                        <div >Gualdrapa</div>
-                        <div className='ResInscritos'>{insGualdrapa}</div>
-
-
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
                     
                     </form>
                     
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
                 </div>
 

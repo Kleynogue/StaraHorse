@@ -31,6 +31,7 @@ function AdminCrud_Ejemplares(){
         const [propietariosSeleccionados, setPropietariosSeleccionados] = useState();
         const [propietarioEliminado, setPropietarioEliminado] = useState();
         const [porcentaje, setporcentaje] = useState();
+        const [peso, setPeso] = useState();
 
         const [opcPadre, setOpcPadre] = useState();
         const [opcMadre, setOpcMadre] = useState();
@@ -40,6 +41,8 @@ function AdminCrud_Ejemplares(){
         const [opcPropietarios, setOpcPropietarios] = useState();
         const [opcPropietariosSeleccionados, setOpcPropietariosSeleccionados] = useState();
 
+
+        const [accion, setAccion] = useState();
 
         const customerStyles = { 
             control: (styles, {isFocused}) => ({ 
@@ -134,6 +137,10 @@ function AdminCrud_Ejemplares(){
                 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
 
                 
@@ -191,58 +198,50 @@ function AdminCrud_Ejemplares(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
                         
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >Nombre</div>
-                        <div ><input  type="text" onChange={e => setNombre(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Ejem_Nombre" name="Ejem_Nombre" onChange={e => setNombre(e.target.value)}></input></div>
 
                         <div >Tatuaje</div>
-                        <div ><input  type="text" onChange={e => setTatuaje(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Ejem_Num_Tatuaje" name="Ejem_Num_Tatuaje"  onChange={e => setTatuaje(e.target.value)}></input></div>
 
                         <div >Fecha Nacimiento</div>
-                        <div ><input  type="date" onChange={e => setNacimiento(e.target.value)}></input></div>
+                        <div ><input  type="date" id="Ejem_Fecha_Nacimiento" name="Ejem_Fecha_Nacimiento"  onChange={e => setNacimiento(e.target.value)}></input></div>
 
                         <div >Fecha Ingreso</div>
-                        <div ><input  type="date" onChange={e => setIngreso(e.target.value)}></input></div>
+                        <div ><input  type="date" id="Ejem_Fecha_Ingreso" name="Ejem_Fecha_Ingreso"  onChange={e => setIngreso(e.target.value)}></input></div>
 
                         <div >Sexo</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcSexo} defaultValue={sexo}  onChange={setSexo}  /></div>
+                        <div ><input  type="text" id="Ejem_Sexo" name="Ejem_Sexo"  onChange={e => setSexo(e.target.value)}></input></div>
+
+                        <div >Peso</div>
+                        <div ><input  type="number" id="Ejem_Peso" name="Ejem_Peso"  onChange={e => setPeso(e.target.value)}></input></div>
 
                         <div >Pelaje</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPelaje} defaultValue={pelaje}  onChange={setPelaje}  /></div>
-
-                        <div >* Padre</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPadre} defaultValue={padre}  onChange={setPadre}  /></div>
-
-                        <div >* Madre</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcMadre} defaultValue={madre}  onChange={setMadre} /></div>
-
-                        <div >Hacienda</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcHacienda} defaultValue={hacienda}  onChange={setHacienda} /></div>
+                        <div ><input  type="text" id="Ejem_Pelaje" name="Ejem_Pelaje"  onChange={e => setPelaje(e.target.value)}></input></div>
                         
-                        <div >Propietarios</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPropietarios} defaultValue={propietarios}  onChange={setPropietarios} /></div>
-
-
-                        <div >Propietarios %</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPropietariosSeleccionados} defaultValue={propietariosSeleccionados}  onChange={setPropietariosSeleccionados} /></div>
-                        <div></div>
-                        <div ><input  type="number" onChange={e => setporcentaje(e.target.value)}></input></div>
-
-                        <div id='mensaje'>EL ELEMENTO SELECCIONADO SERA ELIMINADO</div>
-                        <div >Propietarios</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPropietariosSeleccionados} defaultValue={propietarioEliminado}  onChange={setPropietarioEliminado} /></div>
-
+                        <div >Padre</div>
+                        <div ><input  type="number" id="Ejem_FK_Padre" name="Ejem_FK_Padre"  onChange={e => setPadre(e.target.value)}></input></div>
+                        
+                        <div >Madre</div>
+                        <div ><input  type="number" id="Ejem_FK_Madre" name="Ejem_FK_Madre"  onChange={e => setMadre(e.target.value)}></input></div>
+                        
+                        <div >Hacienda</div>
+                        <div ><input  type="number" id="Ejem_FK_Hacienda" name="Ejem_FK_Hacienda"  onChange={e => setHacienda(e.target.value)}></input></div>
+                        
 
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
                     
                     </form>
                     
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
                 </div>
 

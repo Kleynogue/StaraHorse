@@ -32,6 +32,7 @@ function AdminCrud_Uniformes(){
         const [opcColorSelecionado, setOpcColorSelecionado] = useState();
         const [opcColor, setOpcColor] = useState();
 
+        const [accion, setAccion] = useState();
         
         const customerStyles = { 
             control: (styles, {isFocused}) => ({ 
@@ -113,6 +114,10 @@ function AdminCrud_Uniformes(){
 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
 
                 setCargado("true");
@@ -161,37 +166,31 @@ function AdminCrud_Uniformes(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
 
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >Descripcion</div>
-                        <div ><input  type="text" onChange={e => setDescripcion(e.target.value)}></input></div>
+                        <div ><input id="Unif_Descripcion" name="Unif_Descripcion"   type="text" onChange={e => setDescripcion(e.target.value)} ></input></div>
 
                         <div >Tipo</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcTipo} defaultValue={tipo}  onChange={setTipo}  /></div>
-
+                        <div ><input id="Unif_Tipo" name="Unif_Tipo"  type="text" onChange={e => setTipo(e.target.value)} ></input></div>
+                        
                         <div >Estatus</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcEstatus} defaultValue={estatus}  onChange={setEstatus}  /></div>
-
+                        <div ><input id="Unif_Estatus" name="Unif_Estatus"  type="text" onChange={e => setEstatus(e.target.value)} ></input></div>
+                        
                         <div >Stud</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcStud} defaultValue={stud}  onChange={setStud}  /></div>
-
-                        <div >Color</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcColor} defaultValue={color}  onChange={setColor}  /></div>
-
-                        <div id='mensaje'>EL ELEMENTO SELECCIONADO SERA ELIMINADO</div>
-                        <div >Colores</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcColorSelecionado} defaultValue={colorSelecionado}  onChange={setColorSelecionado}  /></div>
-
+                        <div ><input id="Unif_FK_Stud" name="Unif_FK_Stud"  type="number" onChange={e => setStud(e.target.value)} ></input></div>
 
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
                     
                     </form>
 
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
                 </div>
 

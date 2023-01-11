@@ -16,13 +16,18 @@ import Combobox_Roles from '../../Componentes/Combobox_Roles';
 
 function AdminCrud_Implementos(){
 
+        const location = useLocation();
+
         const [hidden, setHidden] = useState(true);
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)   
         const [nombre, setNombre] = useState();
         const [abreviacion, setAbreviacion] = useState();
 
+        const [accion, setAccion] = useState();
 
-        const location = useLocation();
+        
+
+        
         //Inicio Direcciones
         const navigate = useNavigate();
         const toUsuarioCuenta=(direccion)=>{
@@ -38,7 +43,13 @@ function AdminCrud_Implementos(){
                 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
                 }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
+                }
+                
+                
                 
                 setCargado("true");
             }
@@ -52,7 +63,8 @@ function AdminCrud_Implementos(){
             
             if(location.state.estado=="Create"){
                 if(nombre && abreviacion ){
-                    alert("Se crea con exito el implemento")
+                    alert("Se crea con exito el implemento "+ nombre+ " y "+ abreviacion)
+
                 }
                 else{
                     alert("Todos los campos deben ser llenados")
@@ -67,6 +79,8 @@ function AdminCrud_Implementos(){
 
 
 
+
+
         return (
 
             <div className='bodyUsuario'>
@@ -75,29 +89,30 @@ function AdminCrud_Implementos(){
                     <Cabecera/>
                     <Nav_Admin />
                     <h2 className='subtitulo'>CRUD ({location.state.Nombre})</h2>
-
                 </div>
 
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
 
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >Nombre</div>
-                        <div ><input  type="text" onChange={e => setNombre(e.target.value)}></input></div>
+                        <div ><input  type="text" id="impl_nombre" name="impl_nombre" onChange={e => setNombre(e.target.value)} ></input></div>
 
                         <div >Abreviacion</div>
-                        <div ><input  type="text" onChange={e => setAbreviacion(e.target.value)}></input></div>
+                        <div ><input type="text" id="impl_abreviacion" name="impl_abreviacion" onChange={e => setAbreviacion(e.target.value) }></input></div>
 
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
                     
                     </form>
                     
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
                 </div>
 

@@ -24,6 +24,7 @@ function AdminCrud_Cuadras(){
         const [entrenador, setEntrenador] = useState();
         const [veterinario, setVeterinario] = useState();
 
+        const [accion, setAccion] = useState();
 
         const [opcArea, setOpcArea] = useState();
         const [opcEntrenador, setOpcEntrenador] = useState();
@@ -103,6 +104,10 @@ function AdminCrud_Cuadras(){
 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
 
                 setCargado("true");
@@ -151,25 +156,19 @@ function AdminCrud_Cuadras(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
                         
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
  
                         <div >Capacidad</div>
-                        <div ><input  type="number" onChange={e => setCapacidad(e.target.value)}></input></div>
+                        <div ><input id="Caba_Capacidad" name="Caba_Capacidad"  type="number" onChange={e => setCapacidad(e.target.value)}></input></div>
 
                         <div >Funcional</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcFuncional} defaultValue={funcional}  onChange={setFuncional}  /></div>
+                        <div ><input  id="Caba_Funcional" name="Caba_Funcional"  type="text" onChange={e => setFuncional(e.target.value)}></input></div>
 
                         <div >Area</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcArea} defaultValue={area}  onChange={setArea}  /></div>
-
-                        <div >Entrenador</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcEntrenador} defaultValue={entrenador}  onChange={setEntrenador}  /></div>
-
-                        <div >Veterinario</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcVeterinario} defaultValue={veterinario}  onChange={setVeterinario}  /></div>
+                        <div ><input  id="Caba_FK_Area" name="Caba_FK_Area"  type="number" onChange={e => setArea(e.target.value)}></input></div>
 
 
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
@@ -177,7 +176,9 @@ function AdminCrud_Cuadras(){
                     </form>
 
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
 
                 </div>

@@ -27,6 +27,7 @@ function AdminCrud_Restaurantes(){
 
         const [opcArea, setOpcArea] = useState();
 
+        const [accion, setAccion] = useState();
 
         const customerStyles = { 
             control: (styles, {isFocused}) => ({ 
@@ -75,6 +76,10 @@ function AdminCrud_Restaurantes(){
 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
                 
                 setCargado("true");
@@ -122,26 +127,22 @@ function AdminCrud_Restaurantes(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
 
                         <div >ID</div>
                         <div className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >Nombre</div>
-                        <div ><input  type="text" onChange={e => setNombre(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Rest_Nombre" name="Rest_Nombre"  onChange={e => setNombre(e.target.value)}></input></div>
 
                         <div >Capacidad</div>
-                        <div ><input  type="text" onChange={e => setCapacidad(e.target.value)}></input></div>
+                        <div ><input  type="number" id="Rest_Capacidad" name="Rest_Capacidad"  onChange={e => setCapacidad(e.target.value)}></input></div>
 
-                        {/*00:00 -> Por eso es Text*/}
-                        <div >Hora de Apertura</div>
-                        <div ><input  type="time" onChange={e => setApertura(e.target.value)}></input></div>
-
-                        <div >Hora de Cierre</div>
-                        <div ><input  type="time" onChange={e => setCierre(e.target.value)}></input></div>
+                        <div >Horario</div>
+                        <div ><input  type="number" id="Rest_FK_Horario" name="Rest_FK_Horario"  onChange={e => setApertura(e.target.value)}></input></div>
 
                         <div >Se Encuentra En</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcArea} defaultValue={area}  onChange={setArea}  /></div>
+                        <div ><input  type="number" id="Rest_FK_Area" name="Rest_FK_Area"  onChange={e => setArea(e.target.value)}></input></div>
 
                         
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
@@ -149,7 +150,9 @@ function AdminCrud_Restaurantes(){
                     </form>
 
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
                 </div>
 
