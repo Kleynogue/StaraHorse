@@ -1,6 +1,5 @@
 const {pool} = require('../settings/pg');
 const reports = require('../models/reports');
-const { DataRowMessage } = require('pg-protocol/dist/messages');
 
 function getUsers(req, res, next){
     reports.users(pool, (err, datos)=>{

@@ -17,9 +17,8 @@ function index(req, res, next){
 
 function insert(req, res, next){
     try {
-        console.log(req.body.ejem_peso)
-        let columns = utils.stringify(req.body.columns,"");
-        let values = utils.stringify(req.body.values,"");
+        let columns = utils.stringify(utils.getStructure(req.body).columns,"");
+        let values = utils.stringify(utils.getStructure(req.body).values,"");
         let body ={
             columns,
             values
@@ -29,7 +28,6 @@ function insert(req, res, next){
                 console.log(err);
                 next(err);
             }else{
-                console.log(datos);
                 res.status(204).send();   
             };
             
@@ -44,14 +42,12 @@ function insert(req, res, next){
 function edit(req, res, next){
     getColumn(req.params.table.toLowerCase(), (err, datos)=>{
         if(err != null){
-            console.log(err);
             next(err);
         }else{
             try {
                 extra = utils.toWhere(utils.getBody(datos.rows[0].column_name, req.params.id));
                 admin.get(pool, req.params, extra, (err, datos)=>{
                     if(err != null){
-                        console.log(err);
                         next(err);
                     }else{
                         console.log(datos.rows);
@@ -66,55 +62,51 @@ function edit(req, res, next){
     });
 }
 
-function update(req, res){
+function update(req, res, next){
     getColumn(req.params.table.toLowerCase(), (err, datos) => {
         if(err != null){
-            console.log(err);
             next(err);
         }else{
             try {
+                x = utils.getStructure(req.body);
                 let array = [];
-                for (let i = 0; i < req.body.columns.length; i++) {
-                    array[i] = utils.getEqual(utils.getBody(req.body.columns[i], req.body.values[i]))
+                for (let i = 0; i < x.columns.length; i++) {
+                    if(x.values[i] !== "''"){
+                        array.push(utils.getEqual(utils.getBody(x.columns[i], x.values[i])));
+                    }
                 };
+                console.log(array)
                 let set = utils.stringify(array, '');
                 extra = utils.toWhere(utils.getBody(datos.rows[0].column_name, req.params.id));
                 admin.patch(pool, req.params, set, extra, (err, datos)=> {
                     if(err != null){
-                        console.log(err);
                         next(err);
                     }else{
-                        console.log(datos);
                         res.status(204).send();
                     }
                 })
             } catch (error) {
-                console.log(error);
                 next(error);
             } 
         }
     })
 };
 
-function remove(req, res){
+function remove(req, res, next){
     getColumn(req.params.table.toLowerCase(), (err, datos) => {
         if(err != null){
-            console.log(err);
             next(err);
         }else{
             try {
-                extra = utils.toWhere(utils.getBody(datos.rows[0].column_name, req.body.id));
+                extra = utils.toWhere(utils.getBody(datos.rows[0].column_name, req.params.id));
                 admin.remove(pool, req.params, extra, (err,datos)=> {
                     if(err != null){
-                        console.log(err);
                         next(err);
                     }else{
-                        console.log(datos);
                         res.status(204).send();
                     }
                 })
             } catch (error) {
-                console.log(error);
                 next(error);
             }
         }
