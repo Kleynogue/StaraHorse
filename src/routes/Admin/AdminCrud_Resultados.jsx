@@ -31,6 +31,8 @@ function AdminCrud_Resultados(){
         const [opcCarrera, setOpcCarrera] = useState();
         const [opcEjemplar, setOpcEjemplar] = useState();
 
+        const [accion, setAccion] = useState();
+
 
         const customerStyles = { 
             control: (styles, {isFocused}) => ({ 
@@ -98,6 +100,10 @@ function AdminCrud_Resultados(){
 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
 
                 setCargado("true");
@@ -147,37 +153,29 @@ function AdminCrud_Resultados(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
                         
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                     
                         <div >Partida</div>
-                        <div ><input  type="time" onChange={e => setPartida(e.target.value)}></input></div>
+                        <div ><input  type="time" id="Resu_Hora_Partida" name="Resu_Hora_Partida"  onChange={e => setPartida(e.target.value)}></input></div>
 
                         <div >Posicion</div>
-                        <div ><input  type="number" onChange={e => setPosicion(e.target.value)}></input></div>
+                        <div ><input  type="number" id="Resu_Posicion_Ejemplar" name="Resu_Posicion_Ejemplar"  onChange={e => setPosicion(e.target.value)}></input></div>
 
-                        <div >Tiempo:</div>
-                        <div></div>
+                        <div >Tiempo</div>
+                        <div ><input  type="text" id="Resu_Tiempo_Carrera" name="Resu_Tiempo_Carrera"  onChange={e => setTiempo(e.target.value)}></input></div>
 
-                        <div >Minutos</div>
-                        <div ><input  type="number"  onChange={e => setMinutos(e.target.value)}></input></div>
-
-                        <div >Segundos</div>
-                        <div ><input  type="number"  onChange={e => setSegundos(e.target.value)}></input></div>
-
-
-                        
                         <div >Cuerpos</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcCuerpos} defaultValue={cuerpos}  onChange={setCuerpos}  /></div>
+                        <div ><input  type="number" id="Resu_FK_Cuerpos" name="Resu_FK_Cuerpos"  onChange={e => setCuerpos(e.target.value)}></input></div>
 
                         <div >Carrera</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcCarrera} defaultValue={carrera}  onChange={setCarrera}  /></div>
+                        <div ><input  type="number" id="Resu_FK_Inscripcion_1" name="Resu_FK_Inscripcion_1"  onChange={e => setCarrera(e.target.value)}></input></div>
 
                         <div >Ejemplar</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcEjemplar} defaultValue={ejemplar}  onChange={setEjemplar}  /></div>
+                        <div ><input  type="number" id="Resu_FK_Inscripcion_2" name="Resu_FK_Inscripcion_2"  onChange={e => setEjemplar(e.target.value)}></input></div>
 
                         
                     
@@ -186,7 +184,9 @@ function AdminCrud_Resultados(){
                     </form>
                     
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
                 </div>
 

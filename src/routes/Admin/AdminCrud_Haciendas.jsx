@@ -26,6 +26,8 @@ function AdminCrud_Haciendas(){
         const [opcLugar, setOpcLugar] = useState();
 
 
+        const [accion, setAccion] = useState();
+
         const customerStyles = { 
             control: (styles, {isFocused}) => ({ 
                 ...styles, 
@@ -74,6 +76,10 @@ function AdminCrud_Haciendas(){
 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
 
                 setCargado("true");
@@ -117,19 +123,20 @@ function AdminCrud_Haciendas(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
                         
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >Nombre</div>
-                        <div ><input  type="text" onChange={e => setNombre(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Haci_Nombre" name="Haci_Nombre" onChange={e => setNombre(e.target.value)}></input></div>
 
                         <div >Direccion</div>
-                        <div ><input  type="text" onChange={e => setDireccion(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Haci_Direccion" name="Haci_Direccion"  onChange={e => setDireccion(e.target.value)}></input></div>
 
                         <div >Lugar</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcLugar} defaultValue={lugar}  onChange={setLugar}  /></div>
+                        <div ><input  type="number" id="Haci_FK_Lugar" name="Haci_FK_Lugar"  onChange={e => setLugar(e.target.value)}></input></div>
+
 
 
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
@@ -137,8 +144,11 @@ function AdminCrud_Haciendas(){
                     </form>
                     
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
+
                 </div>
 
                 <div>

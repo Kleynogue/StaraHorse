@@ -27,6 +27,8 @@ function AdminCrud_Pistas(){
         const [opcMaterialSelecionado, setOpcMaterialSelecionado] = useState();
         const [opcMaterial, setOpcMaterial] = useState();
 
+        const [accion, setAccion] = useState();
+
 
         const customerStyles = { 
             control: (styles, {isFocused}) => ({ 
@@ -83,6 +85,10 @@ function AdminCrud_Pistas(){
 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
 
                 setCargado("true");
@@ -129,31 +135,25 @@ function AdminCrud_Pistas(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
                         
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >Longitud (mts)</div>
-                        <div ><input  type="number" onChange={e => setLongitud(e.target.value)}></input></div>
+                        <div ><input  type="number" id="Pist_Longitud" name="Pist_Longitud"  onChange={e => setLongitud(e.target.value)}></input></div>
 
                         <div >Capacidad</div>
-                        <div ><input  type="number" onChange={e => setCapacidad(e.target.value)}></input></div>
-
-                        <div >Material</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcMaterial} defaultValue={material}  onChange={setMaterial}  /></div>
-
-                        <div id='mensaje'>EL ELEMENTO SELECCIONADO SERA ELIMINADO</div>
-                        <div >Materiales</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcMaterialSelecionado} defaultValue={materialSelecionado}  onChange={setMaterialSelecionado}  /></div>
-
+                        <div ><input  type="number" id="Pist_Capacidad" name="Pist_Capacidad"  onChange={e => setCapacidad(e.target.value)}></input></div>
 
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
                     
                     </form>
                     
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
                 </div>
 

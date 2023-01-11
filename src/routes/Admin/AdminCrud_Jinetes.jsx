@@ -27,6 +27,10 @@ function AdminCrud_Jinetes(){
         const [peso, setPeso] = useState();
         const [nacimiento, setNacimiento] = useState();
 
+
+        const [accion, setAccion] = useState();
+
+
         const location = useLocation();
         //Inicio Direcciones
         const navigate = useNavigate();
@@ -43,6 +47,10 @@ function AdminCrud_Jinetes(){
 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
                 
                 setCargado("true");
@@ -93,41 +101,43 @@ function AdminCrud_Jinetes(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
                         
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >CI</div>
-                        <div ><input  type="number" onChange={e => setCi(e.target.value)}></input></div>
+                        <div ><input  type="number" id="Jine_Pers_CI" name="Jine_Pers_CI" onChange={e => setCi(e.target.value)}></input></div>
 
                         <div >Primer Nombre</div>
-                        <div ><input  type="text" onChange={e => setPnombre(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Jine_Pers_p_Nombre" name="Jine_Pers_p_Nombre"  onChange={e => setPnombre(e.target.value)}></input></div>
 
                         <div >Segundo Nombre</div>
-                        <div ><input  type="text" onChange={e => setSnombre(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Jine_Pers_s_Nombre" name="Jine_Pers_s_Nombre"  onChange={e => setSnombre(e.target.value)}></input></div>
 
                         <div >Primer Apellido</div>
-                        <div ><input  type="text" onChange={e => setPapellido(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Jine_Pers_p_Apellido" name="Jine_Pers_p_Apellido"  onChange={e => setPapellido(e.target.value)}></input></div>
 
                         <div >Segundo Apellido</div>
-                        <div ><input  type="text" onChange={e => setSapellido(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Jine_Pers_s_Apellido" name="Jine_Pers_s_Apellido"  onChange={e => setSapellido(e.target.value)}></input></div>
 
                         <div >Fecha Nacimiento</div>
-                        <div ><input  type="date" onChange={e => setNacimiento(e.target.value)}></input></div>
+                        <div ><input  type="date" id="Jine_Fecha_Nac" name="Jine_Fecha_Nac"  onChange={e => setNacimiento(e.target.value)}></input></div>
 
                         <div >Altura</div>
-                        <div ><input  type="number" onChange={e => setAltura(e.target.value)}></input></div>
+                        <div ><input  type="number" id="Jine_Altura" name="Jine_Altura"  onChange={e => setAltura(e.target.value)}></input></div>
 
                         <div >Peso</div>
-                        <div ><input  type="number" onChange={e => setPeso(e.target.value)}></input></div>
+                        <div ><input  type="number" id="Jine_Peso" name="Jine_Peso"  onChange={e => setPeso(e.target.value)}></input></div>
 
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
                     
                     </form>
                     
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
                 </div>
 

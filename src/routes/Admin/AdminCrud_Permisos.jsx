@@ -21,6 +21,7 @@ function AdminCrud_Permisos(){
         const [nombre, setNombre] = useState();
         const [descripcion, setDescripcion] = useState();
             
+        const [accion, setAccion] = useState();
 
         const location = useLocation();
         //Inicio Direcciones
@@ -41,6 +42,10 @@ function AdminCrud_Permisos(){
                 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
                 }
                 
 
@@ -84,16 +89,16 @@ function AdminCrud_Permisos(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
                         
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >Nombre</div>
-                        <div ><input  type="text" onChange={e => setNombre(e.target.value)}></input></div>
+                        <div ><input  type="text"  id="Perm_Nombre" name="Perm_Nombre" onChange={e => setNombre(e.target.value)}></input></div>
 
                         <div >Descripcion</div>
-                        <div ><input  type="text" onChange={e => setDescripcion(e.target.value)}></input></div>
+                        <div ><input  type="text"  id="Perm_Descripcion" name="Perm_Descripcion"  onChange={e => setDescripcion(e.target.value)}></input></div>
 
                     
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
@@ -101,7 +106,9 @@ function AdminCrud_Permisos(){
                     </form>
                     
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
                 </div>
 

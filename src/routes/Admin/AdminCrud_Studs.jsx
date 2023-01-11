@@ -29,6 +29,7 @@ function AdminCrud_Studs(){
         const [opcPropietarios, setOpcPropietarios] = useState();
         const [opcPropietariosSeleccionados, setOpcPropietariosSeleccionados] = useState();
 
+        const [accion, setAccion] = useState();
         
         const customerStyles = { 
             control: (styles, {isFocused}) => ({ 
@@ -83,7 +84,11 @@ function AdminCrud_Studs(){
 
                 if(location.state.estado=="Update"){
                     setHidden(s => !s);
-                } 
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/edit/'+location.state.Elemento);
+                }
+                else{
+                    setAccion('http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/create');
+                }
 
                 setCargado("true");
             }
@@ -130,30 +135,16 @@ function AdminCrud_Studs(){
                 
                 <div id='ContFormCrud' >
 
-                    <form onSubmit={e => {handleSubmit(e)}} id='FormCrud' className="FormRadioCrud">
+                    <form   method="POST" action={accion} id='FormCrud' className="FormRadioCrud">
 
                         <div >ID</div>
                         <div  className='IDcrud'>{location.state.Elemento}</div>
 
                         <div >Nombre</div>
-                        <div ><input  type="text" onChange={e => setNombre(e.target.value)}></input></div>
+                        <div ><input  type="text" id="Stud_Nombre" name="Stud_Nombre"  onChange={e => setNombre(e.target.value)}></input></div>
 
                         <div >Fecha de creacion</div>
-                        <div ><input  type="date" onChange={e => setCreacion(e.target.value)}></input></div>
-
-                        
-                        <div >Propietarios</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPropietarios} defaultValue={propietarios}  onChange={setPropietarios} /></div>
-
-
-                        <div >Propietarios %</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPropietariosSeleccionados} defaultValue={propietariosSeleccionados}  onChange={setPropietariosSeleccionados} /></div>
-                        <div></div>
-                        <div ><input  type="number" onChange={e => setporcentaje(e.target.value)}></input></div>
-
-                        <div id='mensaje'>EL ELEMENTO SELECCIONADO SERA ELIMINADO</div>
-                        <div >Propietarios</div>
-                        <div id='ComboboxCrud'><Select styles={customerStyles} options={opcPropietariosSeleccionados} defaultValue={propietarioEliminado}  onChange={setPropietarioEliminado} /></div>
+                        <div ><input  type="date" id="Stud_Fecha_Creacion" name="Stud_Fecha_Creacion"  onChange={e => setCreacion(e.target.value)}></input></div>
 
                         
                         <div id='BotonActualizar'><Boton_Direccion  nombre={location.state.estado} /></div>
@@ -161,7 +152,9 @@ function AdminCrud_Studs(){
                     </form>
 
                     {!hidden ? 
-                        <div id='BotonEliminar'><Boton_Direccion  nombre="Delete" /></div>
+                        <form  id='BotonEliminar'  method="POST" action={'http://starahorsebd.ddns.net/admin/'+location.state.Nombre+'/'+location.state.Elemento}>
+                            <div ><Boton_Direccion  nombre="Delete" /></div>
+                        </form>
                     : null}
                 </div>
 

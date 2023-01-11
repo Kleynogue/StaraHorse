@@ -64,6 +64,8 @@ import Propietario_Ejemplares_Crud from './routes/Propietario/Propietario_Ejempl
 import Propietario_Studs from './routes/Propietario/Propietario_Studs';
 import Propietario_Studs_Crud from './routes/Propietario/Propietario_Studs_Crud';
 import Usuario_Carreras_Informacion_Record from './routes/Usuario/Usuario_Carreras_Informacion_Record';
+import AdminCrud_Uni_Col from './routes/Admin/AdminCrud_Uni_Col';
+import AdminCrud_Inscripciones from './routes/Admin/AdminCrud_Inscripciones';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -151,10 +153,12 @@ root.render(
         <Route path='/admin_cruds_hacienda' element={<AdminCrud_Haciendas/>}/>
         <Route path='/admin_cruds_carrera' element={<AdminCrud_Carreras/>}/>
         <Route path='/admin_cruds_resultado' element={<AdminCrud_Resultados/>}/>
-        <Route path='/admin_cruds_cuadra' element={<AdminCrud_Cuadras/>}/>
+        <Route path='/admin_cruds_caballeriza' element={<AdminCrud_Cuadras/>}/>
         <Route path='/admin_cruds_usuario' element={<AdminCrud_Usuarios/>}/>
         <Route path='/admin_cruds_rol' element={<AdminCrud_Rol/>}/>
         <Route path='/admin_cruds_permiso' element={<AdminCrud_Permisos/>}/>
+        <Route path='/admin_cruds_uni_col' element={<AdminCrud_Uni_Col/>}/>
+        <Route path='/admin_cruds_inscripcion' element={<AdminCrud_Inscripciones/>}/>
 
       <Route path='/admin_reset' element={<Admin_Reset/>}/>
 
