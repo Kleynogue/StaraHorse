@@ -600,7 +600,7 @@ CREATE TABLE RETIRO(
 CREATE TABLE RESULTADO(
     Resu_ID serial,
     Resu_Hora_Partida time not null,
-    Resu_Tiempo_Carrera time not null,
+    Resu_Tiempo_Carrera varchar not null,
     Resu_Posicion_Ejemplar integer not null,
     Resu_FK_Cuerpos integer not null,
     Resu_FK_Inscripcion integer not null,
