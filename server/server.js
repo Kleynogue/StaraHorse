@@ -17,9 +17,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false})); 
 
 
-app.use("/", require("./routes/admin"));
 app.use("/", require("./routes/reports"));
 app.use("/", require("./routes/login"));
+app.use("/", require("./routes/admin"));
 port = 80;
 app.listen(port);
 console.log(`Server on port ${port}`);

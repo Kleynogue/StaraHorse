@@ -6,7 +6,7 @@ const  utils  = require("../settings/utils");
 
 function index(req, res, next){
     admin.get(pool, req.params, '', (err, datos)=> {
-        console.log(req.params.table)
+        console.log(req.params)
         if(err !=null){
             next(err);
         }else{
