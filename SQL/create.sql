@@ -469,7 +469,8 @@ CREATE TABLE ENF_EJE(
 CREATE TABLE UNI_COL(
     Uni_Col_FK_Uniforme integer not null,
     Uni_Col_FK_Color integer not null,
-    CONSTRAINT pk_uni_col PRIMARY KEY(Uni_Col_FK_Color, Uni_Col_FK_Uniforme),
+    Uni_Col_ID serial,
+    CONSTRAINT pk_uni_col PRIMARY KEY(Uni_Col_ID),
     CONSTRAINT contiene FOREIGN KEY(Uni_Col_FK_Uniforme) REFERENCES UNIFORME(Unif_ID),
     CONSTRAINT encuentra FOREIGN KEY(Uni_Col_FK_Color) REFERENCES COLOR(Colo_ID)
 );
@@ -495,7 +496,8 @@ CREATE TABLE Car_Pre(
     Car_Pre_Monto numeric not null,
     Car_Pre_FK_Carrera integer not null,
     Car_Pre_FK_Premio integer not null,
-    CONSTRAINT pk_car_pre PRIMARY KEY(Car_Pre_FK_Carrera, Car_Pre_FK_Premio),
+    Car_Pre_ID serial,
+    CONSTRAINT pk_car_pre PRIMARY KEY(Car_Pre_ID),
     CONSTRAINT otorga FOREIGN KEY(Car_Pre_FK_Carrera) REFERENCES CARRERA(Carr_ID),
     CONSTRAINT otorgado FOREIGN KEY(Car_Pre_FK_Premio) REFERENCES PREMIO(Prem_ID)
 );
@@ -516,7 +518,8 @@ CREATE TABLE STU_PRO(
 CREATE TABLE MAT_PIS(
     Mat_Pis_FK_Pista integer not null,
     Mat_Pis_FK_Material integer not null,
-    CONSTRAINT pk_mat_pis PRIMARY KEY(Mat_Pis_FK_Material, Mat_Pis_FK_Pista),
+    Mat_Pis_ID serial,
+    CONSTRAINT pk_mat_pis PRIMARY KEY(Mat_Pis_ID),
     CONSTRAINT constituye FOREIGN KEY(Mat_Pis_FK_Material) REFERENCES MATERIAL(Mate_ID),
     CONSTRAINT fabricada FOREIGN KEY(Mat_Pis_FK_Pista) REFERENCES PISTA(Pist_ID)
 );
@@ -533,6 +536,7 @@ CREATE TABLE ACCION(
 );
 
 CREATE TABLE INSCRIPCION(
+    Insc_ID serial,
     Insc_Precio numeric,
     Insc_Puesto_Partida integer not null,
     Insc_Favorito boolean not null,
@@ -546,7 +550,7 @@ CREATE TABLE INSCRIPCION(
     Insc_FK_Jinete integer not null,
     Insc_Num_Gualdrapa integer not null,
     Insc_FK_Comentario integer,
-    CONSTRAINT pk_inscripcion PRIMARY KEY(Insc_FK_Carrera, Insc_FK_Ejemplar),
+    CONSTRAINT pk_inscripcion PRIMARY KEY(Insc_ID),
     CONSTRAINT posibilita FOREIGN KEY(Insc_FK_Carrera) REFERENCES CARRERA(Carr_ID),
     CONSTRAINT participan FOREIGN KEY(Insc_FK_Ejemplar) REFERENCES EJE_ENT(Eje_Ent_ID),
     CONSTRAINT participa FOREIGN KEY(Insc_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),
@@ -578,20 +582,19 @@ CREATE TABLE DISTANCIA_PARCIAL(
     Dis_Par_Distancia_Recorrida integer not null,
     Dis_Par_Tiempo time not null,
     Dis_Par_Posicion integer not null,
-    Dis_Par_FK_Ins_1 integer not null,
-    Dis_Par_FK_Ins_2 integer not null,
+    Dis_Par_FK_Ins integer not null,
     CONSTRAINT pk_distancia_par PRIMARY KEY(Dis_Par_ID),
-    CONSTRAINT goza FOREIGN KEY(Dis_Par_FK_Ins_1, Dis_Par_FK_Ins_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+    CONSTRAINT goza FOREIGN KEY(Dis_Par_FK_Ins) references inscripcion(Insc_ID)
 );
 
 CREATE TABLE RETIRO(
     Reti_Fecha date not null,
     Reti_FK_Motivo_Retiro integer not null,
-    Reti_FK_Inscripcion_1 integer not null,
-    Reti_FK_Inscripcion_2 integer not null,
-    CONSTRAINT pk_retiro PRIMARY KEY(Reti_FK_Motivo_Retiro, Reti_FK_Inscripcion_1, Reti_FK_Inscripcion_2),
+    Reti_FK_Inscripcion integer not null,
+    Reti_ID serial,
+    CONSTRAINT pk_retiro PRIMARY KEY(Reti_ID),
     CONSTRAINT identifica FOREIGN KEY(Reti_FK_Motivo_Retiro) REFERENCES MOTIVO_RETIRO(Mot_Ret_ID),
-    CONSTRAINT permite FOREIGN KEY(Reti_FK_Inscripcion_1, Reti_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+    CONSTRAINT permite FOREIGN KEY(Reti_FK_Inscripcion) references inscripcion(Insc_ID)
 );
 
 CREATE TABLE RESULTADO(
@@ -600,32 +603,31 @@ CREATE TABLE RESULTADO(
     Resu_Tiempo_Carrera time not null,
     Resu_Posicion_Ejemplar integer not null,
     Resu_FK_Cuerpos integer not null,
-    Resu_FK_Inscripcion_1 integer not null,
-    Resu_FK_Inscripcion_2 integer not null,
+    Resu_FK_Inscripcion integer not null,
     CONSTRAINT pk_resultado PRIMARY KEY(Resu_ID),
     CONSTRAINT especifica FOREIGN KEY(Resu_FK_Cuerpos) REFERENCES CUERPO_DIFERENCIA(Cue_Dif_ID),
-    CONSTRAINT produce FOREIGN KEY(Resu_FK_Inscripcion_1, Resu_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+    CONSTRAINT produce FOREIGN KEY(Resu_FK_Inscripcion) references inscripcion(Insc_ID)
 );
 
 CREATE TABLE IMP_INS(
     Imp_Ins_Aprobacion VARCHAR not null,
     Imp_Ins_FK_Implemento integer not null,
-    Imp_Ins_FK_Inscripcion_1 integer not null,
-    Imp_Ins_FK_Inscripcion_2 integer not null,
-    CONSTRAINT pk_imp_ins PRIMARY KEY(Imp_Ins_FK_Implemento, Imp_Ins_FK_Inscripcion_1, Imp_Ins_FK_Inscripcion_2),
+    Imp_Ins_FK_Inscripcion integer not null,
+    Imp_Ins_ID serial,
+    CONSTRAINT pk_imp_ins PRIMARY KEY(Imp_Ins_ID),
     CONSTRAINT implementan FOREIGN KEY(Imp_Ins_FK_Implemento) REFERENCES IMPLEMENTO(Impl_ID),
-    CONSTRAINT emplea FOREIGN KEY(Imp_Ins_FK_Inscripcion_1, Imp_Ins_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar),
+    CONSTRAINT emplea FOREIGN KEY(Imp_Ins_FK_Inscripcion) references inscripcion(Insc_ID),
     CONSTRAINT aprobacion_implemento CHECK(Imp_Ins_Aprobacion in ('Aprobado', 'Rechazado', 'En espera'))
 );
 
 CREATE TABLE MED_INS(
     Med_Ins_Aprobacion VARCHAR not null,
     Med_Ins_FK_Medicamento integer not null,
-    Med_Ins_FK_Inscripcion_1 integer not null,
-    Med_Ins_FK_Inscripcion_2 integer not null,
-    CONSTRAINT pk_med_ins PRIMARY KEY(Med_Ins_FK_Medicamento, Med_Ins_FK_Inscripcion_1, Med_Ins_FK_Inscripcion_2),
+    Med_Ins_FK_Inscripcion integer not null,
+    Med_Ins_ID serial,
+    CONSTRAINT pk_med_ins PRIMARY KEY(Med_Ins_ID),
     CONSTRAINT usado FOREIGN KEY(Med_Ins_FK_Medicamento) REFERENCES MEDICAMENTO(Medi_ID),
-    CONSTRAINT usa FOREIGN KEY(Med_Ins_FK_Inscripcion_1, Med_Ins_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar),
+    CONSTRAINT usa FOREIGN KEY(Med_Ins_FK_Inscripcion) references inscripcion(Insc_ID),
     CONSTRAINT aprobacion_medicamento CHECK(Med_Ins_Aprobacion in ('Aprobado', 'Rechazado', 'En espera'))
 );
 
@@ -633,11 +635,11 @@ CREATE TABLE DETALLE_APUESTA(
     Det_Apu_Posicion integer not null,
     Det_Apu_Orden numeric,
     Det_Apu_FK_Apuesta integer not null,
-    Det_Apu_FK_Inscripcion_1 integer not null,
-    Det_Apu_FK_Inscripcion_2 integer not null,
-    CONSTRAINT pk_detalle_apuesta PRIMARY KEY(Det_Apu_FK_Apuesta, Det_Apu_FK_Inscripcion_1, Det_Apu_FK_Inscripcion_2),
+    Det_Apu_FK_Inscripcion integer not null,
+    Det_Apu_ID serial,
+    CONSTRAINT pk_detalle_apuesta PRIMARY KEY(Det_Apu_ID),
     CONSTRAINT requieren FOREIGN KEY(Det_Apu_FK_Apuesta) REFERENCES APUESTA(Apue_ID),
-    CONSTRAINT requisito FOREIGN KEY(Det_Apu_FK_Inscripcion_1, Det_Apu_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+    CONSTRAINT requisito FOREIGN KEY(Det_Apu_FK_Inscripcion) references inscripcion(Insc_ID)
 );
 
 CREATE TABLE SOLICITUD_JINETE(
@@ -645,9 +647,9 @@ CREATE TABLE SOLICITUD_JINETE(
     Sol_Jin_Peso numeric not null,
     Sol_Jin_Fecha date not null,
     Sol_Jin_FK_Jinete integer not null,
-    Sol_Jin_FK_Inscripcion_1 integer not null,
-    Sol_Jin_FK_Inscripcion_2 integer not null,
-    CONSTRAINT pk_solicitud_jinete PRIMARY KEY(Sol_Jin_FK_Jinete, Sol_Jin_FK_Inscripcion_1, Sol_Jin_FK_Inscripcion_2),
+    Sol_Jin_FK_Inscripcion integer not null,
+    Sol_Jin_ID serial,
+    CONSTRAINT pk_solicitud_jinete PRIMARY KEY(Sol_Jin_ID),
     CONSTRAINT solicita FOREIGN KEY(Sol_Jin_FK_Jinete) REFERENCES JINETE(Jine_Pers_ID),
-    CONSTRAINT solicitado FOREIGN KEY(Sol_Jin_FK_Inscripcion_1, Sol_Jin_FK_Inscripcion_2) REFERENCES INSCRIPCION(Insc_FK_Carrera, Insc_FK_Ejemplar)
+    CONSTRAINT solicitado FOREIGN KEY(Sol_Jin_FK_Inscripcion) references inscripcion(Insc_ID)
 );
