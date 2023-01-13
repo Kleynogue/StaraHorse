@@ -3,6 +3,7 @@ const login = require ("../models/login");
 
 function auth(req, res, next){
     login.getUser(pool, `'${req.body.user}'`, (err, datos)=>{
+        console.log(req.body)
         if(err != null){
             next(err);
         }else{

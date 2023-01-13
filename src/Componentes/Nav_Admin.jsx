@@ -552,25 +552,27 @@ export function Nav_Admin2(props){
                 <div onClick={()=>realizarConsulta(implementoFiltrar,"Implemento",3,["ID","Nombre", "Abreviacion"])}>Implementos</div>
                 <div onClick={()=>realizarConsulta(uniformeFiltrar,"Uniforme",5,["ID", "Tipo", "Descripcion", "Estatus", "Stud"])}>Uniformes</div>
                 <div onClick={()=>realizarConsulta(pistaFiltrar,"Pista",3,["ID","Longitud", "Capacidad"])}>Pistas</div>
+                <div></div>
                 <div onClick={()=>realizarConsulta(pistaFiltrar,"Inscripcion",14,["ID","Precio","PP", "Fav", "#Fav", "Prem Jine", "Prem Entr","Prem Prop","Prem Stud", "Carrera", "Eje Ent", "Jinete", "Gualdrapa", "Comentario"])}>Inscripciones</div>
-
-                
                 <div onClick={()=>realizarConsulta(ejemplarFiltrar,"Retiro",4,["ID","Fecha","Motivo","Inscripcion"])}>Retiro</div>
                 <div onClick={()=>realizarConsulta(ejemplarFiltrar,"Motivo_Retiro",2,["ID","Descripcion"])}>Motivo Retiro</div>
                 <div onClick={()=>realizarConsulta(cuadraFiltrar,"Caballeriza",4,["ID","Capacidad", "Funcional", "Area"])}>Cuadras</div>
                 <div onClick={()=>realizarConsulta(resultadoFiltrar,"Resultado",7,["ID","Hora Par", "Tiempo", "Posicion", "Cuerpos","Carrera","Ejemplar"])}>Resultados</div>
                 <div onClick={()=>realizarConsulta(haciendaFiltrar,"Hacienda",4,["ID","Nombre", "Direccion", "Lugar"])}>Haciendas</div>
-                <div onClick={()=>toA("Usuario",null,null,null,null,'/admin_cuenta',null)}>Cuenta</div>
-
+                <div></div>
+                
+                
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"users",2,["Usuario","Rol"])}>R Users</div>
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"horses",4,["Edad","Nombre","Sexo","Pelaje"])}>R Horses</div>
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"implements",2,["Nombre","Abreviacion"])}>R Implements</div>
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"trainers",2,["Entrenador","Cuadra"])}>R Trainer</div>
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"jockey",1,["Nombre"])}>R Jockey</div>
+                
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"restaurants",3,["Nombre", "Abre", "Cierra"])}>R Res</div>
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"stud-1",3,["Stud", "Uniforme", "Tipo"])}>R Stu1</div>
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"stud-2",3,["Stud", "Propietario", "Porcentaje"])}>R Stu2</div>
                 <div onClick={()=>realizarConsultaReports(cuadraFiltrar,"stud-3",3,["Stud", "Ejemplar", "Propietario"])}>R Stu3</div>
+                <div onClick={()=>toA("Usuario",null,null,null,null,'/admin_cuenta',null)}>Cuenta</div>
 
                 
             </nav>); 
