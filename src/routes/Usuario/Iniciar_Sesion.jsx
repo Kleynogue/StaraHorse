@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
@@ -45,25 +45,45 @@ function Iniciar_Sesion(){
                 }});
         }
 
+        const toIniciarSesion=()=>{
+            navigate('/iniciar_sesion',{
+                state:{
+                //Variables
+                }});
+        }
+
+        async function getUser(user, password){
+            const response = await fetch('http://starahorsebd.ddns.net/login', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credetials: 'omit',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user: user,
+                    password: password
+                })
+            });
+            return response.json();
+        };
+
 
         //Una vez presionado el boton del form
         const handleSubmit= (e) => {
             e.preventDefault();
             console.log("El usuario:"+usuario);
             console.log("El usuario:"+password);
-            if(1==1){ //Usuario corecto
-                toUsuarioCarreras();
-            }
-            else{   //Usuario incorecto
-                
-                var a = lugar.map(function(x){
-                    console.log("nuevoooooooooooooooooo");
-                    console.log("bbbb: "+ JSON.stringify(x.luga_id));
-                    console.log("cccc: "+ JSON.stringify(x.luga_tipo));
-                    console.log("ddd: "+ JSON.stringify(x.luga_nombre));
+            getUser(usuario, password)
+                .then((res)=>{
+                    console.log(res)
+                    toUsuarioCarreras();
                 })
-
-            }
+                .catch((err)=>{
+                    console.log(err)
+                    toIniciarSesion();
+                })
         }
 
     
