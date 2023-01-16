@@ -16,6 +16,7 @@ function index(req, res, next){
 };
 
 function insert(req, res, next){
+    console.log(req.body)
     try {
         let columns = utils.stringify(utils.getStructure(req.body).columns,"");
         let values = utils.stringify(utils.getStructure(req.body).values,"");

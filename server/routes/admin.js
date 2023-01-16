@@ -1,7 +1,6 @@
 const  express  = require('express');
 const router = express.Router();
 const { index, insert, edit, update, remove } = require('../controllers/admin');
-const handlers = require('../settings/handlers');
 
 router.use(express.json());
 router.use(express.text());

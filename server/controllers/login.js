@@ -12,11 +12,10 @@ function auth(req, res, next){
                     if(req.body.password === datos.rows[0].pass){
                         user = {
                             username: req.body.user,
-                            password: req.body.password,
                             role: datos.rows[0].rol
                         };
                         let token = jwt.sign(user, "BD_I");
-                        res.status(200).json(token);
+                        res.header('authorization', token).json({token: token});
                     }else{
                         res.status(404).send('Contraseña incorrecta');
                     }

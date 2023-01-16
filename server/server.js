@@ -19,6 +19,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use("/", require("./routes/reports"));
 app.use("/", require("./routes/login"));
+app.use("/", require("./routes/bet"));
 app.use("/", require("./routes/admin"));
 port = 80;
 app.listen(port);

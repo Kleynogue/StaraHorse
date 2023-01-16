@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
@@ -64,6 +64,30 @@ function Iniciar_Sesion(){
             }))
             return response.json();
         }
+
+        const toIniciarSesion=()=>{
+            navigate('/iniciar_sesion',{
+                state:{
+                //Variables
+                }});
+        }
+
+        async function getUser(user, password){
+            const response = await fetch('http://starahorsebd.ddns.net/login', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credetials: 'omit',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user: user,
+                    password: password
+                })
+            });
+            return response.json();
+        };
 
 
         //Una vez presionado el boton del form
