@@ -24,6 +24,26 @@ function adminRoutes(req, res, next){
     }
 }
 
+function validateBet(req, res, next){
+    const accessToken = req.headers['authorization'];
+    if(accessToken !== null){
+        jwt.verify(accessToken, 'BD_I', (err, user)=>{
+            if(err !== null){
+                res.status(401).send('No autorizado');
+            }else{
+                if(user.role !== 'Jinete'){
+                    req.token = accessToken;
+                    next();    
+                }else{
+                    res.status(403).send({error:    'Los jinetes no tienen permitido apostar'});
+                }
+                
+            }
+        })
+    }
+}
+
 module.exports = {
-    adminRoutes
+    adminRoutes,
+    validateBet
 }
