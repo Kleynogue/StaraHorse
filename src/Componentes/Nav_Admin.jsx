@@ -468,10 +468,40 @@ export function Nav_Admin2(props){
                                 Col14 : item.insc_fk_comentario}; 
                                 
                         }
-
-
-
-
+                        case "Apuesta":{
+                            return { 
+                                Col1: item.apue_id,
+                                Col2: item.apue_descripcion,
+                                Col3 : item.apue_monto,
+                                Col4 : trueOfalse(item.apue_cobrada),
+                                Col5 : item.apue_fecha,
+                                Col6 : item.apue_dividendo,
+                                Col7 : item.apue_fk_usuario,
+                                Col8 : item.apue_fk_propietario,
+                                Col9 : item.apue_fk_entrenador,
+                                Col10 : item.apue_fk_veterinario,
+                                Col11 : item.apue_fk_visitante,
+                                Col12 : item.apue_fk_taquilla,
+                                Col13 : item.apue_fk_tipo_apuesta};  
+                        }
+                        case "Tipo_Apuesta":{
+                            return { 
+                                Col1: item.tip_apu_id,
+                                Col2: item.tip_apu_nombre,
+                                Col3 : item.tip_apu_descripcion,
+                                Col4 : item.tip_apu_max_ejemplares,
+                                Col5 : item.tip_apu_min_ejemplares_carr,
+                                Col6 : item.tip_apu_min_apuesta,
+                                Col7 : item.tip_apu_ultimas_car_validas};  
+                        }
+                        case "Detalle_Apuesta":{
+                            return { 
+                                Col1: item.det_apu_id,
+                                Col2: item.det_apu_posicion,
+                                Col3: item.det_apu_orden,
+                                Col4 : item.det_apu_fk_apuesta,
+                                Col5 : item.det_apu_fk_inscripcion};  
+                        }
 
                         case "users":{
                             return { 
@@ -559,6 +589,10 @@ export function Nav_Admin2(props){
                 <div onClick={()=>realizarConsulta(cuadraFiltrar,"Caballeriza",4,["ID","Capacidad", "Funcional", "Area"])}>Cuadras</div>
                 <div onClick={()=>realizarConsulta(resultadoFiltrar,"Resultado",7,["ID","Hora Par", "Tiempo", "Posicion", "Cuerpos","Carrera","Ejemplar"])}>Resultados</div>
                 <div onClick={()=>realizarConsulta(haciendaFiltrar,"Hacienda",4,["ID","Nombre", "Direccion", "Lugar"])}>Haciendas</div>
+                <div onClick={()=>realizarConsulta(haciendaFiltrar,"Apuesta",13,["ID","Descripcion", "Monto", "Cobrada","Fecha","Dividendo","Usuario","Propietario","Entrenador","Veterinario","Visitante","Taquilla", "Tipo"])}>Apuesta</div>
+                <div onClick={()=>realizarConsulta(haciendaFiltrar,"Tipo_Apuesta",7,["ID","Nombre", "Descripcion", "Max Ejemplares","Min Ejemplares","Min Apuesta","Carr Validas"])}>Tipo Apuesta</div>
+                <div onClick={()=>realizarConsulta(haciendaFiltrar,"Detalle_Apuesta",5,["ID","Posicion", "Orden", "Apuesta","Inscripcion"])}>Detalle Apuesta</div>
+
                 <div></div>
                 
                 

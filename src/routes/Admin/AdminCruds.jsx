@@ -17,6 +17,7 @@ import Boton_Direccion from '../../Componentes/Boton_Direccion';
 import '../../StyleSheets/Admin/Admin_Menu_Principal.css';
 import Tabla from '../../Componentes/Tabla';
 import Tabla_Crud from '../../Componentes/Tabla_Crud';
+import Nav_Admin2 from '../../Componentes/NavAdmin2';
 
 
 function Admin_Cruds(){
@@ -125,7 +126,7 @@ function Admin_Cruds(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Admin />
+                    <Nav_Admin2 />
                     
                 </div>
 

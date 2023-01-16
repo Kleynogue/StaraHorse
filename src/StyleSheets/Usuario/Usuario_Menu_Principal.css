@@ -116,3 +116,68 @@ html, body {
     justify-self: center;
     margin: 35px;
 }
+
+.tablaApuesta{
+    grid-column: 1/2;
+    justify-self: center;
+}
+
+.tablaApuesta2{
+    margin-left: 30px;
+    justify-self: center;
+}
+
+
+
+.ContFormCrud2{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+    justify-content: center;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(243, 112, 33);
+    color: rgb(129, 122, 114);
+    font-family: roboto;
+    font-weight: bold;
+    width: 360px;
+    font-size: 17px;
+    justify-self: center;
+
+    margin-bottom: 75px;
+}
+
+#ContFormApuesta{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+    justify-content: center;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(243, 112, 33);
+    color: rgb(129, 122, 114);
+    font-family: roboto;
+    font-weight: bold;
+    width: 360px;
+    font-size: 17px;
+    justify-self: center;
+
+}
+
+#SelectTipo{
+    grid-column: 1/2;
+    justify-self: center;
+}
+
+#BotonAdd{
+    grid-column: 1/4;
+    justify-self: center;
+    margin-left: 80px;
+    margin-top: 50px;
+}

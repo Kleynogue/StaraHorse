@@ -69,6 +69,16 @@ import AdminCrud_Inscripciones from './routes/Admin/AdminCrud_Inscripciones';
 import AdminCrud_Rol_Per from './routes/Admin/AdminCrud_Rol_Per';
 import AdminCrud_Motivo_Retiro from './routes/Admin/AdminCrud_Motivo_Retiro';
 import AdminCrud_Retiro from './routes/Admin/AdminCrud_Retiro';
+import AdminCrud_Apuesta from './routes/Admin/AdminCrud_Apuesta';
+import AdminCrud_Detalle_Apuesta from './routes/Admin/AdminCrud_Detalle_Apuesta';
+import AdminCrud_Tipo_Apuesta from './routes/Admin/AdminCrud_Tipo_Apuesta';
+import Crud from './routes/Admin/Crud';
+import Reporte from './routes/Admin/Reporte';
+import Admin_Reportes from './routes/Admin/Admin_Reportes';
+import Admin_Reset2 from './routes/Admin/Admin_Reset2';
+import Usuario_Apuesta from './routes/Usuario/Usuario_Apuesta';
+import Usuario_Apuesta_Detalle from './routes/Usuario/Usuario_Apuesta_Detalle';
+import Usuario_Apuesta_Inscripcion from './routes/Usuario/Usuario_Apuesta_Inscripcion';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -87,6 +97,11 @@ root.render(
         <Route path='/usuario_carreras_info' element={<Usuario_Carreras_Informacion/>}/>
         <Route path='/usuario_carreras_info_record' element={<Usuario_Carreras_Informacion_Record/>}/>
         <Route path='/usuario_carreras_resultado' element={<Usuario_Carreras_Resultado/>}/>
+
+      <Route path='/usuario_apuestas' element={<Usuario_Apuesta/>}/>
+      <Route path='/usuario_apuestas_detalle' element={<Usuario_Apuesta_Detalle/>}/>
+      <Route path='/usuario_apuestas_inscripcion' element={<Usuario_Apuesta_Inscripcion/>}/>
+
 
       <Route path='/usuario_ejemplares' element={<Usuario_Ejemplares/>}/>
         <Route path='/usuario_ejemplares_info' element={<Usuario_Ejemplares_Info/>}/>
@@ -165,8 +180,18 @@ root.render(
         <Route path='/admin_cruds_per_rol' element={<AdminCrud_Rol_Per/>}/>
         <Route path='/admin_cruds_motivo_retiro' element={<AdminCrud_Motivo_Retiro/>}/>
         <Route path='/admin_cruds_retiro' element={<AdminCrud_Retiro/>}/>
+        <Route path='/admin_cruds_apuesta' element={<AdminCrud_Apuesta/>}/>
+        <Route path='/admin_cruds_detalle_apuesta' element={<AdminCrud_Detalle_Apuesta/>}/>
+        <Route path='/admin_reportes' element={<Admin_Reportes/>}/>
+
+        <Route path='/admin_cruds_tipo_apuesta' element={<AdminCrud_Tipo_Apuesta/>}/>
+
+
+        <Route path='/crud' element={<Crud/>}/>
+        <Route path='/reportes' element={<Reporte/>}/>
 
       <Route path='/admin_reset' element={<Admin_Reset/>}/>
+      <Route path='/admin_reset2' element={<Admin_Reset2/>}/>
 
 
     </Routes> 

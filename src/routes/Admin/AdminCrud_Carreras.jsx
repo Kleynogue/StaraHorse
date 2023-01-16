@@ -11,6 +11,7 @@ import Boton_Direccion_Ampliado from '../../Componentes/Boton_Direccion_Ampliado
 import Nav_Admin from '../../Componentes/Nav_Admin';
 import Boton_Direccion from '../../Componentes/Boton_Direccion';
 import Combobox_Roles from '../../Componentes/Combobox_Roles';
+import Lista_Reportes from '../../Componentes/Lista_Reportes';
 
 
 
@@ -339,6 +340,7 @@ function AdminCrud_Carreras(){
                 </div>
 
                 <div>
+                    
                     <Footer/>
                 </div>
 

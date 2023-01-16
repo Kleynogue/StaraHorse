@@ -7,7 +7,7 @@ import Cabecera from '../../Componentes/Cabecera';
 import Nav_Jinete from '../../Componentes/Nav_Jinete';
 
 import Boton_Direccion_Ampliado from '../../Componentes/Boton_Direccion_Ampliado';
-import Nav_Admin from '../../Componentes/Nav_Admin';
+import NavAdmin2 from '../../Componentes/NavAdmin2';
 
 import Barra_Busqueda from '../../Componentes/Barra_Busqueda';
 import Combobox_Roles from '../../Componentes/Combobox_Roles';
@@ -17,9 +17,10 @@ import Boton_Direccion from '../../Componentes/Boton_Direccion';
 import '../../StyleSheets/Admin/Admin_Menu_Principal.css';
 import Tabla from '../../Componentes/Tabla';
 import Tabla_Crud from '../../Componentes/Tabla_Crud';
+import Lista_Reportes from '../../Componentes/Lista_Reportes';
 
 
-function Admin_Cruds(){
+function Admin_Reportes(){
 
         const location = useLocation();
         
@@ -95,7 +96,7 @@ function Admin_Cruds(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Admin />
+                    <NavAdmin2 />
                     
                 </div>
 
@@ -107,6 +108,7 @@ function Admin_Cruds(){
                         <Tabla_Crud nombreTabla={nombre} datos={/*record*/ consulta} columnas={location.state.titulo} col={columnas}/>
                     </div>
 
+                   
                 </div>
 
                 <div>
@@ -120,4 +122,4 @@ function Admin_Cruds(){
 }            
 
 
-export default Admin_Cruds;
+export default Admin_Reportes;

@@ -8,6 +8,7 @@ import Nav_Jinete from '../../Componentes/Nav_Jinete';
 import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 import Boton_Direccion_Ampliado from '../../Componentes/Boton_Direccion_Ampliado';
 import Nav_Admin from '../../Componentes/Nav_Admin';
+import Nav_Admin2 from '../../Componentes/NavAdmin2';
 
 
 function Admin_Cuenta(){
@@ -29,7 +30,7 @@ function Admin_Cuenta(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Admin />
+                    <Nav_Admin2 />
                 </div>
 
                 <div className='MenuInfo'>
