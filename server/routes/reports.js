@@ -31,5 +31,8 @@ router.get('/reports/AVG_Implement-1', reports.avgImp);
 router.get('/reports/AVG_Implement-2', reports.avgImp_1);
 router.get('/reports/frequency', reports.frequency);
 router.get('/reports/avg_weight', reports.weight);
+router.get('/reports/avg_horse', reports.avgHorse_1);
+router.get('/reports/avg_horse1', reports.avgHorse_2);
+router.get('/reports/parents', reports.parents);
 
 module.exports = router;

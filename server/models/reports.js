@@ -75,7 +75,7 @@ function totalTicket(pg, func){
 }
 
 function avgImp(pg, func){
-    pg.query('select cast(cast(count(*)as numeric(1,0))/(select count(*) from inscripcion, imp_ins, implemento where insc_id = imp_ins_fk_inscripcion and impl_id = imp_ins_fk_implemento and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 25)) as numeric(1,1)) promedio, impl_nombre implemento from inscripcion, imp_ins, implemento where insc_id = imp_ins_fk_inscripcion and impl_id = imp_ins_fk_implemento and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 25) group by impl_nombre', func);
+    pg.query('select (cast(cast(count(*)as numeric(1,0))/(select count(*) from inscripcion, imp_ins, implemento where insc_id = imp_ins_fk_inscripcion and impl_id = imp_ins_fk_implemento and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 25)) as numeric(1,1))*100) promedio, impl_nombre implemento from inscripcion, imp_ins, implemento where insc_id = imp_ins_fk_inscripcion and impl_id = imp_ins_fk_implemento and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 25) group by impl_nombre', func);
 }
 
 function avgImp_1(pg, func){
@@ -88,6 +88,18 @@ function frequency(pg, func){
 
 function weight(pg, func){
     pg.query('select avg(jine_peso), carr_nombre from jinete, carrera, inscripcion where jine_pers_id = insc_fk_jinete and insc_fk_carrera = carr_ID and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 25) group by carr_nombre', func)
+}
+
+function avgHorse_1(pg, func){
+    pg.query('select (cast(cast(count(*)as numeric(2,0))/(select count(*) from inscripcion, eje_ent, ejemplar where insc_fk_ejemplar = eje_ent_id and eje_ent_fk_ejemplar = ejem_id and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 50)) as numeric(2,1))*100) promedio, ejem_pelaje pelaje from inscripcion, eje_ent, ejemplar where insc_fk_ejemplar = eje_ent_id and eje_ent_fk_ejemplar = ejem_id and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 50) group by ejem_pelaje', func)
+}
+
+function avgHorse_2(pg, func){
+    pg.query('select (cast(cast(count(*)as numeric(2,0))/(select count(*) from inscripcion, eje_ent, ejemplar where insc_fk_ejemplar = eje_ent_id and eje_ent_fk_ejemplar = ejem_id and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 50)) as numeric(2,1))*100) promedio, ejem_sexo sexo from inscripcion, eje_ent, ejemplar where insc_fk_ejemplar = eje_ent_id    and eje_ent_fk_ejemplar = ejem_id and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 50) group by ejem_sexo', func)
+}
+
+function parents(pg, func){
+    pg.query('select ejem_nombre ejemplar, ejem_sexo sexo, (select count(*) from ejemplar e, resultado, eje_ent, inscripcion where e.ejem_id = eje_ent_FK_ejemplar and eje_ent_ID = insc_fk_ejemplar and insc_ID = resu_fk_inscripcion and resu_posicion_ejemplar = 1 and (e.ejem_fk_madre = e1.ejem_Id or e.ejem_fk_padre = e1.ejem_id)) hijos from ejemplar e1 order by hijos desc    ', func)
 }
 
 module.exports = {
@@ -113,5 +125,8 @@ module.exports = {
     avgImp,
     avgImp_1,
     frequency,
-    weight
+    weight, 
+    avgHorse_1,
+    avgHorse_2,
+    parents
 };

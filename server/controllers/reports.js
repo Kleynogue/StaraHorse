@@ -232,6 +232,36 @@ function weight(req, res, next){
     })
 }
 
+function avgHorse_1(req, res, next){
+    reports.avgHorse_1(pool, (err, datos)=>{
+        if(err != null){
+            next(err)
+        }else{
+            res.json(datos.rows);
+        }
+    })
+}
+
+function avgHorse_2(req, res, next){
+    reports.avgHorse_2(pool, (err, datos)=>{
+        if(err != null){
+            next(err)
+        }else{
+            res.json(datos.rows);
+        }
+    })
+}
+
+function parents(req, res, next){
+    reports.parents(pool, (err, datos)=>{
+        if(err != null){
+            next(err)
+        }else{
+            res.json(datos.rows)
+        }
+    })
+}
+
 module.exports = {
     getUsers,
     getStuds_1,
@@ -255,5 +285,8 @@ module.exports = {
     avgImp,
     avgImp_1,
     frequency,
-    weight
+    weight,
+    avgHorse_1,
+    avgHorse_2,
+    parents
 }
