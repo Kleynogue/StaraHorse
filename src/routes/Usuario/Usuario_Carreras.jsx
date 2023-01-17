@@ -14,12 +14,17 @@ import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 function Usuario_Carreras(){
         
+
+        const location = useLocation();
+        console.log("Token: "+location.state.token);
+
+
         //Inicio Direcciones
         const navigate = useNavigate();
         const toUsuarioApuestas=(direccion)=>{
             navigate(direccion,{
                 state:{
-                //Variables
+                    token:location.state.token
                 }});
         }
         //Fin Direcciones
@@ -89,7 +94,7 @@ function Usuario_Carreras(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Usuario />
+                    <Nav_Usuario token={location.state.token}/>
                 </div>
 
                 <div className='DLista'>

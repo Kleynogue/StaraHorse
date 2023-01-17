@@ -8,13 +8,16 @@ import Cabecera from '../../Componentes/Cabecera';
 
 import '../../StyleSheets/Admin/Admin_Menu_Principal.css';
 import Boton_Direccion_Ampliado from '../../Componentes/Boton_Direccion_Ampliado';
-import Nav_Admin from '../../Componentes/Nav_Admin';
+import NavAdmin2 from '../../Componentes/NavAdmin2';
 import Boton_Direccion from '../../Componentes/Boton_Direccion';
 import Combobox_Roles from '../../Componentes/Combobox_Roles';
 
 
 
 function AdminCrud_Haciendas(){
+
+        const location = useLocation();
+        console.log("Token Cuenta Admin: "+location.state.token);
 
         const [hidden, setHidden] = useState(true);
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
@@ -49,7 +52,6 @@ function AdminCrud_Haciendas(){
         
         };
 
-        const location = useLocation();
         //Inicio Direcciones
         const navigate = useNavigate();
         const toUsuarioCuenta=(direccion)=>{
@@ -115,7 +117,7 @@ function AdminCrud_Haciendas(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Admin />
+                    <NavAdmin2  tok={location.state.token}/>
                     <h2 className='subtitulo'>CRUD ({location.state.Nombre})</h2>
 
                 </div>

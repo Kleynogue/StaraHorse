@@ -3501,32 +3501,11 @@
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,1,1,1,1);	
 
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,select Carr_ID from Carrera where Carr_Nombre = 'C370',1,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Arevalo',1);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,select Carr_ID from Carrera where Carr_Nombre = 'C378',1,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Arevalo',1);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,select Carr_ID from Carrera where Carr_Nombre = 'C409',1,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Nava',1);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,select Carr_ID from Carrera where Carr_Nombre = 'C370',1,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Nava',1);	
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,true,2,25,25,25,25,1,2,2,2);
-
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,true,2,25,25,25,25,select Carr_ID from Carrera where Carr_Nombre = 'C43',2,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Perez',2);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,true,2,25,25,25,25,select Carr_ID from Carrera where Carr_Nombre = 'C61',2,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Velasquez',2);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,true,2,25,25,25,25,select Carr_ID from Carrera where Carr_Nombre = 'C145',2,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Herrera' and Jine_Pers_p_Nombre='Jonathan',2);	
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,true,1,25,25,25,25,1,3,3,3);	
 
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,true,1,25,25,25,25,1,select Carr_ID from Carrera where Carr_Nombre = 'C295',3,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Natera',3);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,true,1,25,25,25,25,1,select Carr_ID from Carrera where Carr_Nombre = 'C306',3,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Perez',3);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,true,1,25,25,25,25,1,select Carr_ID from Carrera where Carr_Nombre = 'C518',3,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Moncada',3);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,true,1,25,25,25,25,1,select Carr_ID from Carrera where Carr_Nombre = 'C442',3,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Briceño',3);	
-
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,1,4,4,null);	
-
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,1,select Carr_ID from Carrera where Carr_Nombre = 'C336',4,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Alvarez',null);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,1,select Carr_ID from Carrera where Carr_Nombre = 'C415',4,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Siso',null);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,1,select Carr_ID from Carrera where Carr_Nombre = 'C133',4,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Rodriguez' and Jine_Pers_p_Nombre = 'Jean',null);	
-insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,1,select Carr_ID from Carrera where Carr_Nombre = 'C224',4,select Jine_Pers_ID from jinete where Jine_Pers_p_Apellido = 'Hernandez' and Jine_Pers_p_Nombre = 'Jose',null);	
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,5,5,true,3,25,25,25,25,1,5,8,null);	
 
@@ -3534,9 +3513,6 @@ insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc
 
 
 
-
-
-			
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,6,1,false,null,25,25,25,25,2,7,6,1);
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,7,2,false,null,25,25,25,25,2,8,8,4);
@@ -3582,7 +3558,6 @@ insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc
 
 
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,4,26,14,17);
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,true,2,25,25,25,25,4,27,21,7);
@@ -3598,7 +3573,6 @@ insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,7,7,true,1,25,25,25,25,4,32,23,3);
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,8,8,true,3,25,25,25,25,4,33,13,10);
-
 
 
 
@@ -3632,40 +3606,27 @@ insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc
 
 
 
-
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,6,46,27,23);
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,true,3,25,25,25,25,6,47,28,10);
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,false,null,25,25,25,25,6,48,29,27);
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,6,49,24,9);
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,5,5,false,null,25,25,25,25,6,50,10,23);
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,6,6,true,2,25,25,25,25,6,51,3,7);
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,7,7,false,null,25,25,25,25,6,52,26,1);
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,8,8,false,null,25,25,25,25,6,53,7,28);
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,9,9,false,null,25,25,25,25,6,54,30,4);
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,10,10,false,null,25,25,25,25,6,55,31,29);
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,11,11,true,1,25,25,25,25,6,56,21,3);
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,12,12,false,null,25,25,25,25,6,57,5,30);
 
@@ -3676,34 +3637,23 @@ insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,7,58,27,27);
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,false,null,25,25,25,25,7,59,32,31);
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,false,null,25,25,25,25,7,60,7,26);
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,7,61,11,32);
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,5,5,false,null,25,25,25,25,7,62,33,9);
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,6,6,false,null,25,25,25,25,7,63,2,33);
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,7,7,true,1,25,25,25,25,7,64,28,3);
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,8,8,true,2,25,25,25,25,7,65,23,7);
-
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,9,9,false,null,25,25,25,25,7,66,34,34);
 
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,10,10,true,3,25,25,25,25,7,67,35,10);
-
-
 
 
 
@@ -3734,10 +3684,6 @@ insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc
 
 
 
-
-
-
-
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,5,1,false,null,25,25,25,25,9,79,36,36);
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,6,2,false,null,25,25,25,25,9,80,6,4);
@@ -3757,8 +3703,6 @@ insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,13,9,true,2,25,25,25,25,9,87,29,7);
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,14,10,false,null,25,25,25,25,9,88,10,19);
-
-
 
 
 
@@ -3790,6 +3734,66 @@ insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,13,13,true,1,25,25,25,25,10,101,10,3);
 
 insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,14,14,false,null,25,25,25,25,10,102,18,null);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,15,7,19,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,16,7,19,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,17,7,41,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,1,1,false,null,25,25,25,25,18,7,41,null);	
+
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,true,2,25,25,25,25,20,8,42,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,true,2,25,25,25,25,21,8,18,null);
+
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,true,1,25,25,25,25,22,9,43,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,true,1,25,25,25,25,23,9,43,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,true,1,25,25,25,25,24,9,28,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,3,3,true,1,25,25,25,25,25,9,44,null);	
+
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,26,10,46,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,27,10,46,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,28,10,35,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,29,10,22,null);	
+
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,30,11,24,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,31,11,5,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,4,4,false,null,25,25,25,25,17,11,10,null);	
+
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,7,7,false,null,25,25,25,25,33,12,4,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,11,11,false,null,25,25,25,25,29,12,4,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,14,14,false,null,25,25,25,25,16,12,39,null);
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,5,5,false,null,25,25,25,25,17,12,37,null);
+
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,false,null,25,25,25,25,15,13,35,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,8,8,false,null,25,25,25,25,18,13,35,null);
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,5,5,false,null,25,25,25,25,25,13,35,null);
+
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,6,6,false,null,25,25,25,25,22,14,9,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,9,9,false,null,25,25,25,25,35,14,42,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,12,12,false,null,25,25,25,25,16,14,42,null);
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,11,11,false,null,25,25,25,25,25,14,2,null);
+
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,6,6,false,null,25,25,25,25,34,15,1,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,2,2,false,null,25,25,25,25,30,15,1,null);	
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,12,12,false,null,25,25,25,25,35,15,18,null);
+insert into INSCRIPCION(Insc_Precio, Insc_Puesto_Partida,Insc_Num_Gualdrapa,Insc_Favorito,Insc_Num_Favorito,Insc_Premio_Jinete,Insc_Premio_Entrenador,Insc_Premio_Propietario,Insc_Premio_Stud,Insc_FK_Carrera,Insc_FK_Ejemplar,Insc_FK_Jinete,Insc_FK_Comentario) values (null,8,8,false,null,25,25,25,25,16,15,15,null);
+
+
+
+
+
 
 
 insert into Per_Rol(Per_Rol_Fecha_Ini, Per_Rol_Fecha_Fin, Per_Rol_FK_Rol, Per_Rol_FK_Permiso) values ('2022-12-31', null, 2, 1);

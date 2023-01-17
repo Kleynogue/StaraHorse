@@ -16,6 +16,9 @@ import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 
 function Usuario_Cuenta_Datos(){
 
+        const location = useLocation();
+        console.log("Token Cuenta Datos: "+location.state.token);
+
         const navigate = useNavigate();
         const ComboBoxHandleSubmit= (e,elemento,valor) => {
             e.preventDefault();
@@ -23,7 +26,7 @@ function Usuario_Cuenta_Datos(){
             if(1==1){ //Todo ocurre correctamente
                 navigate("/"+valor+"_cuenta",{
                     state:{
-                    //Variables
+                        token:location.state.token
                     }});     
             }
             else{   //Algun error con la solicitud

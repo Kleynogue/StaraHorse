@@ -27,6 +27,7 @@ function Admin_Reset(){
         //Inicio Direcciones
         
         const location = useLocation();
+        console.log("Token Cuenta Admin: "+location.state.token);
         const navigate = useNavigate();
         
 
@@ -50,7 +51,8 @@ function Admin_Reset(){
                         Query,
                         NumCol,
                         titulo,
-                        Filtro
+                        Filtro,
+                        token:location.state.token
                     }});
             }
             

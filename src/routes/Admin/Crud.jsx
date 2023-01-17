@@ -18,8 +18,7 @@ import Lista_Crud from '../../Componentes/Lista_Crud';
 function Crud(){
 
         const location = useLocation();
-        console.log("El nombre de la carrera es: "+location.state.nombre+" de clave "+location.state.clave);
-
+        console.log("Token Cuenta Admin: "+location.state.token);
 
         return (
 
@@ -27,12 +26,12 @@ function Crud(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Admin2 />
+                    <Nav_Admin2  tok={location.state.token}/>
                 </div>
 
                 <div className='DLista'>
                     <h2 className='subtitulo'>CRUD</h2>
-                    <Lista_Crud />
+                    <Lista_Crud  tok={location.state.token}/>
                 </div>
 
                 <div>

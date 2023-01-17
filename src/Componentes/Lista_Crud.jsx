@@ -14,7 +14,8 @@ function Lista_Crud(props) {
                 Query,
                 NumCol,
                 titulo,
-                Filtro
+                Filtro,
+                token:props.tok
         }});
         console.log("El usuario es: "+Elemento);
         

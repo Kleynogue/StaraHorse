@@ -13,17 +13,25 @@ import '../../StyleSheets/Usuario/Usuario_Menu_Principal.css';
 
 import Tabla from '../../Componentes/Tabla';
 import Tabla_Apuesta from '../../Componentes/Tabla_Apuesta';
+import Tabla_Apuesta2 from '../../Componentes/Tabla_Apuesta2';
 
 
 
 function Usuario_Apuesta(){
         
+        const location = useLocation();
+        console.log("Token Apuesta: "+location.state.token);
+
         //Inicio Direcciones
         const navigate = useNavigate();
-        const toA=(direccion)=>{
+        const toA=(direccion,tip,mon,des,car)=>{
             navigate(direccion,{
                 state:{
-                //Variables
+                    token:location.state.token,
+                    tipo:tip,
+                    monto:mon,
+                    descripcion:des,
+                    carrera:car
                 }});
         }
         //Fin Direcciones
@@ -32,7 +40,10 @@ function Usuario_Apuesta(){
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
         const [opcTipoApuesta, setOpcTipoApuesta] = useState();
         const [tipoApuesta, setTipoApuesta] = useState();
-        let header = ["ID", "Descripcion", "Monto", "Cobrada","Fecha","Dividendo","Tipo"];
+        const [opcCarrerasActuales, setOpcCarrerasActuales] = useState();
+        const [carrerasActuales, setCarrerasActuales] = useState();
+
+        let header = ["ID","Descripcion", "Monto"];
         const [monto, setMonto] = useState();
         const [descripcion, setDescripcion] = useState();
 
@@ -43,42 +54,147 @@ function Usuario_Apuesta(){
                 switch(NombreTabla){
                     case "Tipo_Apuesta":{
                         return { 
-                            value: item.tip_apu_id,
-                            label: item.tip_apu_nombre};  
+                            value: item.id,
+                            label: item.tipo};  
+                    }
+                    case "Apuestas_Pasadas":{
+                        return { 
+                            Col1: item.apue_id,
+                            Col2: item.descripcion,
+                            Col3: item.monto};  
+                    }
+                    case "Carreras":{
+                        return { 
+                            value: item.id,
+                            label: item.carrera};  
                     }
                     
                 }
             })
         }
 
-        const realizarConsultaReports = async () => {
-                 
-            fetch('http://starahorsebd.ddns.net/admin/'+"Tipo_Apuesta")
-            .then((response) => response.json())
-            .then((data) => {
-                //console.log(data);
-                console.log(arreglo(data,"Tipo_Apuesta"));
-                setOpcTipoApuesta(arreglo(data,"Tipo_Apuesta"));
-                //console.log("El titulo es: "+titulo);
-                //toA(user,NombreTabla, arreglo(data,NombreTabla),NumCol,titulo,"/admin_reset");
+      
+
+        async function getApuestas(){
+            const response = await fetch('http://starahorsebd.ddns.net/bet', {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credetials: 'omit',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': location.state.token.replace(/['"]+/g, '')
+                }
             });
+            return response.json();
+        };
+
+        async function getTipoApuestas(){
+            const response = await fetch('http://starahorsebd.ddns.net/bet/edit', {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credetials: 'omit',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': location.state.token.replace(/['"]+/g, '')
+                }
+            });
+            return response.json();
+        };
+
+        async function getCarrerasActuales(){
+            const response = await fetch('http://starahorsebd.ddns.net/bet/edit/race', {
+                method: 'GET',
+                mode: 'cors',
+                cache: 'no-cache',
+                credetials: 'omit',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': location.state.token.replace(/['"]+/g, '')
+                }
+            });
+            return response.json();
+        };
+
+        async function postTipo_Carrera(){
+            const response = await fetch('http://starahorsebd.ddns.net/bet/edit/race', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credetials: 'omit',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': location.state.token.replace(/['"]+/g, '')
+                },
+                body: JSON.stringify({
+                    tipo: tipoApuesta.value,
+                    carrera: carrerasActuales.value,
+                })
+            });
+
             
-    
-        }
+            return response;
+        };
+
+        async function postTipo_Monto(){
+            const response = await fetch('http://starahorsebd.ddns.net/bet', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credetials: 'omit',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': location.state.token.replace(/['"]+/g, '')
+                },
+                body: JSON.stringify({
+                    tipo: tipoApuesta.value,
+                    monto: monto,
+                })
+            });
+
+            
+            return response;
+        };
 
         //Se establecen los valores de los estados 
         const EstablecerCarreras = () => {
             if(cargado=="false"){
-                realizarConsultaReports();
-                
+                //----------------
+                getApuestas()
+                .then((value)=>{
+                    console.log(value)
+                    setApuestasActivas(arreglo(value,"Apuestas_Pasadas"));
+                })
+                .catch((value)=>{
+                    alert("Error")
+                    console.log(value)
+                });
+                //----------------
+                getTipoApuestas()
+                .then((value)=>{
+                    console.log(value)
+                    setOpcTipoApuesta(arreglo(value,"Tipo_Apuesta"));
+                })
+                .catch((value)=>{
+                    alert("Error")
+                    console.log(value)
+                });
+                //----------------
+                getCarrerasActuales()
+                .then((value)=>{
+                    console.log(value)
+                    setOpcCarrerasActuales(arreglo(value,"Carreras"));
+                })
+                .catch((value)=>{
+                    alert("Error")
+                    console.log(value)
+                });
 
-                let reco = [
-                    {Col1: "1", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"},
-                    {Col1: "2", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"},
-                    {Col1: "3", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"},
-                    {Col1: "4", Col2: "1000", Col3: "Jinete",Col4: "00/00/00", Col5: "0", Col6: "00:00"}
-                ]
+
+                let reco = []
                 setApuestasActivas(reco);
+
                 setCargado("true");
             }
             
@@ -90,7 +206,37 @@ function Usuario_Apuesta(){
 
         const handleSubmit= (e) => {
             e.preventDefault();
-        
+            if(tipoApuesta.value && monto && descripcion){
+
+                postTipo_Monto()
+                .then((value)=>{
+                    if(!value.ok){///Todo mal
+                        value.text().then(text => { alert(text) }) 
+                    }
+                    else{//Todo bien
+                        console.log(value)
+                        postTipo_Carrera().then((value)=>{
+                            if(!value.ok){  //Todo mal
+                                value.text().then(text => { alert(text) }) 
+                            }
+                            else{   //Todo bien
+                                console.log(value)
+                                toA("/usuario_apuestas_detalle",tipoApuesta.value,monto,descripcion,carrerasActuales.value);
+
+                            }
+                            
+                        })
+                        
+                    }
+                    
+                })
+                
+
+
+            }
+            else{
+                alert("Debe llenar los datos solicitados");
+            }
    
         }
 
@@ -128,9 +274,12 @@ function Usuario_Apuesta(){
                     <h2 className='subtitulo'>APUESTAS</h2>
 
                     <div className='ContFormCrud2' >
-                        <form id='FormCrud' className="FormRadioCrud">
+                        <form onSubmit={(e)=>handleSubmit(e)} id='FormCrud' className="FormRadioCrud">
                             <div >Tipo Apuesta</div>
                             <Select styles={customerStyles} options={opcTipoApuesta} defaultValue={tipoApuesta}  onChange={setTipoApuesta} />
+                            
+                            <div >Carreras Actuales</div>
+                            <Select styles={customerStyles} options={opcCarrerasActuales} defaultValue={carrerasActuales}  onChange={setCarrerasActuales} />
 
                             <div >Monto</div>
                             <div ><input type="number" onChange={e => setMonto(e.target.value)} ></input></div>
@@ -142,7 +291,7 @@ function Usuario_Apuesta(){
                         </form>
                     </div>
 
-                    <div className='tablaApuesta'><Tabla_Apuesta datos={apuestasActivas} columnas={header} col={7}/></div>
+                    <div className='tablaApuesta'><Tabla_Apuesta2 datos={apuestasActivas} tok={location.state.token} columnas={header} col={3}/></div>
                     
                     
                 </div>

@@ -23,7 +23,7 @@ import Nav_Admin2 from '../../Componentes/NavAdmin2';
 function Admin_Cruds(){
 
         const location = useLocation();
-        
+        console.log("Token Cuenta Admin: "+location.state.token);        
 
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
         const [opcfiltrar, setOpcfiltrar] = useState();
@@ -91,7 +91,8 @@ function Admin_Cruds(){
             navigate(direccion,{
                 state:{
                     Nombre,
-                    estado
+                    estado,
+                    token:location.state.token
                 }});
         }
         //Fin Direcciones
@@ -126,7 +127,7 @@ function Admin_Cruds(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Admin2 />
+                    <Nav_Admin2  tok={location.state.token}/>
                     
                 </div>
 
@@ -139,7 +140,7 @@ function Admin_Cruds(){
                     </div>
 
                     <div id='TablaCrud'>
-                        <Tabla_Crud nombreTabla={nombre} datos={/*record*/ consulta} columnas={location.state.titulo} col={columnas}/>
+                        <Tabla_Crud tok={location.state.token} nombreTabla={nombre} datos={/*record*/ consulta} columnas={location.state.titulo} col={columnas}/>
                     </div>
 
                 </div>

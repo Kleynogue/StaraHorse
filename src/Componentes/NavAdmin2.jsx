@@ -10,6 +10,7 @@ export function Nav_Admin2(props){
         const toA=(Elemento,dir)=>{
             navigate(dir,{
                 state:{
+                    token:props.tok,
                     Elemento
             }});
             console.log("El usuario es: "+Elemento);

@@ -3,7 +3,7 @@ import { useNavigate,useLocation } from 'react-router';
 
 import '../StyleSheets/Componentes/Tabla.css';
 
-function Tabla_Apuesta(props){
+function Tabla_Apuesta2(props){
 
    //Inicio Direcciones
    const navigate = useNavigate();
@@ -23,23 +23,15 @@ function Tabla_Apuesta(props){
 
          switch (props.col) {
             
+         
             case 3:{
-               const { Col1, Col2, Col3} = Elementos 
-               return (
-                  <tr key={Col1}>
-                     <td onClick={()=>toA(Col1,"/usuario_apuestas_inscripcion")}>{Col1}</td>
-                     <td onClick={()=>toA(Col1,"/usuario_apuestas_inscripcion")}>{Col2}</td>
-                     <td onClick={()=>toA(Col1,"/usuario_apuestas_inscripcion")}>{Col3}</td>
-                  </tr>
-               )
-            }
-
-            case 2:{
-               const { Col1, Col2} = Elementos 
+               const { Col1, Col2,Col3} = Elementos 
                return (
                   <tr key={Col1}>
                      <td onClick={()=>toA(Col1,"/usuario_apuestas_detalle")}>{Col1}</td>
                      <td onClick={()=>toA(Col1,"/usuario_apuestas_detalle")}>{Col2}</td>
+                     <td onClick={()=>toA(Col1,"/usuario_apuestas_detalle")}>{Col3}</td>
+
                   </tr>
                )
             }
@@ -70,4 +62,4 @@ function Tabla_Apuesta(props){
  
 }
 
-export default Tabla_Apuesta //exporting a component make it reusable and this is the beauty of react
+export default Tabla_Apuesta2 //exporting a component make it reusable and this is the beauty of react

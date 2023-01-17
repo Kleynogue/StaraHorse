@@ -14,7 +14,8 @@ function Lista_Reportes(props) {
                 Query,
                 NumCol,
                 titulo,
-                Filtro
+                Filtro,
+                token:props.tok
         }});
         console.log("El usuario es: "+Elemento);
         
@@ -22,15 +23,25 @@ function Lista_Reportes(props) {
 
     const elementos = [
         {Col1: "users", Col2: "Usuarios y roles", Col3:2, Col4:["Usuario","Rol"]},
-        {Col1: "stud-1", Col2: "Stud 1", Col3:2, Col4:["Usuario","Rol"]},
-        {Col1: "stud-2", Col2: "Stud 2", Col3:2, Col4:["Usuario","Rol"]},
-        {Col1: "stud-3", Col2: "Stud 3", Col3:2, Col4:["Usuario","Rol"]},
-        {Col1: "horses", Col2: "Ejemplares", Col3:2, Col4:["Usuario","Rol"]},
-        {Col1: "implements", Col2: "Implementos", Col3:2, Col4:["Usuario","Rol"]},
-        {Col1: "trainers", Col2: "Entrenadores", Col3:2, Col4:["Usuario","Rol"]},
-        {Col1: "jockey", Col2: "Jinetes", Col3:2, Col4:["Usuario","Rol"]},
-        {Col1: "restaurants", Col2: "Restaurantes", Col3:2, Col4:["Usuario","Rol"]},
-        
+        {Col1: "stud-1", Col2: "Descripcion de uniformes", Col3:3, Col4:["Stud","Uniforme", "Tipo"]},
+        {Col1: "stud-2", Col2: "Propietarios de stud (%)", Col3:3, Col4:["Stud","Propietario","Porcentaje"]},
+        {Col1: "stud-3", Col2: "Stud/Propietario/Ejemplares", Col3:3, Col4:["Stud","Ejemplar","Propietario"]},
+        {Col1: "horses", Col2: "Ejemplares", Col3:4, Col4:["Edad","Nombre","Sexo","Pelaje"]},
+        {Col1: "implements", Col2: "Implementos", Col3:2, Col4:["Nombre","Abreviacion"]},
+        {Col1: "trainers", Col2: "Entrenadores/Cuadras", Col3:2, Col4:["Entrenador","Cuadra"]},
+        {Col1: "jockey", Col2: "Jinetes", Col3:1, Col4:["Nombre"]},
+        {Col1: "restaurants", Col2: "Restaurantes", Col3:3, Col4:["Nombre","Abre","Cierra"]},
+        //{Col1: "classic_winners", Col2: "Restaurantes", Col3:3, Col4:["Nombre","Abre","Cierra"]},
+        {Col1: "winners_15", Col2: "Ejemplares/Tipo de carrera", Col3:2, Col4:["Ejemplar","Tipo"]},
+        //{Col1: "jockey_history", Col2: "Ejemplares/Tipo de carrera", Col3:2, Col4:["Ejemplar","Tipo"]},
+        {Col1: "jockey_stat", Col2: "Estadisticas Jinetes", Col3:2, Col4:["Jinete","Participaciones"]},
+        {Col1: "horse_stat", Col2: "Estadisticas Ejemplares", Col3:2, Col4:["Ejemplares","Participaciones"]},
+        {Col1: "mix_stat", Col2: "Estadisticas Ejemplar/Jinete/Entrenador", Col3:4, Col4:["Ejemplares","Jinetes","Entrenadores","Participaciones"]},
+        {Col1: "betTotal-1", Col2: "Apuestas/Taquillas", Col3:2, Col4:["Total","Taquilla"]},
+        {Col1: "betTotal-2", Col2: "Apuestas/Taquillas/Tipos", Col3:3, Col4:["Total","Taquilla","Tipo"]},
+        //{Col1: "betTotal-3", Col2: "Apuestas/Taquillas/Tipos", Col3:3, Col4:["Total","Taquilla","Tipo"]},
+        {Col1: "ticketTotal", Col2: "Total de Tickets", Col3:1, Col4:["Total"]},
+
 
     ]
 
@@ -87,6 +98,61 @@ function Lista_Reportes(props) {
                         Col1 : item.stud,
                         Col2 : item.ejemplar,
                         Col3 : item.propietario};
+                }
+                /*case "classic_winners":{
+                    return { 
+                        Col1 : item.,
+                        Col2 : item.,
+                        Col3 : item.};
+                }*/
+                case "winners_15":{
+                    return { 
+                        Col1 : item.ejemplar,
+                        Col2 : item.tipo};
+                }
+                /*case "jockey_history":{
+                    return { 
+                        Col1 : item.,
+                        Col2 : item.,
+                        Col3 : item.};
+                }*/
+                case "jockey_stat":{
+                    return { 
+                        Col1 : item.jinete,
+                        Col2 : item.participaciones};
+                }
+                case "horse_stat":{
+                    return { 
+                        Col1 : item.ejemplar,
+                        Col2 : item.participaciones};
+                }
+                case "mix_stat":{
+                    return { 
+                        Col1 : item.ejemplar,
+                        Col2 : item.jinete,
+                        Col3 : item.entrenador,
+                        Col4 : item.participaciones};
+                }
+                case "betTotal-1":{
+                    return { 
+                        Col1 : item.total,
+                        Col2 : item.taquilla};
+                }
+                case "betTotal-2":{
+                    return { 
+                        Col1 : item.total,
+                        Col2 : item.taquilla,
+                        Col3 : item.tipo};
+                }
+                /*case "betTotal-3":{
+                    return { 
+                        Col1 : item.,
+                        Col2 : item.,
+                        Col3 : item.};
+                }*/
+                case "ticketTotal":{
+                    return { 
+                        Col1 : item.total};
                 }
             }
         })

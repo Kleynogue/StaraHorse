@@ -14,7 +14,8 @@ function Tabla_Crud(props){
                 state:{
                     Elemento,
                     Nombre: props.nombreTabla,
-                    estado: "Update"
+                    estado: "Update",
+                    token:props.tok
             }});
             console.log("El usuario es: "+Elemento);
         }

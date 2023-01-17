@@ -23,6 +23,7 @@ import Lista_Reportes from '../../Componentes/Lista_Reportes';
 function Admin_Reportes(){
 
         const location = useLocation();
+        console.log("Token Cuenta Admin: "+location.state.token);
         
 
         const [cargado, setCargado] = useState("false");    //Nos ayuda a asegurarnos que solo cargue una vez (evitar loops infinitos)
@@ -96,7 +97,7 @@ function Admin_Reportes(){
 
                 <div>
                     <Cabecera/>
-                    <NavAdmin2 />
+                    <NavAdmin2 tok={location.state.token}/>
                     
                 </div>
 
@@ -105,7 +106,7 @@ function Admin_Reportes(){
                     
 
                     <div id='TablaCrud'>
-                        <Tabla_Crud nombreTabla={nombre} datos={/*record*/ consulta} columnas={location.state.titulo} col={columnas}/>
+                        <Tabla_Crud tok={location.state.token} nombreTabla={nombre} datos={/*record*/ consulta} columnas={location.state.titulo} col={columnas}/>
                     </div>
 
                    

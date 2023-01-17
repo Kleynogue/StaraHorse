@@ -11,10 +11,13 @@ import Nav_Entrenador from '../../Componentes/Nav_Entrenador';
 
 import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 import Nav_Admin from '../../Componentes/Nav_Admin';
+import Nav_Admin2 from '../../Componentes/NavAdmin2';
 
 
 function Admin_Cuenta_Datos(){
 
+        const location = useLocation();
+        console.log("Token Cuenta datos Admin: "+location.state.token);
 
         const navigate = useNavigate();
         const ComboBoxHandleSubmit= (e,elemento,valor) => {
@@ -23,7 +26,7 @@ function Admin_Cuenta_Datos(){
             if(1==1){ //Todo ocurre correctamente
                 navigate("/"+valor+"_cuenta",{
                     state:{
-                    //Variables
+                    token:location.state.token
                 }});     
             }
             else{   //Algun error con la solicitud
@@ -72,7 +75,7 @@ function Admin_Cuenta_Datos(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Admin />
+                    <Nav_Admin2 />
                 </div>
 
                 <div className='MenuInfo'>

@@ -17,8 +17,7 @@ import Lista_Reportes from '../../Componentes/Lista_Reportes';
 function Reporte(){
 
         const location = useLocation();
-        console.log("El nombre de la carrera es: "+location.state.nombre+" de clave "+location.state.clave);
-
+        console.log("Token Cuenta Admin: "+location.state.token);
 
         return (
 
@@ -26,12 +25,12 @@ function Reporte(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Admin2 />
+                    <Nav_Admin2  tok={location.state.token}/>
                 </div>
 
                 <div className='DLista'>
                     <h2 className='subtitulo'>REPORTE</h2>
-                    <Lista_Reportes />
+                    <Lista_Reportes  tok={location.state.token}/>
                 </div>
 
                 <div>

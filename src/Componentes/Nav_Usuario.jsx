@@ -5,12 +5,13 @@ import { useNavigate,useLocation } from 'react-router';
 import '../StyleSheets/Componentes/Nav_Usuario.css';
 
 export function Nav_Usuario(props){
-
+        const location = useLocation();
         const navigate = useNavigate();
         const toA=(Elemento,dir)=>{
             navigate(dir,{
                 state:{
-                    Elemento
+                    Elemento,
+                    token:location.state.token
             }});
             console.log("El usuario es: "+Elemento);
         }

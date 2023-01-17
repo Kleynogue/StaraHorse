@@ -12,12 +12,15 @@ import '../../StyleSheets/Usuario/Usuario_Menu_General.css';
 
 function Usuario_Cuenta(){
 
+        const location = useLocation();
+        console.log("Token Cuenta: "+location.state.token);
+
         //Inicio Direcciones
         const navigate = useNavigate();
         const toUsuarioCuenta=(direccion)=>{
             navigate(direccion,{
                 state:{
-                //Variables
+                    token:location.state.token
                 }});
         }
         //Fin Direcciones

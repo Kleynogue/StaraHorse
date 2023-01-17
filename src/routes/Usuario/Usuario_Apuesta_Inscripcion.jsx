@@ -17,6 +17,10 @@ import Tabla from '../../Componentes/Tabla';
 
 function Usuario_Apuesta_Inscripcion(){
         
+
+        const location = useLocation();
+        console.log("Token Inscripcion Apuesta: "+location.state.token);
+
         //Inicio Direcciones
         const navigate = useNavigate();
         const toA=(direccion)=>{

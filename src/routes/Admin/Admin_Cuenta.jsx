@@ -13,11 +13,15 @@ import Nav_Admin2 from '../../Componentes/NavAdmin2';
 
 function Admin_Cuenta(){
 
+        const location = useLocation();
+        console.log("Token Cuenta Admin: "+location.state.token);
+
         //Inicio Direcciones
         const navigate = useNavigate();
         const toUsuarioCuenta=(direccion)=>{
             navigate(direccion,{
                 state:{
+                    token:location.state.token
                 //Variables
                 }});
         }
@@ -30,7 +34,7 @@ function Admin_Cuenta(){
 
                 <div>
                     <Cabecera/>
-                    <Nav_Admin2 />
+                    <Nav_Admin2 tok={location.state.token}/>
                 </div>
 
                 <div className='MenuInfo'>
