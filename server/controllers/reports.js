@@ -91,6 +91,147 @@ function getRestaurants(req, res, next){
     });
 };
 
+function getWinners(req, res, next){
+    reports.winners(pool, (err, datos)=>{
+        if(err != null){
+            next(err);
+        }else{
+            res.json(datos.rows);
+        }
+    })
+}
+
+function getWinners_1(req, res, next){
+    reports.winners_1(pool, (err, datos)=>{
+        if(err != null){
+            next(err);
+        }else{
+            res.json(datos.rows)
+        }
+    })
+
+}
+
+function getHistory(req, res, next){
+    reports.history(pool, req.query.name, (err, datos)=>{
+        if(err != null){
+            next(err);
+        }else{
+            res.json(datos.rows);
+        }
+    })
+}
+
+function jockeyStat(req, res, next){
+    reports.statJockey(pool, (err, datos)=>{
+        if(err != null){
+            next(err);
+        }else{
+            res.json(datos.rows);
+        }
+    })
+}
+
+function horseStat(req, res, next){
+    reports.statHorse(pool, (err, datos)=>{
+        if(err != null){
+            next(err);
+        }else{
+            res.json(datos.rows)
+        }
+    })
+}
+
+function mixStat(req, res, next){
+    reports.statMix(pool, (err, datos)=>{
+        if(err != null){
+            next(err);
+        }else{
+            res.json(datos.rows)
+        }
+    })
+}
+
+function betTotal_1(req, res, next){
+    reports.totalBet_1(pool, (err, datos)=>{
+        if(err != null){
+            next(err);
+        }else{
+            res.json(datos.rows);
+        }
+    })
+}
+
+function betTotal_2(req, res, next){
+    reports.totalBet_2(pool, (err, datos)=>{
+        if(err != null){
+            next(err);
+        }else{
+            res.json(datos.rows);
+        }
+    })
+}
+
+function betTotal_3(req, res, next){
+    reports.totalBet_3(pool, (err, datos)=>{
+        if(err != null){
+            next(err);
+        }else{
+            res.json(datos.rows);
+        }
+    })
+}
+
+function ticketTotal(req, res, next){
+    reports.totalTicket(pool, (err, datos)=>{
+        if(err != null){
+            next(err)
+        }else{
+            res.json(datos.rows);
+        }
+    })
+}
+
+function avgImp(req, res, next){
+    reports.avgImp(pool, (err, datos)=>{
+        if(err != null){
+            next(err)
+        }else{
+            res.json(datos.rows)
+        }
+    })
+}
+
+function avgImp_1(req, res, next){
+    reports.avgImp_1(pool, (err, datos)=>{
+        if(err != null){
+            next(err)
+        }else{
+            res.json(datos.rows)
+        }
+    })
+}
+
+function frequency(req, res, next){
+    reports.frequency(pool, (err, datos)=>{
+        if(err != null){
+            next(err)
+        }else{
+            res.json(datos.rows)
+        }
+    })
+}
+
+function weight(req, res, next){
+    reports.weight(pool, (err, datos)=>{
+        if(err != null){
+            next(err)
+        }else{
+            res.json(datos.rows)
+        }
+    })
+}
+
 module.exports = {
     getUsers,
     getStuds_1,
@@ -100,5 +241,19 @@ module.exports = {
     getImplements,
     getTrainers,
     getJockey,
-    getRestaurants
+    getRestaurants,
+    getWinners,
+    getWinners_1,
+    getHistory,
+    jockeyStat,
+    horseStat,
+    mixStat,
+    betTotal_1,
+    betTotal_2,
+    betTotal_3,
+    ticketTotal,
+    avgImp,
+    avgImp_1,
+    frequency,
+    weight
 }

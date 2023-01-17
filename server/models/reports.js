@@ -34,6 +34,62 @@ function restaurants(pg, func){
     pg.query("select rest_nombre Nombre, hor_res_hora_apertura Abre, hor_res_hora_cierre Cierra from restaurante, horario_restaurante where rest_FK_Horario = hor_res_ID", func);
 };
 
+function winners(pg, func){
+    pg.query("Select ejem_nombre Ejemplar from carrera, ejemplar, inscripcion, resultado, eje_ent, categoria_carrera where insc_fk_ejemplar = eje_ent_ID and insc_FK_carrera = carr_ID and eje_ent_fk_ejemplar = ejem_ID and resu_fk_inscripcion = insc_ID and resu_posicion_ejemplar = 1    and carr_FK_cat_car = cat_car_id and cat_car_nombre = 'Clásico'", func);
+}
+
+function winners_1(pg, func){
+    pg.query("Select ejem_nombre Ejemplar, cat_car_nombre tipo from carrera, ejemplar, inscripcion, resultado, eje_ent, categoria_carrera where insc_fk_ejemplar = eje_ent_ID and insc_FK_carrera = carr_ID and eje_ent_fk_ejemplar = ejem_ID and resu_fk_inscripcion = insc_ID and resu_posicion_ejemplar = 1 and carr_FK_cat_car = cat_car_id order by tipo asc limit 15;", func);
+};
+
+function history(pg, name, func){
+    pg.query(`select (Jine_pers_p_nombre || ' ' || Jine_pers_p_apellido) Jinete, Ejem_nombre ejemplar, carr_nombre carrera from inscripcion, carrera, eje_ent, ejemplar, resultado, jinete where insc_fk_carrera = carr_id and insc_fk_ejemplar = eje_ent_ID and eje_ent_fk_ejemplar = ejem_id and insc_fk_jinete = jine_pers_id and resu_fk_inscripcion = insc_ID and resu_posicion_ejemplar = 1 and jine_pers_p_nombre like '%${name}%'`, func)
+}
+
+function statJockey(pg, func){
+    pg.query(`select (Jine_pers_p_nombre || ' ' || Jine_pers_p_apellido) Jinete, count(*) participaciones from inscripcion, jinete where insc_fk_jinete = jine_pers_ID group by (Jine_pers_p_nombre || ' ' || Jine_pers_p_apellido) order by 2 desc`, func)
+};
+
+function statHorse(pg, func){
+    pg.query(`select ejem_nombre ejemplar, count(*) participaciones from inscripcion, eje_ent, ejemplar where insc_fk_ejemplar = eje_ent_id and eje_ent_fk_ejemplar = ejem_id group by ejem_nombre order by participaciones desc`, func);
+}
+
+function statMix(pg, func){
+    pg.query(`	select ejem_nombre ejemplar, (Jine_pers_p_nombre || ' ' || Jine_pers_p_apellido) Jinete, (Entr_pers_p_nombre || ' ' || Entr_pers_p_apellido) entrenador, count(*) participaciones from inscripcion, eje_ent, ejemplar, jinete, entrenador where insc_fk_ejemplar = eje_ent_id and eje_ent_fk_ejemplar = ejem_id	and insc_fk_jinete = jine_pers_id and eje_ent_fk_entrenador = entr_pers_id group by ejem_nombre, jinete, entrenador	order by participaciones desc`, func)
+}
+
+function totalBet_1(pg, func){
+    pg.query('select sum(apue_monto) total, taqu_nro taquilla from apuesta, taquilla where apue_FK_taquilla = taqu_id group by taqu_nro', func)
+}
+
+function totalBet_2(pg, func){
+    pg.query('select sum(apue_monto) total, taqu_nro taquilla, tip_apu_nombre tipo from apuesta, taquilla, tipo_apuesta where apue_FK_taquilla = taqu_id and apue_fk_tipo_apuesta = tip_apu_id group by taqu_nro, tip_apu_nombre', func)
+}
+
+function totalBet_3(pg, func){
+    pg.query('select sum(apue_monto) total, taqu_nro taquilla, tip_apu_nombre tipo, carr_nombre carrera from apuesta, taquilla, tipo_apuesta, detalle_apuesta, inscripcion, carrera where apue_FK_taquilla = taqu_id and apue_fk_tipo_apuesta = tip_apu_id and det_apu_fk_apuesta = apue_id and det_apu_fk_inscripcion = insc_id and insc_fk_carrera = carr_ID group by taqu_nro, tip_apu_nombre, carr_nombre', func)
+}
+
+function totalTicket(pg, func){
+    pg.query('select sum(bole_valor) total from boleto', func)
+}
+
+function avgImp(pg, func){
+    pg.query('select cast(cast(count(*)as numeric(1,0))/(select count(*) from inscripcion, imp_ins, implemento where insc_id = imp_ins_fk_inscripcion and impl_id = imp_ins_fk_implemento and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 25)) as numeric(1,1)) promedio, impl_nombre implemento from inscripcion, imp_ins, implemento where insc_id = imp_ins_fk_inscripcion and impl_id = imp_ins_fk_implemento and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 25) group by impl_nombre', func);
+}
+
+function avgImp_1(pg, func){
+    pg.query('select cast(cast(count(*)as numeric(1,0))/(select count(*) from inscripcion, imp_ins, implemento where insc_id = imp_ins_fk_inscripcion and impl_id = imp_ins_fk_implemento) as numeric(1,1)) porcentaje, impl_nombre implemento from inscripcion, imp_ins, implemento where insc_id = imp_ins_fk_inscripcion and impl_id = imp_ins_fk_implemento group by impl_nombre order by porcentaje desc', func);
+}
+
+function frequency(pg, func){
+    pg.query('select count(*) frecuencia, cat_car_nombre tipo from categoria_carrera, carrera where carr_fk_cat_car = cat_car_id group by cat_car_nombre order by 1 desc limit 1', func);
+}
+
+function weight(pg, func){
+    pg.query('select avg(jine_peso), carr_nombre from jinete, carrera, inscripcion where jine_pers_id = insc_fk_jinete and insc_fk_carrera = carr_ID and insc_fk_carrera in (select carr_ID from carrera order by carr_fecha_hora desc limit 25) group by carr_nombre', func)
+}
+
 module.exports = {
     users,
     stud_1,
@@ -43,5 +99,19 @@ module.exports = {
     implements,
     trainers,
     jockey,
-    restaurants
+    restaurants,
+    winners,
+    winners_1,
+    history,
+    statJockey,
+    statHorse,
+    statMix,
+    totalBet_1,
+    totalBet_2,
+    totalBet_3,
+    totalTicket,
+    avgImp,
+    avgImp_1,
+    frequency,
+    weight
 };

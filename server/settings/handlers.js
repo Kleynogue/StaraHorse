@@ -33,9 +33,10 @@ function validateBet(req, res, next){
             }else{
                 if(user.role !== 'Jinete'){
                     req.token = accessToken;
+                    req.user = user.username;
                     next();    
                 }else{
-                    res.status(403).send({error:    'Los jinetes no tienen permitido apostar'});
+                    res.status(403).send({error: 'Los jinetes no tienen permitido apostar'});
                 }
                 
             }
