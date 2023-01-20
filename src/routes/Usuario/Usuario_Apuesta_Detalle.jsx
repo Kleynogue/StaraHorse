@@ -127,7 +127,7 @@ function Usuario_Apuesta_Detalle(){
 
         const Enviar= (e) => {
             e.preventDefault();
-            postAll();
+            postAll(); 
         }
 
         

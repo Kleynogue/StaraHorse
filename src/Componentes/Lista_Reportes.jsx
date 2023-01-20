@@ -41,6 +41,13 @@ function Lista_Reportes(props) {
         {Col1: "betTotal-2", Col2: "Apuestas/Taquillas/Tipos", Col3:3, Col4:["Total","Taquilla","Tipo"]},
         //{Col1: "betTotal-3", Col2: "Apuestas/Taquillas/Tipos", Col3:3, Col4:["Total","Taquilla","Tipo"]},
         {Col1: "ticketTotal", Col2: "Total de Tickets", Col3:1, Col4:["Total"]},
+        //{Col1: "AVG_Implement-1", Col2: "Total de Tickets", Col3:1, Col4:["Total"]},
+        {Col1: "AVG_Implement-2", Col2: "Porcentaje de Implementos II", Col3:2, Col4:["Porcentaje","Implemento"]},
+        {Col1: "frequency", Col2: "Frecuencia", Col3:2, Col4:["Frecuencia","Tipo"]},
+        {Col1: "avg_weight", Col2: "Media del Peso", Col3:2, Col4:["AVG","Nombre"]},
+        {Col1: "avg_horse", Col2: "Media de Ejemplares(Pelaje)", Col3:2, Col4:["Promedio","Pelaje"]},
+        {Col1: "avg_horse1", Col2: "Media de Ejemplares(Sexo)", Col3:2, Col4:["Promedio","Sexo"]},
+        {Col1: "parents", Col2: "Parentesco", Col3:3, Col4:["Ejemplar","Sexo","Hijos"]},
 
 
     ]
@@ -154,6 +161,39 @@ function Lista_Reportes(props) {
                     return { 
                         Col1 : item.total};
                 }
+                case "AVG_Implement-2":{
+                    return { 
+                        Col1 : item.porcentaje,
+                        Col2 : item.implemento};
+                }
+                case "frequency":{
+                    return { 
+                        Col1 : item.frecuencia,
+                        Col2 : item.tipo};
+                }
+                case "avg_weight":{
+                    return { 
+                        Col1 : item.avg,
+                        Col2 : item.carr_nombre};
+                }
+                case "avg_horse":{
+                    return { 
+                        Col1 : item.promedio,
+                        Col2 : item.pelaje};
+                }
+                case "avg_horse1":{
+                    return { 
+                        Col1 : item.promedio,
+                        Col2 : item.sexo};
+                }
+                case "parents":{
+                    return { 
+                        Col1 : item.ejemplar,
+                        Col2 : item.sexo,
+                        Col3 : item.hijos};
+                }
+                
+                
             }
         })
     }

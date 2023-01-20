@@ -642,6 +642,7 @@ CREATE TABLE DETALLE_APUESTA(
     CONSTRAINT requisito FOREIGN KEY(Det_Apu_FK_Inscripcion) references inscripcion(Insc_ID)
 );
 
+
 CREATE TABLE SOLICITUD_JINETE(
     Sol_Jin_Aprobacion VARCHAR not null,
     Sol_Jin_Peso numeric not null,

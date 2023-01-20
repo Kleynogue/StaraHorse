@@ -47,7 +47,7 @@ function Lista_Crud(props) {
         {Col1: "Retiro", Col2: "Retiro", Col3:4, Col4:["ID","Fecha","Motivo","Inscripcion"]},
         {Col1: "Motivo_Retiro", Col2: "Motivo retiro", Col3:2, Col4:["ID","Descripcion"]},
         {Col1: "Caballeriza", Col2: "Caballeriza", Col3:4, Col4:["ID","Capacidad", "Funcional", "Area"]},
-        {Col1: "Resultado", Col2: "Resultado", Col3:7, Col4:["ID","Hora Par", "Tiempo", "Posicion", "Cuerpos","Carrera","Ejemplar"]},
+        {Col1: "Resultado", Col2: "Resultado", Col3:6, Col4:["ID","Hora Par", "Tiempo", "Posicion", "Cuerpos","Inscripcion"]},
         {Col1: "Hacienda", Col2: "Hacienda", Col3:4, Col4:["ID","Nombre", "Direccion", "Lugar"]},
         {Col1: "Apuesta", Col2: "Apuesta", Col3:13, Col4:["ID","Descripcion", "Monto", "Cobrada","Fecha","Dividendo","Usuario","Propietario","Entrenador","Veterinario","Visitante","Taquilla", "Tipo"]},
         {Col1: "Tipo_Apuesta", Col2: "Tipo Apuesta", Col3:7, Col4:["ID","Nombre", "Descripcion", "Max Ejemplares","Min Ejemplares","Min Apuesta","Carr Validas"]},
@@ -235,8 +235,7 @@ function Lista_Crud(props) {
                         Col3 : item.resu_tiempo_carrera,
                         Col4 : item.resu_posicion_ejemplar,
                         Col5 : item.resu_fk_cuerpos,
-                        Col6 : item.resu_fk_inscripcion_1,
-                        Col7 : item.resu_fk_inscripcion_2 };
+                        Col6 : item.resu_fk_inscripcion};
                 }
                 case "Hacienda":{
                     /*["ID","Nombre", "Direccion", "Lugar"]*/
